@@ -12,6 +12,7 @@ import java.util.SortedMap;
 import static us.bpsm.edn.Keyword.newKeyword;
 
 import com.sun.javafx.UnmodifiableArrayList;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import us.bpsm.edn.Keyword;
 import us.bpsm.edn.parser.CollectionBuilder;
 import us.bpsm.edn.parser.Parseable;
@@ -29,17 +30,14 @@ public class HistoryReader {
     public static Keyword w = newKeyword("w");
     public static Keyword r = newKeyword("r");
 
+    public static ArrayList<Transaction> readHistory(String urlHistory, String urlWTLog) {
+        ArrayList<Transaction> histories = new ArrayList<Transaction>();
 
-    public static void main(String[] args) throws IOException {
-        String URLHistory = "E:\\Programs\\Java-Programs\\\\Snapshot-Isolation-Checker-Java\\src\\main\\resources\\example\\history.edn";
-        String URLWTLog = "E:\\Programs\\Java-Programs\\\\Snapshot-Isolation-Checker-Java\\src\\main\\resources\\example\\wiredtiger.log";
-
-        // read history.edn
+        // 1. Reading history.edn
         try {
-            BufferedReader in = new BufferedReader(new FileReader(URLHistory));
+            BufferedReader in = new BufferedReader(new FileReader(urlHistory));
             String line;
             while ((line = in.readLine()) != null) {
-//                System.out.println(line);
                 Parseable pbr = Parsers.newParseable(line);
                 Parser p = Parsers.newParser(Parsers.defaultConfiguration());
                 Map<?, ?> m = (Map<?, ?>) p.nextValue(pbr);
@@ -52,22 +50,48 @@ public class HistoryReader {
                 Long commit = (Long) m.get(commitTimestamp);
                 Long session = (Long) m.get(process);
 
+                // Now we have not tid, it will be assigned until reading wiredtiger.log
+                Transaction txn = new Transaction(-1, session, start, commit);
+
                 List<?> values = (List<?>) m.get(value);
                 for (Object o : values) {
                     List<?> ops = (List<?>) o;
-                    if (ops.get(0) == w) {
-                        long key = (Long) ops.get(1);
-                        long value = (Long) ops.get(2);
-                        System.out.println(":w "+key+" " + value);
-                    } else {
-                        long key = (Long) ops.get(1);
-                        long value = (Long) ops.get(2);
-                        System.out.println(":r "+key+" " + value);
+                    long key = (Long) ops.get(1);
+                    long val;
+                    try{
+                        val = (Long) ops.get(2);
+                    }catch (NullPointerException e){
+                        val = 0;
                     }
+                    OPType type = null;
+                    if (ops.get(0) == w) {
+                        type = OPType.write;
+                    } else {
+                        type = OPType.read;
+                    }
+                    txn.addOperation(new Operation(type, key, val));
                 }
+
+                histories.add(txn);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        return histories;
+    }
+
+
+    public static void main(String[] args) throws IOException {
+        String URLHistory = "E:\\Programs\\Java-Programs\\\\Snapshot-Isolation-Checker-Java\\src\\main\\resources\\example\\history.edn";
+        String URLWTLog = "E:\\Programs\\Java-Programs\\\\Snapshot-Isolation-Checker-Java\\src\\main\\resources\\example\\wiredtiger.log";
+
+        ArrayList<Transaction> transactions = HistoryReader.readHistory(URLHistory, URLWTLog);
+        for (Transaction txn : transactions) {
+            System.out.println(txn);
+        }
+
     }
 }
