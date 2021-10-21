@@ -8,6 +8,11 @@ import java.util.*;
 
 import static us.bpsm.edn.Keyword.newKeyword;
 
+import Exceptions.HistoryInvalidException;
+import History.WiredTiger.WtLog;
+import History.WiredTiger.WtOp;
+import History.WiredTiger.WtTxn;
+import TestUtil.Finals;
 import us.bpsm.edn.Keyword;
 import us.bpsm.edn.parser.Parseable;
 import us.bpsm.edn.parser.Parser; // For edn file
@@ -24,9 +29,9 @@ public class HistoryReader {
     public static Keyword w = newKeyword("w");
     public static Keyword r = newKeyword("r");
 
-    public static ArrayList<Transaction> readHistory(String urlHistory, String urlWTLog) {
-        ArrayList<Transaction> histories = new ArrayList<Transaction>();
-
+    public static History readHistory(String urlHistory, String urlWTLog) throws HistoryInvalidException {
+        ArrayList<Transaction> transactions = new ArrayList<>();
+        WtLog wtLog = new WtLog();
         HashMap<List<Long>, Integer> KVTxnMap = new HashMap<>();
 
         // 1. Reading history.edn
@@ -71,7 +76,7 @@ public class HistoryReader {
                 }
                 idx++;
 
-                histories.add(txn);
+                transactions.add(txn);
             }
             in.close();
         } catch (IOException e) {
@@ -82,36 +87,51 @@ public class HistoryReader {
         try {
             BufferedReader in = new BufferedReader(new FileReader(urlWTLog));
             String line;
+            HashMap<Long, WtTxn> tidTxnMap = new HashMap<>();
             while ((line = in.readLine()) != null) {
 //                System.out.println(line);
                 String[] infos = line.split(", ");
-                Long tid = Long.valueOf(infos[0].split(":")[1]);
-                Long key = Long.valueOf(infos[1].split(":")[1]);
-                Long value = Long.valueOf(infos[2].split(":")[1]);
+                long tid = Long.parseLong(infos[0].split(":")[1]);
+                long key = Long.parseLong(infos[1].split(":")[1]);
+                long value = Long.parseLong(infos[2].split(":")[1]);
                 int idx = KVTxnMap.get(Arrays.asList(key, value));
-                if(histories.get(idx).tid == -1){
-                    histories.get(idx).tid = tid;
+
+                WtTxn txn;
+                if(tidTxnMap.containsKey(tid)){
+                    txn = tidTxnMap.get(tid);
                 }else{
-                    if(histories.get(idx).tid != tid){
+                    txn = new WtTxn(tid);
+                    tidTxnMap.put(tid, txn);
+                }
+
+                txn.add(new WtOp(tid, key, value));
+
+                if(transactions.get(idx).tid == -1){
+                    transactions.get(idx).tid = tid;
+                }else{
+                    if(transactions.get(idx).tid != tid){
                         System.exit(-1);
                     }
                 }
+            }
+            for(Map.Entry<Long, WtTxn> entry : tidTxnMap.entrySet()){
+                wtLog.add(entry.getValue());
             }
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-
-        return histories;
+        return new History(transactions, wtLog);
     }
 
+    public static void main(String[] args) throws IOException, HistoryInvalidException {
+        String BASE = Finals.BASE;
+        String URLHistory = Finals.URLHistory;
+        String URLWTLog = Finals.URLWTLog;
 
-    public static void main(String[] args) throws IOException {
-        String URLHistory = "E:\\Programs\\Java-Programs\\Snapshot-Isolation-Checker-Java\\src\\main\\resources\\example\\history.edn";
-        String URLWTLog = "E:\\Programs\\Java-Programs\\Snapshot-Isolation-Checker-Java\\src\\main\\resources\\example\\wiredtiger.log";
-
-        ArrayList<Transaction> transactions = HistoryReader.readHistory(URLHistory, URLWTLog);
+        History history = HistoryReader.readHistory(URLHistory, URLWTLog);
+        ArrayList<Transaction> transactions = history.transactions;
         for (Transaction txn : transactions) {
             System.out.println(txn);
         }
