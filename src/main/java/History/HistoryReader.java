@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.SortedMap;
+import java.util.*;
 
 import static us.bpsm.edn.Keyword.newKeyword;
 
@@ -33,10 +30,13 @@ public class HistoryReader {
     public static ArrayList<Transaction> readHistory(String urlHistory, String urlWTLog) {
         ArrayList<Transaction> histories = new ArrayList<Transaction>();
 
+        HashMap<List<Long>, Integer> KVTxnMap = new HashMap<>();
+
         // 1. Reading history.edn
         try {
             BufferedReader in = new BufferedReader(new FileReader(urlHistory));
             String line;
+            int idx = 0;
             while ((line = in.readLine()) != null) {
                 Parseable pbr = Parsers.newParseable(line);
                 Parser p = Parsers.newParser(Parsers.defaultConfiguration());
@@ -58,35 +58,61 @@ public class HistoryReader {
                     List<?> ops = (List<?>) o;
                     long key = (Long) ops.get(1);
                     long val;
-                    try{
+                    try {
                         val = (Long) ops.get(2);
-                    }catch (NullPointerException e){
+                    } catch (NullPointerException e) {
                         val = 0;
                     }
                     OPType type = null;
                     if (ops.get(0) == w) {
                         type = OPType.write;
+                        KVTxnMap.put(Arrays.asList(key, val), idx);
                     } else {
                         type = OPType.read;
                     }
                     txn.addOperation(new Operation(type, key, val));
                 }
+                idx++;
 
                 histories.add(txn);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            in.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // 2. Reading wiredtiger.log
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(urlWTLog));
+            String line;
+            while ((line = in.readLine()) != null) {
+//                System.out.println(line);
+                String[] infos = line.split(", ");
+                Long tid = Long.valueOf(infos[0].split(":")[1]);
+                Long key = Long.valueOf(infos[1].split(":")[1]);
+                Long value = Long.valueOf(infos[2].split(":")[1]);
+                int idx = KVTxnMap.get(Arrays.asList(key, value));
+                if(histories.get(idx).tid == -1){
+                    histories.get(idx).tid = tid;
+                }else{
+                    if(histories.get(idx).tid != tid){
+                        System.exit(-1);
+                    }
+                }
+            }
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         return histories;
     }
 
 
     public static void main(String[] args) throws IOException {
-        String URLHistory = "E:\\Programs\\Java-Programs\\\\Snapshot-Isolation-Checker-Java\\src\\main\\resources\\example\\history.edn";
-        String URLWTLog = "E:\\Programs\\Java-Programs\\\\Snapshot-Isolation-Checker-Java\\src\\main\\resources\\example\\wiredtiger.log";
+        String URLHistory = "E:\\Programs\\Java-Programs\\Snapshot-Isolation-Checker-Java\\src\\main\\resources\\example\\history.edn";
+        String URLWTLog = "E:\\Programs\\Java-Programs\\Snapshot-Isolation-Checker-Java\\src\\main\\resources\\example\\wiredtiger.log";
 
         ArrayList<Transaction> transactions = HistoryReader.readHistory(URLHistory, URLWTLog);
         for (Transaction txn : transactions) {
