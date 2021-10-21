@@ -11,10 +11,7 @@ import java.util.SortedMap;
 
 import static us.bpsm.edn.Keyword.newKeyword;
 
-import com.sun.javafx.UnmodifiableArrayList;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import us.bpsm.edn.Keyword;
-import us.bpsm.edn.parser.CollectionBuilder;
 import us.bpsm.edn.parser.Parseable;
 import us.bpsm.edn.parser.Parser; // For edn file
 import us.bpsm.edn.parser.Parsers;
