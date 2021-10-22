@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-
 import static us.bpsm.edn.Keyword.newKeyword;
 
 import Exceptions.HistoryInvalidException;
@@ -13,6 +12,7 @@ import History.WiredTiger.WtLog;
 import History.WiredTiger.WtOp;
 import History.WiredTiger.WtTxn;
 import TestUtil.Finals;
+import Const.Const;
 import us.bpsm.edn.Keyword;
 import us.bpsm.edn.parser.Parseable;
 import us.bpsm.edn.parser.Parser; // For edn file
@@ -53,7 +53,7 @@ public class HistoryReader {
                 Long session = (Long) m.get(process);
 
                 // Now we have not tid, it will be assigned until reading wiredtiger.log
-                Transaction txn = new Transaction(-1, session, start, commit);
+                Transaction txn = new Transaction(Const.INIT_TID, session, start, commit);
 
                 List<?> values = (List<?>) m.get(value);
                 for (Object o : values) {
@@ -63,7 +63,7 @@ public class HistoryReader {
                     try {
                         val = (Long) ops.get(2);
                     } catch (NullPointerException e) {
-                        val = 0;
+                        val = Const.INIT_READ;
                     }
                     OPType type = null;
                     if (ops.get(0) == w) {
@@ -106,7 +106,7 @@ public class HistoryReader {
 
                 txn.add(new WtOp(tid, key, value));
 
-                if(transactions.get(idx).tid == -1){
+                if(transactions.get(idx).tid == Const.INIT_TID){
                     transactions.get(idx).tid = tid;
                 }else{
                     if(transactions.get(idx).tid != tid){
@@ -126,7 +126,6 @@ public class HistoryReader {
     }
 
     public static void main(String[] args) throws IOException, HistoryInvalidException {
-        String BASE = Finals.BASE;
         String URLHistory = Finals.URLHistory;
         String URLWTLog = Finals.URLWTLog;
 
