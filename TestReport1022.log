@@ -1,0 +1,93 @@
+lein run test -n 127.0.0.1 --username young --password guazi13110 -w rw-register --time-limit 10 --concurrency 10 --leave-db-running
+========== Testing History 0===========
+[INFO] History is valid
+Calculation Relation.ReturnBefore
+Calculation Relation.CommitBefore
+Calculation Relation.ReadFrom
+Calculation Relation.TidBefore
+Start Checking Cyclic, n=6343
+Count: 6343 Size:6343
+The Relation if StrongSI
+========== Testing History 1===========
+[INFO] History is valid
+Calculation Relation.ReturnBefore
+Calculation Relation.CommitBefore
+Calculation Relation.ReadFrom
+Calculation Relation.TidBefore
+Start Checking Cyclic, n=7545
+Count: 7545 Size:7545
+The Relation if StrongSI
+========== Testing History 2===========
+[INFO] History is valid
+Calculation Relation.ReturnBefore
+Calculation Relation.CommitBefore
+Calculation Relation.ReadFrom
+Calculation Relation.TidBefore
+Start Checking Cyclic, n=8594
+Count: 8594 Size:8594
+The Relation if StrongSI
+========== Testing History 3===========
+[INFO] History is valid
+Calculation Relation.ReturnBefore
+Calculation Relation.CommitBefore
+Calculation Relation.ReadFrom
+Calculation Relation.TidBefore
+Start Checking Cyclic, n=9058
+Count: 9058 Size:9058
+The Relation if StrongSI
+========== Testing History 4===========
+[INFO] History is valid
+Calculation Relation.ReturnBefore
+Calculation Relation.CommitBefore
+Calculation Relation.ReadFrom
+Calculation Relation.TidBefore
+Start Checking Cyclic, n=9149
+Count: 9149 Size:9149
+The Relation if StrongSI
+========== Testing History 5===========
+[INFO] History is valid
+Calculation Relation.ReturnBefore
+Calculation Relation.CommitBefore
+Calculation Relation.ReadFrom
+Calculation Relation.TidBefore
+Start Checking Cyclic, n=8750
+Count: 8750 Size:8750
+The Relation if StrongSI
+========== Testing History 6===========
+[INFO] History is valid
+Calculation Relation.ReturnBefore
+Calculation Relation.CommitBefore
+Calculation Relation.ReadFrom
+Calculation Relation.TidBefore
+Start Checking Cyclic, n=6721
+Count: 6721 Size:6721
+The Relation if StrongSI
+========== Testing History 7===========
+[INFO] History is valid
+Calculation Relation.ReturnBefore
+Calculation Relation.CommitBefore
+Calculation Relation.ReadFrom
+Calculation Relation.TidBefore
+Start Checking Cyclic, n=9561
+Count: 9561 Size:9561
+The Relation if StrongSI
+========== Testing History 8===========
+[INFO] History is valid
+Calculation Relation.ReturnBefore
+Calculation Relation.CommitBefore
+Calculation Relation.ReadFrom
+Calculation Relation.TidBefore
+Start Checking Cyclic, n=4805
+Count: 4805 Size:4805
+The Relation if StrongSI
+========== Testing History 9===========
+[INFO] History is valid
+Calculation Relation.ReturnBefore
+Calculation Relation.CommitBefore
+Calculation Relation.ReadFrom
+Calculation Relation.TidBefore
+Start Checking Cyclic, n=9380
+Count: 9380 Size:9380
+The Relation if StrongSI
+
+Process finished with exit code 0
