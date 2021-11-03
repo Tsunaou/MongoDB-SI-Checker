@@ -1,20 +1,21 @@
 package Relation;
 
 import Exceptions.RelationInvalidException;
-import History.WiredTiger.WiredTigerHistory;
-import History.WiredTiger.WiredTigerTransaction;
+import History.History;
+import History.Transaction;
 
-public class CommitBefore extends Relation{
+
+public class CommitBefore<Txn extends Transaction> extends Relation<Txn>{
     public CommitBefore(int n) {
         super(n);
     }
 
     @Override
-    public void calculateRelation(WiredTigerHistory history) throws RelationInvalidException {
+    public void calculateRelation(History<Txn> history) throws RelationInvalidException {
         super.calculateRelation(history);
 
-        WiredTigerTransaction txn1;
-        WiredTigerTransaction txn2;
+        Txn txn1;
+        Txn txn2;
 
         int n = history.transactions.size();
         for(int i=0; i<n; i++){

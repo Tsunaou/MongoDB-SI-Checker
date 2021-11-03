@@ -17,10 +17,10 @@ public class MongoDBHistory extends History<MongoDBTransaction> {
         this.oplogHistory = oplogHistory;
         this.oplogHistory.txns.sort(Comparator.comparingLong(o -> o.commitTimestamp.getLongTime()));
 
-        // Redefine tid : from 0, 1, 2... keep the order
-        int n = this.writeTransactions.size();
+        // Redefine index : from 0, 1, 2... keep the order
+        int n = this.transactions.size();
         for (int i = 0; i < n; i++) {
-            this.writeTransactions.get(i).index = i;
+            this.transactions.get(i).index = i;
         }
 
         // Check hisotory

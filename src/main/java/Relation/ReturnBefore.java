@@ -1,16 +1,18 @@
 package Relation;
 
 import Exceptions.RelationInvalidException;
+import History.History;
+import History.Transaction;
 import History.WiredTiger.WiredTigerHistory;
 import History.WiredTiger.WiredTigerTransaction;
 
-public class ReturnBefore extends Relation {
+public class ReturnBefore extends Relation<WiredTigerTransaction> {
     public ReturnBefore(int n) {
         super(n);
     }
 
     @Override
-    public void calculateRelation(WiredTigerHistory history) throws RelationInvalidException {
+    public void calculateRelation(History<WiredTigerTransaction> history) throws RelationInvalidException {
         super.calculateRelation(history);
 
         WiredTigerTransaction txn1;

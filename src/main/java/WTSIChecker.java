@@ -2,6 +2,7 @@ import CycleChecker.CycleChecker;
 import Exceptions.HistoryInvalidException;
 import Exceptions.RelationInvalidException;
 import History.WiredTiger.WiredTigerHistory;
+import History.WiredTiger.WiredTigerTransaction;
 import History.WiredTiger.WiredTigerHistoryReader;
 import Relation.*;
 
@@ -17,8 +18,8 @@ public class WTSIChecker {
             int nTransaction = history.transactions.size();
 
             ReturnBefore RB = new ReturnBefore(nTransaction);
-            CommitBefore CB = new CommitBefore(nTransaction);
-            ReadFrom RF = new ReadFrom(nTransaction);
+            CommitBefore<WiredTigerTransaction> CB = new CommitBefore<WiredTigerTransaction>(nTransaction);
+            ReadFrom<WiredTigerTransaction> RF = new ReadFrom<WiredTigerTransaction>(nTransaction);
             TidBefore TB = new TidBefore(nTransaction);
 
             RB.calculateRelation(history);
@@ -26,16 +27,16 @@ public class WTSIChecker {
             RF.calculateRelation(history);
             TB.calculateRelation(history);
 
-            Relation R = new Relation(nTransaction);
+            Relation<WiredTigerTransaction> R = new Relation<WiredTigerTransaction>(nTransaction);
             R.union(RB);
             R.union(CB);
             R.union(RF);
             R.union(TB);
 
             if(CycleChecker.topoCycleChecker(R.relation)){
-                System.out.println("The Relation if Cyclic");
+                System.out.println("The Relation is Cyclic");
             }else{
-                System.out.println("The Relation if StrongSI");
+                System.out.println("The Relation is StrongSI");
             }
         }
 

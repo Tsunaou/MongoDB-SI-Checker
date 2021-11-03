@@ -1,19 +1,20 @@
 package Relation;
 
 import Exceptions.RelationInvalidException;
+import History.History;
 import History.WiredTiger.WiredTigerHistory;
 import History.WiredTiger.WiredTigerTransaction;
 
 import java.util.ArrayList;
 import java.util.Map;
 
-public class TidBefore extends Relation {
+public class TidBefore extends Relation<WiredTigerTransaction> {
     public TidBefore(int n) {
         super(n);
     }
 
     @Override
-    public void calculateRelation(WiredTigerHistory history) throws RelationInvalidException {
+    public void calculateRelation(History<WiredTigerTransaction> history) throws RelationInvalidException {
         super.calculateRelation(history);
 
         ArrayList<WiredTigerTransaction> list;

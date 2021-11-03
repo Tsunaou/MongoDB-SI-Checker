@@ -1,9 +1,11 @@
 package Relation;
 
 import Exceptions.RelationInvalidException;
+import History.History;
+import History.Transaction;
 import History.WiredTiger.WiredTigerHistory;
 
-public class Relation {
+public class Relation<Txn extends Transaction> {
     public boolean[][] relation;
     public int n;
 
@@ -34,11 +36,11 @@ public class Relation {
         System.out.println(this.getClass().getName() + " has " + count + " relations");
     }
 
-    public void calculateRelation(WiredTigerHistory history) throws RelationInvalidException {
+    public void calculateRelation(History<Txn> history) throws RelationInvalidException {
         System.out.println("Calculation " + this.getClass().getName());
     }
 
-    public void union(Relation r) throws RelationInvalidException {
+    public void union(Relation<Txn> r) throws RelationInvalidException {
         if (this.n != r.n) {
             throw new RelationInvalidException("Mismatch size when union relations");
         }
@@ -53,7 +55,7 @@ public class Relation {
             }
         }
     }
-    public void union(Relation s1, Relation s2) throws RelationInvalidException {
+    public void union(Relation<Txn> s1, Relation<Txn> s2) throws RelationInvalidException {
         if (s1.n != s2.n) {
             throw new RelationInvalidException("Mismatch size when union relations");
         }
