@@ -1,7 +1,7 @@
 package Relation;
 
 import Exceptions.RelationInvalidException;
-import History.History;
+import History.WiredTiger.WiredTigerHistory;
 
 public class Relation {
     public boolean[][] relation;
@@ -34,7 +34,7 @@ public class Relation {
         System.out.println(this.getClass().getName() + " has " + count + " relations");
     }
 
-    public void calculateRelation(History history) throws RelationInvalidException {
+    public void calculateRelation(WiredTigerHistory history) throws RelationInvalidException {
         System.out.println("Calculation " + this.getClass().getName());
     }
 

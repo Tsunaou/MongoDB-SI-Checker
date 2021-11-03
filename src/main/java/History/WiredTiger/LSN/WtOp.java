@@ -1,4 +1,4 @@
-package History.WiredTiger;
+package History.WiredTiger.LSN;
 
 public class WtOp {
     public long tid;

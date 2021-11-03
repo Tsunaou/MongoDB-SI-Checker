@@ -1,7 +1,8 @@
 package Relation;
 
 import Exceptions.RelationInvalidException;
-import History.*;
+import History.WiredTiger.WiredTigerHistory;
+import History.WiredTiger.WiredTigerTransaction;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -12,13 +13,13 @@ public class TidBefore extends Relation {
     }
 
     @Override
-    public void calculateRelation(History history) throws RelationInvalidException {
+    public void calculateRelation(WiredTigerHistory history) throws RelationInvalidException {
         super.calculateRelation(history);
 
-        ArrayList<Transaction> list;
-        Transaction txn1;
-        Transaction txn2;
-        for (Map.Entry<Long, ArrayList<Transaction>> entry : history.keyWritesMap.entrySet()) {
+        ArrayList<WiredTigerTransaction> list;
+        WiredTigerTransaction txn1;
+        WiredTigerTransaction txn2;
+        for (Map.Entry<Long, ArrayList<WiredTigerTransaction>> entry : history.keyWritesMap.entrySet()) {
             list = entry.getValue();
             int n = list.size();
             for (int i = 0; i < n; i++) {

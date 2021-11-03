@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Transaction {
-
-    public long tid;
     public long process;
     public ArrayList<Operation> operations;
-    public long startTimestamp;
     public long commitTimestamp;
+    public long index; // Special to readOnly transactions, to indicate the index in the array list of transactions
 
     public ArrayList<Operation> writes;
     public ArrayList<Operation> reads;
@@ -18,13 +16,8 @@ public class Transaction {
     public HashSet<Long> readKeySet;
     public HashSet<Long> keySet;
 
-    public long index; // Special to readOnly transactions, to indicate the index in the array list of transactions
-
-    public Transaction(long tid, long process, long startTimestamp, long commitTimestamp) {
-        this.tid = tid;
+    public Transaction(long process) {
         this.process = process;
-        this.startTimestamp = startTimestamp;
-        this.commitTimestamp = commitTimestamp;
 
         this.operations = new ArrayList<Operation>();
         this.writes = new ArrayList<Operation>();
@@ -33,7 +26,6 @@ public class Transaction {
         this.writeKeySet = new HashSet<>();
         this.readKeySet = new HashSet<>();
         this.keySet = new HashSet<>();
-
     }
 
     public void addOperation(Operation op){
@@ -53,18 +45,7 @@ public class Transaction {
         }
     }
 
-    @Override
-    public String toString() {
-        return "[" +
-                "tid=" + tid +
-                ", process=" + process +
-                ", operations=" + operations +
-                ", startTimestamp=" + startTimestamp +
-                ", commitTimestamp=" + commitTimestamp +
-                ';';
-    }
-
-    public static void main(String[] args) {
-
+    public void setCommitTimestamp(long commitTimestamp) {
+        this.commitTimestamp = commitTimestamp;
     }
 }

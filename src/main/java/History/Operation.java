@@ -1,6 +1,6 @@
 package History;
 
-enum OPType{ write, read};
+;
 
 public class Operation {
     public OPType type;

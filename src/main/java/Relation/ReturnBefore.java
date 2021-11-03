@@ -1,7 +1,8 @@
 package Relation;
 
 import Exceptions.RelationInvalidException;
-import History.*;
+import History.WiredTiger.WiredTigerHistory;
+import History.WiredTiger.WiredTigerTransaction;
 
 public class ReturnBefore extends Relation {
     public ReturnBefore(int n) {
@@ -9,11 +10,11 @@ public class ReturnBefore extends Relation {
     }
 
     @Override
-    public void calculateRelation(History history) throws RelationInvalidException {
+    public void calculateRelation(WiredTigerHistory history) throws RelationInvalidException {
         super.calculateRelation(history);
 
-        Transaction txn1;
-        Transaction txn2;
+        WiredTigerTransaction txn1;
+        WiredTigerTransaction txn2;
 
         int n = history.transactions.size();
         for(int i=0; i<n; i++){
