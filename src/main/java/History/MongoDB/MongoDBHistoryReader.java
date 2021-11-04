@@ -8,7 +8,6 @@ import History.MongoDB.Oplog.OplogTxn;
 import History.MongoDB.Oplog.TxnType;
 import History.OPType;
 import History.Operation;
-import History.WiredTiger.WiredTigerTransaction;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;

@@ -1,5 +1,6 @@
 package History.WiredTiger;
 
+import History.MongoDB.LogicalClock;
 import History.Operation;
 import History.Transaction;
 
@@ -9,9 +10,9 @@ import java.util.HashSet;
 public class WiredTigerTransaction extends Transaction {
 
     public long tid;
-    public long startTimestamp;
+    public LogicalClock startTimestamp;
 
-    public WiredTigerTransaction(long tid, long process, long startTimestamp, long commitTimestamp) {
+    public WiredTigerTransaction(long tid, long process, LogicalClock startTimestamp, LogicalClock commitTimestamp) {
         super(process);
         this.setCommitTimestamp(commitTimestamp);
         this.tid = tid;

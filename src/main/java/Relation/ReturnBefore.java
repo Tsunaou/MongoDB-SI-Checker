@@ -6,6 +6,8 @@ import History.Transaction;
 import History.WiredTiger.WiredTigerHistory;
 import History.WiredTiger.WiredTigerTransaction;
 
+import java.util.Comparator;
+
 public class ReturnBefore extends Relation<WiredTigerTransaction> {
     public ReturnBefore(int n) {
         super(n);
@@ -23,7 +25,7 @@ public class ReturnBefore extends Relation<WiredTigerTransaction> {
             txn1 = history.transactions.get(i);
             for(int j=i+1; j<n; j++){
                 txn2 = history.transactions.get(j);
-                if(txn1.commitTimestamp < txn2.startTimestamp){
+                if(txn1.commitTimestamp.compareTo(txn2.startTimestamp) < 0){
                     addRelation(i, j);
                 }
             }

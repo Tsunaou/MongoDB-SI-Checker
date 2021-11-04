@@ -14,7 +14,6 @@ import java.util.Stack;
 public class MongoDBSIChecker {
     public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException {
         String URLHistory = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/history.edn";
-//        String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/logs/txns.json";
         String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/txns.json";
 
         MongoDBHistory history = MongoDBHistoryReader.readHistory(URLHistory, URLOplog);
@@ -46,7 +45,7 @@ public class MongoDBSIChecker {
                 System.out.println(history.transactions.get(cycles.get(i)));
             }
         } else {
-            System.out.println("The Relation is RealtimeSI");
+            System.out.println("The Relation is RealtimeSI/SessionSI");
         }
     }
 }

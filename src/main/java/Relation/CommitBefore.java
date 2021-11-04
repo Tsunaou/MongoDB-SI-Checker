@@ -22,7 +22,7 @@ public class CommitBefore<Txn extends Transaction> extends Relation<Txn>{
             txn1 = history.transactions.get(i);
             for(int j=i+1; j<n; j++){
                 txn2 = history.transactions.get(j);
-                if(txn1.commitTimestamp < txn2.commitTimestamp){
+                if(txn1.commitTimestamp.compareTo(txn2.commitTimestamp) < 0){
                     addRelation(i, j);
                 }
             }

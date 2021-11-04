@@ -8,6 +8,7 @@ import static us.bpsm.edn.Keyword.newKeyword;
 
 import Exceptions.HistoryInvalidException;
 import History.HistoryReader;
+import History.MongoDB.LogicalClock;
 import History.OPType;
 import History.Operation;
 import History.WiredTiger.LSN.WtLog;
@@ -41,8 +42,8 @@ public class WiredTigerHistoryReader extends HistoryReader {
                     continue;
                 }
 
-                Long start = (Long) m.get(startTimestamp);
-                Long commit = (Long) m.get(commitTimestamp);
+                LogicalClock start = new LogicalClock((Long) m.get(startTimestamp), 0);
+                LogicalClock commit = new LogicalClock((Long) m.get(commitTimestamp), 0);
                 Long session = (Long) m.get(process);
 
                 // Now we have not tid, it will be assigned until reading wiredtiger.log

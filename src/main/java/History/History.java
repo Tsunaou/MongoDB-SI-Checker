@@ -88,9 +88,9 @@ public class History<Txn extends Transaction> {
     }
 
     protected void sortTransactions() {
-        this.transactions.sort(Comparator.comparingLong(o -> o.commitTimestamp));
-        this.readOnlyTransactions.sort(Comparator.comparingLong(o -> o.commitTimestamp));
-        this.writeTransactions.sort(Comparator.comparingLong(o -> o.commitTimestamp));
+        this.transactions.sort(Comparator.comparing(o -> o.commitTimestamp));
+        this.readOnlyTransactions.sort(Comparator.comparing(o -> o.commitTimestamp));
+        this.writeTransactions.sort(Comparator.comparing(o -> o.commitTimestamp));
     }
 
     protected void checkHistoryValid() throws HistoryInvalidException {

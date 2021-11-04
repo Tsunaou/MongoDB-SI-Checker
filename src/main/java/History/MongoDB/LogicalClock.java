@@ -1,19 +1,15 @@
 package History.MongoDB;
 
 
-import java.math.BigInteger;
+import java.util.Comparator;
 
-public class LogicalClock {
-    public int time;
-    public int inc;
+public class LogicalClock implements Comparable<LogicalClock>{
+    public long time;
+    public long inc;
 
-    public LogicalClock(int time, int inc) {
+    public LogicalClock(long time, long inc) {
         this.time = time;
         this.inc = inc;
-    }
-
-    public long getLongTime() {
-        return (long) time << 32 + inc;
     }
 
     @Override
@@ -21,10 +17,20 @@ public class LogicalClock {
         return "(" + time + "," + inc + ')';
     }
 
+    @Override
+    public int compareTo(LogicalClock clock) {
+        if(this.time != clock.time){
+            return Long.compare(this.time, clock.time);
+        }else{
+            return Long.compare(this.inc, clock.inc);
+        }
+    }
+
     public static void main(String[] args) {
         LogicalClock t1 = new LogicalClock(1636007504,8);
         LogicalClock t2 = new LogicalClock(1636007490,25);
-        System.out.println(t1.getLongTime());
-        System.out.println(t2.getLongTime());
+        System.out.println(t1);
+        System.out.println(t2);
+        System.out.println(t1.compareTo(t1) == 0);
     }
 }

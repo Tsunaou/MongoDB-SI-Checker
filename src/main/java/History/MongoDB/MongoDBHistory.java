@@ -15,7 +15,7 @@ public class MongoDBHistory extends History<MongoDBTransaction> {
     public MongoDBHistory(ArrayList<MongoDBTransaction> transactions, OplogHistory oplogHistory) throws HistoryInvalidException {
         super(transactions);
         this.oplogHistory = oplogHistory;
-        this.oplogHistory.txns.sort(Comparator.comparingLong(o -> o.commitTimestamp.getLongTime()));
+        this.oplogHistory.txns.sort(Comparator.comparing(t0 -> t0.commitTimestamp));
 
         // Redefine index : from 0, 1, 2... keep the order
         int n = this.transactions.size();
@@ -42,7 +42,7 @@ public class MongoDBHistory extends History<MongoDBTransaction> {
             txn1 = writeTransactions.get(i);
             txn2 = oplogHistory.txns.get(i);
 
-            if(txn1.commitClusterTime.getLongTime() == txn2.commitTimestamp.getLongTime()){
+            if(txn1.commitTimestamp.compareTo(txn2.commitTimestamp) == 0){
                 // Transactions may have same commitTimestamp, so they are out of order
                 continue;
             }
@@ -50,6 +50,7 @@ public class MongoDBHistory extends History<MongoDBTransaction> {
             if (txn1.writes.size() != txn2.ops.size()) {
                 System.out.println(txn1);
                 System.out.println(txn2);
+                System.out.println(txn1.commitTimestamp.compareTo(txn2.commitTimestamp) == 0);
                 throw new HistoryInvalidException("");
             }
 

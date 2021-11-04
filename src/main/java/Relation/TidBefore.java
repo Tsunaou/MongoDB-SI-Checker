@@ -27,12 +27,12 @@ public class TidBefore extends Relation<WiredTigerTransaction> {
                 txn1 = list.get(i);
                 for (int j = i + 1; j < n; j++) {
                     txn2 = list.get(j);
-                    if(txn1.tid < txn2.tid){
-                        addRelation((int)txn1.tid ,(int)txn2.tid);
-                    }else{
-                        addRelation((int)txn2.tid ,(int)txn1.tid);
+                    if (txn1.tid < txn2.tid) {
+                        addRelation((int) txn1.tid, (int) txn2.tid);
+                    } else {
+                        addRelation((int) txn2.tid, (int) txn1.tid);
                     }
-                    if((txn1.tid < txn2.tid)^(txn1.commitTimestamp < txn2.commitTimestamp)){
+                    if ((txn1.tid < txn2.tid) ^ (txn1.commitTimestamp.compareTo(txn2.commitTimestamp) < 0)) {
                         // xor
                         throw new RelationInvalidException("Conflict with Lemma 10");
                     }
