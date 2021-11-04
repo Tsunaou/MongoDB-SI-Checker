@@ -118,6 +118,7 @@ public class MongoDBHistoryReader extends HistoryReader {
         MongoDBTransaction txn = null;
         for(OplogTxn oplogTxn: oplogHistory.txns){
             Operation op = oplogTxn.ops.get(0);
+//            System.out.println(oplogTxn);
             int idx = KVTxnMap.get(Arrays.asList(op.key, op.value));
             txn = transactions.get(idx);
             txn.txnType = oplogTxn.type;
@@ -131,7 +132,7 @@ public class MongoDBHistoryReader extends HistoryReader {
 
     public static void main(String[] args) throws HistoryInvalidException {
         String URLHistory = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/history.edn";
-        String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/logs/txns.json";
+        String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/txns.json";
 
         MongoDBHistory history = MongoDBHistoryReader.readHistory(URLHistory, URLOplog);
         ArrayList<MongoDBTransaction> transactions = history.transactions;
