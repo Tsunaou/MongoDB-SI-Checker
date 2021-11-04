@@ -34,9 +34,9 @@ public class ReadFrom<Txn extends Transaction> extends Relation<Txn> {
                     rIdx = (int) read.index;
                     if (wIdx != rIdx) {
                         addRelation(wIdx, (int) read.index);
-                        System.out.println("Read from:");
-                        System.out.println(history.transactions.get(wIdx));
-                        System.out.println(history.transactions.get(rIdx));
+//                        System.out.println("Read from:");
+//                        System.out.println(history.transactions.get(wIdx));
+//                        System.out.println(history.transactions.get(rIdx));
                     }
                 }
             } else {

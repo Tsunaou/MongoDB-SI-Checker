@@ -23,11 +23,11 @@ public class MongoDBTransaction extends Transaction {
 
     @Override
     public String toString() {
-        return "MongoDBTransaction{" +
-                "txnType=" + txnType +
-                ", commitClusterTime=" + commitClusterTime +
-                ", participants=" + participants +
-                ", operations=" + operations +
+        return "{" +
+                "type=" + txnType +
+                ", commitTs=" + commitClusterTime +
+                ", shards=" + participants +
+                ", ops=" + operations +
                 '}';
     }
 }

@@ -8,11 +8,14 @@ import Relation.*;
 import TestUtil.Finals;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class MongoDBSIChecker {
     public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException {
         String URLHistory = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/history.edn";
-        String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/logs/txns.json";
+//        String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/logs/txns.json";
+        String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/txns.json";
 
         MongoDBHistory history = MongoDBHistoryReader.readHistory(URLHistory, URLOplog);
         int nTransaction = history.transactions.size();
@@ -28,10 +31,22 @@ public class MongoDBSIChecker {
         R.union(CB);
         R.union(RF);
 
-        if(CycleChecker.topoCycleChecker(R.relation)){
+        if (CycleChecker.topoCycleChecker(R.relation)) {
             System.out.println("The Relation is Cyclic");
-        }else{
-            System.out.println("The Relation is SessionSI");
+            List<Integer> cycles = CycleChecker.printCycle(R.relation);
+            int n = cycles.size();
+            System.out.println(history.transactions.get(cycles.get(0)));
+            for (int i = 1; i < n; i++) {
+                if(CB.relation[cycles.get(i-1)][cycles.get(i)]){
+                    System.out.println("Commit Before");
+                }
+                if(RF.relation[cycles.get(i-1)][cycles.get(i)]){
+                    System.out.println("Read From");
+                }
+                System.out.println(history.transactions.get(cycles.get(i)));
+            }
+        } else {
+            System.out.println("The Relation is RealtimeSI");
         }
     }
 }
