@@ -13,8 +13,8 @@ public class History<Txn extends Transaction> {
     public ArrayList<Txn> writeTransactions;
 
     public HashMap<Long, ArrayList<Txn>> keyWritesMap; // key: key, value: the transactions which have written into the key
-    public HashMap<List<Integer>, ArrayList<Txn>> kvWritesMap = new HashMap<>();
-    public HashMap<List<Integer>, ArrayList<Txn>> kvReadsMap = new HashMap<>();
+    public HashMap<List<Integer>, ArrayList<Txn>> kvWritesMap;
+    public HashMap<List<Integer>, ArrayList<Txn>> kvReadsMap;
 
     public History(ArrayList<Txn> transactions) throws HistoryInvalidException {
         this.transactions = transactions;
