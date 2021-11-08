@@ -1,4 +1,6 @@
 import CycleChecker.CycleChecker;
+import DSG.DirectSerializationGraph;
+import Exceptions.DSGInvalidException;
 import Exceptions.HistoryInvalidException;
 import Exceptions.RelationInvalidException;
 import History.MongoDB.MongoDBHistory;
@@ -12,10 +14,12 @@ import java.util.*;
 
 public class MongoDBSIChecker {
 
-    public static void checkSI(String urlHistory, String urlOplog, String SIVariant) throws HistoryInvalidException, RelationInvalidException {
+    public static void checkSI(String urlHistory, String urlOplog, String SIVariant) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException {
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history for " + SIVariant + " at " + urlHistory);
         MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog);
+        DirectSerializationGraph<MongoDBTransaction> dsg = new DirectSerializationGraph<MongoDBTransaction>(history);
+        dsg.checkSI(SIVariant);
         int nTransaction = history.transactions.size();
 
 
@@ -48,7 +52,7 @@ public class MongoDBSIChecker {
         }
     }
 
-    public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException {
+    public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException {
         String URLHistory;
         String URLOplog;
 
