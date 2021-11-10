@@ -24,14 +24,14 @@ import java.util.*;
  * DSG: Direct Serialization Graph from ICDE00 Generalized Isolation Level Definitions by Adya. et. al.
  */
 public class DirectSerializationGraph<Txn extends Transaction> {
-    Relation<Txn> ww; // write-depends: T_i installs x_i and T_j installs x's next version
-    Relation<Txn> wr; // read-depends: T_i installs x_i, T_j reads x_i
-    Relation<Txn> rw; // anti-depends: T_i reads x_i and T_j install x's next version
+    public Relation<Txn> ww; // write-depends: T_i installs x_i and T_j installs x's next version
+    public Relation<Txn> wr; // read-depends: T_i installs x_i, T_j reads x_i
+    public Relation<Txn> rw; // anti-depends: T_i reads x_i and T_j install x's next version
 
-    History<Txn> history;
+    public History<Txn> history;
 
-    HashMap<Long, Register<Txn>> registerByKey;
-    HashMap<List<Long>, Register<Txn>> kvToRegister;
+    public HashMap<Long, Register<Txn>> registerByKey;
+    public HashMap<List<Long>, Register<Txn>> kvToRegister;
 
     public DirectSerializationGraph(History<Txn> history) throws RelationInvalidException, DSGInvalidException {
         this.history = history;
@@ -120,11 +120,12 @@ public class DirectSerializationGraph<Txn extends Transaction> {
                 }
             }
         }
+
     }
 
     /**
      * G0:  Write Cycles. A history H exhibits phenomenon G0 is DSG(H) contains a directed cycle consisting
-     * entirely of write-dependency(ww) edges.
+     *      entirely of write-dependency(ww) edges.
      *
      * @return whether H exhibits G0
      */
@@ -155,7 +156,7 @@ public class DirectSerializationGraph<Txn extends Transaction> {
      * G1a: Aborted Reads. TODO: each read should read from some write, it should be check
      * G1b: Intermediate Reads. TODO: each read in txn1 should read form the last write in txn2 with some key $k$
      * G1c: Circular Information Flow. A history H exhibits phenomenon G1c is DSG(H) contains a directed cycle consisting
-     * entirely of dependency(ww or wr) edges.
+     *      entirely of dependency(ww or wr) edges.
      *
      * @return whether H exhibits G1
      */
@@ -187,7 +188,7 @@ public class DirectSerializationGraph<Txn extends Transaction> {
 
     /**
      * G2:  Write Cycles. A history H exhibits phenomenon G2 is DSG(H) contains a directed cycle
-     * with one or more anti-dependency(rw) edges;
+     *      with one or more anti-dependency(rw) edges;
      *
      * @return
      */
@@ -220,6 +221,16 @@ public class DirectSerializationGraph<Txn extends Transaction> {
             return false;
         }
 
+    }
+
+    /**
+     * G-Single: Single Anti-dependency Cycles. A history H exhibits phenomenon G-single if DSG(H) contains a directed cycle
+     *           with exactly one anti-dependency edge(rw).
+     *
+     * @return whether H exhibits G-Single
+     */
+    boolean containsGSingle(){
+        return false;
     }
 
     public void checkSI() throws RelationInvalidException{
@@ -281,7 +292,8 @@ public class DirectSerializationGraph<Txn extends Transaction> {
         String BASE = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211104T135432.000Z/";
         String URLHistory = BASE + "history.edn";
         String URLOplog = BASE + "txns.json";
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(URLHistory, URLOplog);
+        String URLMongodLog = BASE + "mongod.json";
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(URLHistory, URLOplog, URLMongodLog);
         DirectSerializationGraph<MongoDBTransaction> dsg = new DirectSerializationGraph<MongoDBTransaction>(history);
         dsg.checkSI("Realtime-SI/Session-SI");
     }
@@ -289,6 +301,6 @@ public class DirectSerializationGraph<Txn extends Transaction> {
 
     public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException {
         WTExample();
-        MongoDBExample();
+//        MongoDBExample();
     }
 }

@@ -10,6 +10,7 @@ public class Transaction {
     public long process;
     public ArrayList<Operation> operations;
     public LogicalClock commitTimestamp;
+    public LogicalClock startTimestamp;
     public int index; // Special to readOnly transactions, to indicate the index in the array list of transactions
 
     public ArrayList<Operation> writes;
@@ -64,7 +65,4 @@ public class Transaction {
         }
     }
 
-    public void setCommitTimestamp(LogicalClock commitTimestamp) {
-        this.commitTimestamp = commitTimestamp;
-    }
 }

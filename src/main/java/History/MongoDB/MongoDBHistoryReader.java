@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class MongoDBHistoryReader extends HistoryReader {
-    public static MongoDBHistory readHistory(String urlHistory, String urlOplog) throws HistoryInvalidException {
+    public static MongoDBHistory readHistory(String urlHistory, String urlOplog, String urlMongodLog) throws HistoryInvalidException {
         ArrayList<MongoDBTransaction> transactions = new ArrayList<>();
         OplogHistory oplogHistory = new OplogHistory();
         HashMap<List<Long>, Integer> KVTxnMap = new HashMap<>();
@@ -45,6 +45,9 @@ public class MongoDBHistoryReader extends HistoryReader {
 
                 // Now we have not tid, it will be assigned until reading wiredtiger.log
                 MongoDBTransaction txn = new MongoDBTransaction(session);
+                Map<?, ?> mongod = (Map<?, ?>)m.get(sessionInfo);
+                txn.uuid = (String) mongod.get(uuid);
+                txn.txnNumber = (long) mongod.get(txnNumber);
 
                 List<?> values = (List<?>) m.get(value);
                 for (Object o : values) {
@@ -114,12 +117,60 @@ public class MongoDBHistoryReader extends HistoryReader {
             e.printStackTrace();
         }
 
-        // 3. Merge information
+        // 3. Reading mongod.json
+        HashMap<String, HashMap<Long, MongoDBTransaction>> uuidToTxnNumberToTransaction = new HashMap<>();
+        for(MongoDBTransaction txn: transactions){
+            HashMap<Long, MongoDBTransaction> txnNumberToTransaction = null;
+            if(uuidToTxnNumberToTransaction.containsKey(txn.uuid)){
+                txnNumberToTransaction= uuidToTxnNumberToTransaction.get(txn.uuid);
+            }else{
+                txnNumberToTransaction= new HashMap<>();
+                uuidToTxnNumberToTransaction.put(txn.uuid, txnNumberToTransaction);
+            }
+            txnNumberToTransaction.put(txn.txnNumber, txn);
+        }
+
+        try {
+            reader = new JSONReader(new FileReader(urlMongodLog));
+            JSONObject obj = (JSONObject) reader.readObject();
+            for(String uuid: obj.keySet()){
+                JSONObject txnNumber2timestamp = obj.getJSONObject(uuid);
+                for(String txnNumber: txnNumber2timestamp.keySet()){
+                    JSONArray ts = txnNumber2timestamp.getJSONArray(txnNumber);
+                    MongoDBTransaction txn;
+                    try{
+                        txn = uuidToTxnNumberToTransaction.get(uuid).get(Long.parseLong(txnNumber));
+                    }catch (NullPointerException e){
+                        System.out.println("Timeout actually executed");
+                        System.out.println(uuid);
+                        System.out.println(txnNumber);
+                        continue;
+                    }
+
+                    txn.txnNumber = Long.parseLong(txnNumber);
+                    long time = ts.getLong(0);
+                    long inc = ts.getLong(1);
+                    txn.startTimestamp = new LogicalClock(time, inc);
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        // 4. Merge information
         MongoDBTransaction txn = null;
         for(OplogTxn oplogTxn: oplogHistory.txns){
             Operation op = oplogTxn.ops.get(0);
 //            System.out.println(oplogTxn);
-            int idx = KVTxnMap.get(Arrays.asList(op.key, op.value));
+            int idx;
+            try{
+                idx = KVTxnMap.get(Arrays.asList(op.key, op.value));
+            }catch (NullPointerException e){
+                System.out.println(op);
+                throw new HistoryInvalidException("May be timeout but actually executed");
+            }
+
             txn = transactions.get(idx);
             txn.txnType = oplogTxn.type;
             txn.participants = oplogTxn.participants;
@@ -133,12 +184,22 @@ public class MongoDBHistoryReader extends HistoryReader {
     public static void main(String[] args) throws HistoryInvalidException {
         String URLHistory = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/history.edn";
         String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/txns.json";
+        String URLMongodLog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/mongod.json";
 
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(URLHistory, URLOplog);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(URLHistory, URLOplog, URLMongodLog);
         ArrayList<MongoDBTransaction> transactions = history.transactions;
 
+        int readOnly = 0;
         for (MongoDBTransaction txn : transactions) {
-            System.out.println(txn);
+//            System.out.println(txn);
+            if(txn.writeKeySet.isEmpty()){
+                readOnly++;
+                System.out.println(txn);
+            }else{
+//                System.out.println(txn);
+            }
         }
+        System.out.println(readOnly);
+
     }
 }

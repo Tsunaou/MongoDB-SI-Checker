@@ -10,13 +10,12 @@ import java.util.HashSet;
 public class WiredTigerTransaction extends Transaction {
 
     public long tid;
-    public LogicalClock startTimestamp;
 
     public WiredTigerTransaction(long tid, long process, LogicalClock startTimestamp, LogicalClock commitTimestamp) {
         super(process);
-        this.setCommitTimestamp(commitTimestamp);
         this.tid = tid;
         this.startTimestamp = startTimestamp;
+        this.commitTimestamp = commitTimestamp;
     }
 
     @Override

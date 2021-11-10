@@ -10,13 +10,21 @@ public class MongoDBTransaction extends Transaction {
 
     public TxnType txnType;
     public ArrayList<String> participants;
+    public long txnNumber;
+    public String uuid;
 
     public MongoDBTransaction(long process) {
         super(process);
     }
 
-    public void setCommitClusterTime(LogicalClock commitClusterTime) {
-        this.setCommitTimestamp(commitClusterTime);
+    public void setCommitClusterTime(LogicalClock commitTimestamp) {
+        this.commitTimestamp = commitTimestamp;
+    }
+
+
+
+    public void setReadTimestamp(LogicalClock readTimestamp){
+        this.startTimestamp = readTimestamp;
     }
 
     @Override
@@ -24,8 +32,11 @@ public class MongoDBTransaction extends Transaction {
         return "{" +
                 "type=" + txnType +
                 ", commitTs=" + commitTimestamp +
+                ", readTs=" + startTimestamp +
+                ", txnNumber=" + txnNumber +
                 ", shards=" + participants +
                 ", ops=" + operations +
+                ", uuid=" + uuid +
                 '}';
     }
 }
