@@ -9,25 +9,34 @@ import java.util.ArrayList;
 public class MongoDBTransaction extends Transaction {
 
     public TxnType txnType;
-    public LogicalClock commitClusterTime;
     public ArrayList<String> participants;
+    public long txnNumber;
+    public String uuid;
 
     public MongoDBTransaction(long process) {
         super(process);
     }
 
-    public void setCommitClusterTime(LogicalClock commitClusterTime) {
-        this.commitClusterTime = commitClusterTime;
-        this.setCommitTimestamp(commitClusterTime.getLongTime());
+    public void setCommitClusterTime(LogicalClock commitTimestamp) {
+        this.commitTimestamp = commitTimestamp;
+    }
+
+
+
+    public void setReadTimestamp(LogicalClock readTimestamp){
+        this.startTimestamp = readTimestamp;
     }
 
     @Override
     public String toString() {
-        return "MongoDBTransaction{" +
-                "txnType=" + txnType +
-                ", commitClusterTime=" + commitClusterTime +
-                ", participants=" + participants +
-                ", operations=" + operations +
+        return "{" +
+                "type=" + txnType +
+                ", commitTs=" + commitTimestamp +
+                ", readTs=" + startTimestamp +
+                ", txnNumber=" + txnNumber +
+                ", shards=" + participants +
+                ", ops=" + operations +
+                ", uuid=" + uuid +
                 '}';
     }
 }

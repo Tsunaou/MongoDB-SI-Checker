@@ -12,6 +12,8 @@ public class HistoryReader {
     public static Keyword startTimestamp = newKeyword("start-timestamp");
     public static Keyword commitTimestamp = newKeyword("commit-timestamp");
     public static Keyword w = newKeyword("w");
-    public static Keyword r = newKeyword("r");
+    public static Keyword txnNumber = newKeyword("txn-number");
+    public static Keyword sessionInfo = newKeyword("session-info");
+    public static Keyword uuid = newKeyword("uuid");
 
 }

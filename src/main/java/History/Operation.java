@@ -15,10 +15,9 @@ public class Operation {
 
     @Override
     public String toString() {
-        return "[" +
-                "type=" + type +
-                ", key=" + key +
-                ", val=" + value +
-                ']';
+        return "(" + type.toString().charAt(0) +
+                " " + key +
+                " " + value +
+                ')';
     }
 }

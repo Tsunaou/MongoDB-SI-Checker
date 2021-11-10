@@ -3,27 +3,26 @@ package Relation;
 import Exceptions.RelationInvalidException;
 import History.History;
 import History.Transaction;
-import History.WiredTiger.WiredTigerHistory;
-import History.WiredTiger.WiredTigerTransaction;
 
-public class ReturnBefore extends Relation<WiredTigerTransaction> {
+
+public class ReturnBefore<Txn extends Transaction> extends Relation<Txn> {
     public ReturnBefore(int n) {
         super(n);
     }
 
     @Override
-    public void calculateRelation(History<WiredTigerTransaction> history) throws RelationInvalidException {
+    public void calculateRelation(History<Txn> history) throws RelationInvalidException {
         super.calculateRelation(history);
 
-        WiredTigerTransaction txn1;
-        WiredTigerTransaction txn2;
+        Txn txn1;
+        Txn txn2;
 
         int n = history.transactions.size();
         for(int i=0; i<n; i++){
             txn1 = history.transactions.get(i);
             for(int j=i+1; j<n; j++){
                 txn2 = history.transactions.get(j);
-                if(txn1.commitTimestamp < txn2.startTimestamp){
+                if(txn1.commitTimestamp.compareTo(txn2.startTimestamp) < 0){
                     addRelation(i, j);
                 }
             }

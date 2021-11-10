@@ -1,4 +1,6 @@
 import CycleChecker.CycleChecker;
+import DSG.DirectSerializationGraph;
+import Exceptions.DSGInvalidException;
 import Exceptions.HistoryInvalidException;
 import Exceptions.RelationInvalidException;
 import History.WiredTiger.WiredTigerHistory;
@@ -7,14 +9,16 @@ import History.WiredTiger.WiredTigerHistoryReader;
 import Relation.*;
 
 public class WTSIChecker {
-    public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException {
-        for(int i=0 ; i<1 ;i++){
+    public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException {
+        for(int i=0 ; i<10 ;i++){
             System.out.println("========== Testing History " + i + "===========");
             String BASE = "/media/young/Education/Programs/Java-Programs/Snapshot-Isolation-Checker-Java/src/main/resources/data-1022/" + i + "/";
             String URLHistory = BASE + "history.edn";
             String URLWTLog = BASE + "wiredtiger.log";
 
             WiredTigerHistory history = WiredTigerHistoryReader.readHistory(URLHistory, URLWTLog);
+            DirectSerializationGraph<WiredTigerTransaction> dsg = new DirectSerializationGraph<WiredTigerTransaction>(history);
+            dsg.checkSI("StrongSI");
             int nTransaction = history.transactions.size();
 
             ReturnBefore RB = new ReturnBefore(nTransaction);

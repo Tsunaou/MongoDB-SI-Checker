@@ -13,8 +13,8 @@ public class History<Txn extends Transaction> {
     public ArrayList<Txn> writeTransactions;
 
     public HashMap<Long, ArrayList<Txn>> keyWritesMap; // key: key, value: the transactions which have written into the key
-    public HashMap<List<Integer>, ArrayList<Txn>> kvWritesMap = new HashMap<>();
-    public HashMap<List<Integer>, ArrayList<Txn>> kvReadsMap = new HashMap<>();
+    public HashMap<List<Integer>, ArrayList<Txn>> kvWritesMap;
+    public HashMap<List<Integer>, ArrayList<Txn>> kvReadsMap;
 
     public History(ArrayList<Txn> transactions) throws HistoryInvalidException {
         this.transactions = transactions;
@@ -88,9 +88,9 @@ public class History<Txn extends Transaction> {
     }
 
     protected void sortTransactions() {
-        this.transactions.sort(Comparator.comparingLong(o -> o.commitTimestamp));
-        this.readOnlyTransactions.sort(Comparator.comparingLong(o -> o.commitTimestamp));
-        this.writeTransactions.sort(Comparator.comparingLong(o -> o.commitTimestamp));
+        this.transactions.sort(Comparator.comparing(o -> o.commitTimestamp));
+        this.readOnlyTransactions.sort(Comparator.comparing(o -> o.commitTimestamp));
+        this.writeTransactions.sort(Comparator.comparing(o -> o.commitTimestamp));
     }
 
     protected void checkHistoryValid() throws HistoryInvalidException {
