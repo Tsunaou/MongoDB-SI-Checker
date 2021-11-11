@@ -1,0 +1,333 @@
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java -javaagent:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/lib/idea_rt.jar=45959:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/bin -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/media/young/Education/Programs/Java-Programs/Snapshot-Isolation-Checker-Java/target/classes:/home/young/.m2/repository/us/bpsm/edn-java/0.7.1/edn-java-0.7.1.jar:/home/young/.m2/repository/org/jgrapht/jgrapht-core/1.4.0/jgrapht-core-1.4.0.jar:/home/young/.m2/repository/org/jheaps/jheaps/0.11/jheaps-0.11.jar:/home/young/.m2/repository/com/alibaba/fastjson/1.2.75/fastjson-1.2.75.jar MongoDBSIChecker
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T072335.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6265
+Count: 6265 Size:6265
+Start Checking Cyclic, n=6265
+Count: 6265 Size:6265
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6265
+Count: 6265 Size:6265
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T094048.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=5525
+Count: 5525 Size:5525
+Start Checking Cyclic, n=5525
+Count: 5525 Size:5525
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=5525
+Count: 5525 Size:5525
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T091728.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6841
+Count: 6841 Size:6841
+Start Checking Cyclic, n=6841
+Count: 6841 Size:6841
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6841
+Count: 6841 Size:6841
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T074851.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=5843
+Count: 5843 Size:5843
+Start Checking Cyclic, n=5843
+Count: 5843 Size:5843
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=5843
+Count: 5843 Size:5843
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T075409.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6911
+Count: 6911 Size:6911
+Start Checking Cyclic, n=6911
+Count: 6911 Size:6911
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6911
+Count: 6911 Size:6911
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T074610.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6747
+Count: 6747 Size:6747
+Start Checking Cyclic, n=6747
+Count: 6747 Size:6747
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6747
+Count: 6747 Size:6747
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T071812.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=5699
+Count: 5699 Size:5699
+Start Checking Cyclic, n=5699
+Count: 5699 Size:5699
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=5699
+Count: 5699 Size:5699
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T093809.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6464
+Count: 6464 Size:6464
+Start Checking Cyclic, n=6464
+Count: 6464 Size:6464
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6464
+Count: 6464 Size:6464
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T090915.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=7074
+Count: 7074 Size:7074
+Start Checking Cyclic, n=7074
+Count: 7074 Size:7074
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=7074
+Count: 7074 Size:7074
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T092949.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6800
+Count: 6800 Size:6800
+Start Checking Cyclic, n=6800
+Count: 6800 Size:6800
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6800
+Count: 6800 Size:6800
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T071226.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6055
+Count: 6055 Size:6055
+Start Checking Cyclic, n=6055
+Count: 6055 Size:6055
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6055
+Count: 6055 Size:6055
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T094543.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6600
+Count: 6600 Size:6600
+Start Checking Cyclic, n=6600
+Count: 6600 Size:6600
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6600
+Count: 6600 Size:6600
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T094823.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=5471
+Count: 5471 Size:5471
+Start Checking Cyclic, n=5471
+Count: 5471 Size:5471
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=5471
+Count: 5471 Size:5471
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T074251.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6739
+Count: 6739 Size:6739
+Start Checking Cyclic, n=6739
+Count: 6739 Size:6739
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6739
+Count: 6739 Size:6739
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T092420.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6378
+Count: 6378 Size:6378
+Start Checking Cyclic, n=6378
+Count: 6378 Size:6378
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6378
+Count: 6378 Size:6378
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T072053.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6760
+Count: 6760 Size:6760
+Start Checking Cyclic, n=6760
+Count: 6760 Size:6760
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6760
+Count: 6760 Size:6760
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T093531.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6527
+Count: 6527 Size:6527
+Start Checking Cyclic, n=6527
+Count: 6527 Size:6527
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6527
+Count: 6527 Size:6527
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T073955.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6713
+Count: 6713 Size:6713
+Start Checking Cyclic, n=6713
+Count: 6713 Size:6713
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6713
+Count: 6713 Size:6713
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T091433.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=5699
+Count: 5699 Size:5699
+Start Checking Cyclic, n=5699
+Count: 5699 Size:5699
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=5699
+Count: 5699 Size:5699
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T071508.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6191
+Count: 6191 Size:6191
+Start Checking Cyclic, n=6191
+Count: 6191 Size:6191
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6191
+Count: 6191 Size:6191
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T073707.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6525
+Count: 6525 Size:6525
+Start Checking Cyclic, n=6525
+Count: 6525 Size:6525
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6525
+Count: 6525 Size:6525
+The Relation is Session-SI
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T091155.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=6853
+Count: 6853 Size:6853
+Start Checking Cyclic, n=6853
+Count: 6853 Size:6853
+The history is Session-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=6853
+Count: 6853 Size:6853
+The Relation is Session-SI
+
+Process finished with exit code 0

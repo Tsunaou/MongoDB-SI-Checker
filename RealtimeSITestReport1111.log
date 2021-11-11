@@ -1,0 +1,303 @@
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java -javaagent:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/lib/idea_rt.jar=39165:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/bin -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/media/young/Education/Programs/Java-Programs/Snapshot-Isolation-Checker-Java/target/classes:/home/young/.m2/repository/us/bpsm/edn-java/0.7.1/edn-java-0.7.1.jar:/home/young/.m2/repository/org/jgrapht/jgrapht-core/1.4.0/jgrapht-core-1.4.0.jar:/home/young/.m2/repository/org/jheaps/jheaps/0.11/jheaps-0.11.jar:/home/young/.m2/repository/com/alibaba/fastjson/1.2.75/fastjson-1.2.75.jar MongoDBSIChecker
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T133802.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=17043
+Count: 17043 Size:17043
+Start Checking Cyclic, n=17043
+Count: 17043 Size:17043
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=17043
+Count: 17043 Size:17043
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T133232.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=17196
+Count: 17196 Size:17196
+Start Checking Cyclic, n=17196
+Count: 17196 Size:17196
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=17196
+Count: 17196 Size:17196
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T125857.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=19069
+Count: 19069 Size:19069
+Start Checking Cyclic, n=19069
+Count: 19069 Size:19069
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=19069
+Count: 19069 Size:19069
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T134250.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=18390
+Count: 18390 Size:18390
+Start Checking Cyclic, n=18390
+Count: 18390 Size:18390
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=18390
+Count: 18390 Size:18390
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T132519.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=17302
+Count: 17302 Size:17302
+Start Checking Cyclic, n=17302
+Count: 17302 Size:17302
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=17302
+Count: 17302 Size:17302
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T134514.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=18113
+Count: 18113 Size:18113
+Start Checking Cyclic, n=18113
+Count: 18113 Size:18113
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=18113
+Count: 18113 Size:18113
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T133455.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=17912
+Count: 17912 Size:17912
+Start Checking Cyclic, n=17912
+Count: 17912 Size:17912
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=17912
+Count: 17912 Size:17912
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T133008.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=17356
+Count: 17356 Size:17356
+Start Checking Cyclic, n=17356
+Count: 17356 Size:17356
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=17356
+Count: 17356 Size:17356
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T130345.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=17680
+Count: 17680 Size:17680
+Start Checking Cyclic, n=17680
+Count: 17680 Size:17680
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=17680
+Count: 17680 Size:17680
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T130121.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=18050
+Count: 18050 Size:18050
+Start Checking Cyclic, n=18050
+Count: 18050 Size:18050
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=18050
+Count: 18050 Size:18050
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T142038.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=13994
+Count: 13994 Size:13994
+Start Checking Cyclic, n=13994
+Count: 13994 Size:13994
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=13994
+Count: 13994 Size:13994
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T131102.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=18012
+Count: 18012 Size:18012
+Start Checking Cyclic, n=18012
+Count: 18012 Size:18012
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=18012
+Count: 18012 Size:18012
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T142302.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=14112
+Count: 14112 Size:14112
+Start Checking Cyclic, n=14112
+Count: 14112 Size:14112
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=14112
+Count: 14112 Size:14112
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T134026.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=17729
+Count: 17729 Size:17729
+Start Checking Cyclic, n=17729
+Count: 17729 Size:17729
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=17729
+Count: 17729 Size:17729
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T130611.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=18870
+Count: 18870 Size:18870
+Start Checking Cyclic, n=18870
+Count: 18870 Size:18870
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=18870
+Count: 18870 Size:18870
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T132742.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=17906
+Count: 17906 Size:17906
+Start Checking Cyclic, n=17906
+Count: 17906 Size:17906
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=17906
+Count: 17906 Size:17906
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T125634.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=15347
+Count: 15347 Size:15347
+Start Checking Cyclic, n=15347
+Count: 15347 Size:15347
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=15347
+Count: 15347 Size:15347
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T131327.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=16430
+Count: 16430 Size:16430
+Start Checking Cyclic, n=16430
+Count: 16430 Size:16430
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=16430
+Count: 16430 Size:16430
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T130835.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=16786
+Count: 16786 Size:16786
+Start Checking Cyclic, n=16786
+Count: 16786 Size:16786
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=16786
+Count: 16786 Size:16786
+The Relation is Realtime-SI
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211111T125357.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Start Checking Cyclic, n=14319
+Count: 14319 Size:14319
+Start Checking Cyclic, n=14319
+Count: 14319 Size:14319
+The history is Realtime-SI but not serializable by checking DSG
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=14319
+Count: 14319 Size:14319
+The Relation is Realtime-SI
+
+Process finished with exit code 0

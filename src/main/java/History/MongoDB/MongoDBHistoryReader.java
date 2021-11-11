@@ -146,6 +146,9 @@ public class MongoDBHistoryReader extends HistoryReader {
                         System.out.println(txnNumber);
                         continue;
                     }
+                    if(txn == null){
+                        throw new HistoryInvalidException("Some timeout write actually executed");
+                    }
 
                     txn.txnNumber = Long.parseLong(txnNumber);
                     long time = ts.getLong(0);
