@@ -33,7 +33,9 @@ public class DirectSerializationGraph<Txn extends Transaction> {
     public HashMap<Long, Register<Txn>> registerByKey;
     public HashMap<List<Long>, Register<Txn>> kvToRegister;
 
-    public DirectSerializationGraph(History<Txn> history) throws RelationInvalidException, DSGInvalidException {
+    public CommitBefore<Txn> AR;
+
+    public DirectSerializationGraph(History<Txn> history, CommitBefore<Txn> AR) throws RelationInvalidException, DSGInvalidException {
         this.history = history;
         int n = history.transactions.size();
 
@@ -61,8 +63,11 @@ public class DirectSerializationGraph<Txn extends Transaction> {
         }
 
         // 3. Get total order
-        CommitBefore<Txn> AR = new CommitBefore<Txn>(n);
-        AR.calculateRelation(history);
+        this.AR = AR;
+        if(AR == null){
+            AR = new CommitBefore<Txn>(n);
+            AR.calculateRelation(history);
+        }
 
         // 4. Sort transactions on each key by arbitration order
         // TODO: now we use commitTimestamp as arbitration order
@@ -130,6 +135,7 @@ public class DirectSerializationGraph<Txn extends Transaction> {
      * @return whether H exhibits G0
      */
     boolean containsG0() throws RelationInvalidException {
+        System.out.println("Checking GO: Write Cycles(ww).");
         int n = history.transactions.size();
         Relation<Txn> R = new Relation<Txn>(n);
         R.union(ww);
@@ -140,7 +146,7 @@ public class DirectSerializationGraph<Txn extends Transaction> {
             n = cycles.size();
             System.out.println(history.transactions.get(cycles.get(0)));
             for (int i = 1; i < n; i++) {
-                if (ww.relation[cycles.get(i - 1)][cycles.get(i)]) {
+                if (ww.relation.get(cycles.get(i - 1), cycles.get(i))) {
                     System.out.println("W W");
                 }
                 System.out.println(history.transactions.get(cycles.get(i)));
@@ -161,6 +167,7 @@ public class DirectSerializationGraph<Txn extends Transaction> {
      * @return whether H exhibits G1
      */
     boolean containsG1() throws RelationInvalidException {
+        System.out.println("Checking G1c: Circular Information Flow(ww or wr).");
         int n = history.transactions.size();
         Relation<Txn> R = new Relation<Txn>(n);
         R.union(ww);
@@ -172,10 +179,10 @@ public class DirectSerializationGraph<Txn extends Transaction> {
             n = cycles.size();
             System.out.println(history.transactions.get(cycles.get(0)));
             for (int i = 1; i < n; i++) {
-                if (ww.relation[cycles.get(i - 1)][cycles.get(i)]) {
+                if (ww.relation.get(cycles.get(i - 1), cycles.get(i))) {
                     System.out.println("W W");
                 }
-                if (wr.relation[cycles.get(i - 1)][cycles.get(i)]) {
+                if (wr.relation.get(cycles.get(i - 1), cycles.get(i))) {
                     System.out.println("W R");
                 }
                 System.out.println(history.transactions.get(cycles.get(i)));
@@ -193,6 +200,7 @@ public class DirectSerializationGraph<Txn extends Transaction> {
      * @return
      */
     boolean containsG2() throws RelationInvalidException {
+        System.out.println("Checking G2: Write Cycles(rw).");
         int n = history.transactions.size();
         Relation<Txn> R = new Relation<Txn>(n);
         R.union(ww);
@@ -205,13 +213,13 @@ public class DirectSerializationGraph<Txn extends Transaction> {
             n = cycles.size();
             System.out.println(history.transactions.get(cycles.get(0)));
             for (int i = 1; i < n; i++) {
-                if (ww.relation[cycles.get(i - 1)][cycles.get(i)]) {
+                if (ww.relation.get(cycles.get(i - 1), cycles.get(i))) {
                     System.out.println("W W");
                 }
-                if (wr.relation[cycles.get(i - 1)][cycles.get(i)]) {
+                if (wr.relation.get(cycles.get(i - 1), cycles.get(i))) {
                     System.out.println("W R");
                 }
-                if (rw.relation[cycles.get(i - 1)][cycles.get(i)]) {
+                if (rw.relation.get(cycles.get(i - 1), cycles.get(i))) {
                     System.out.println("R W");
                 }
                 System.out.println(history.transactions.get(cycles.get(i)));
@@ -283,7 +291,7 @@ public class DirectSerializationGraph<Txn extends Transaction> {
         String URLWTLog = Finals.URLWTLog;
 
         WiredTigerHistory history = WiredTigerHistoryReader.readHistory(URLHistory, URLWTLog);
-        DirectSerializationGraph<WiredTigerTransaction> dsg = new DirectSerializationGraph<WiredTigerTransaction>(history);
+        DirectSerializationGraph<WiredTigerTransaction> dsg = new DirectSerializationGraph<WiredTigerTransaction>(history, null);
 
         dsg.checkSI("Strong-SI");
     }
@@ -294,7 +302,7 @@ public class DirectSerializationGraph<Txn extends Transaction> {
         String URLOplog = BASE + "txns.json";
         String URLMongodLog = BASE + "mongod.json";
         MongoDBHistory history = MongoDBHistoryReader.readHistory(URLHistory, URLOplog, URLMongodLog);
-        DirectSerializationGraph<MongoDBTransaction> dsg = new DirectSerializationGraph<MongoDBTransaction>(history);
+        DirectSerializationGraph<MongoDBTransaction> dsg = new DirectSerializationGraph<MongoDBTransaction>(history, null);
         dsg.checkSI("Realtime-SI/Session-SI");
     }
 

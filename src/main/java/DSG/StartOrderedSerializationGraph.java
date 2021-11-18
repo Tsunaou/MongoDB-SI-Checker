@@ -16,8 +16,8 @@ public class StartOrderedSerializationGraph<Txn extends Transaction> extends Dir
 
     public CommitBefore<Txn> CB;
 
-    public StartOrderedSerializationGraph(History<Txn> history) throws RelationInvalidException, DSGInvalidException {
-        super(history);
+    public StartOrderedSerializationGraph(History<Txn> history, CommitBefore<Txn> AR) throws RelationInvalidException, DSGInvalidException {
+        super(history, AR);
         CB = new CommitBefore<Txn>(history.transactions.size());
     }
 
@@ -37,10 +37,10 @@ public class StartOrderedSerializationGraph<Txn extends Transaction> extends Dir
         CB.calculateRelation(history);
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
-                if ((ww.relation[i][j] | wr.relation[i][j]) & CB.relation[j][i]) {
+                if ((ww.relation.get(i, j) | wr.relation.get(i, j)) & CB.relation.get(j, i)) {
                     return true;
                 }
-                if ((ww.relation[j][i] | wr.relation[j][i]) & CB.relation[i][j]) {
+                if ((ww.relation.get(j, i) | wr.relation.get(j ,i)) & CB.relation.get(i, j)) {
                     return true;
                 }
             }
@@ -69,7 +69,7 @@ public class StartOrderedSerializationGraph<Txn extends Transaction> extends Dir
         String URLWTLog = Finals.URLWTLog;
 
         WiredTigerHistory history = WiredTigerHistoryReader.readHistory(URLHistory, URLWTLog);
-        StartOrderedSerializationGraph<WiredTigerTransaction> ssg = new StartOrderedSerializationGraph<WiredTigerTransaction>(history);
+        StartOrderedSerializationGraph<WiredTigerTransaction> ssg = new StartOrderedSerializationGraph<WiredTigerTransaction>(history, null);
 
         System.out.println(ssg.containsGSI());
     }

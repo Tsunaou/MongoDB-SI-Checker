@@ -34,6 +34,8 @@ public class TidBefore extends Relation<WiredTigerTransaction> {
                     }
                     if ((txn1.tid < txn2.tid) ^ (txn1.commitTimestamp.compareTo(txn2.commitTimestamp) < 0)) {
                         // xor
+                        System.out.println(txn1);
+                        System.out.println(txn2);
                         throw new RelationInvalidException("Conflict with Lemma 10");
                     }
                 }

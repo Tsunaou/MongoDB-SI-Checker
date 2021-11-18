@@ -18,23 +18,25 @@ public class MongoDBSIChecker {
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history for " + SIVariant + " at " + urlHistory);
         MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
-        DirectSerializationGraph<MongoDBTransaction> dsg = new DirectSerializationGraph<MongoDBTransaction>(history);
-        dsg.checkSI(SIVariant);
-        int nTransaction = history.transactions.size();
 
+        int nTransaction = history.transactions.size();
+        Relation<MongoDBTransaction> R = new Relation<MongoDBTransaction>(nTransaction);
 
         CommitBefore<MongoDBTransaction> CB = new CommitBefore<MongoDBTransaction>(nTransaction);
-        ReturnBefore<MongoDBTransaction> RB = new ReturnBefore<MongoDBTransaction>(nTransaction);
-        ReadFrom<MongoDBTransaction> RF = new ReadFrom<MongoDBTransaction>(nTransaction);
-
         CB.calculateRelation(history);
-        RB.calculateRelation(history);
-        RF.calculateRelation(history);
-
-        Relation<MongoDBTransaction> R = new Relation<MongoDBTransaction>(nTransaction);
         R.union(CB);
+
+//        DirectSerializationGraph<MongoDBTransaction> dsg = new DirectSerializationGraph<MongoDBTransaction>(history, CB);
+//        dsg.checkSI(SIVariant);
+
+        ReturnBefore<MongoDBTransaction> RB = new ReturnBefore<MongoDBTransaction>(nTransaction);
+        RB.calculateRelation(history);
         R.union(RB);
+
+        ReadFrom<MongoDBTransaction> RF = new ReadFrom<MongoDBTransaction>(nTransaction);
+        RF.calculateRelation(history);
         R.union(RF);
+
 
         if (CycleChecker.topoCycleChecker(R.relation)) {
             System.out.println("The Relation is Cyclic");
@@ -42,10 +44,10 @@ public class MongoDBSIChecker {
             int n = cycles.size();
             System.out.println(history.transactions.get(cycles.get(0)));
             for (int i = 1; i < n; i++) {
-                if (CB.relation[cycles.get(i - 1)][cycles.get(i)]) {
+                if (CB.relation.get(cycles.get(i - 1), cycles.get(i))) {
                     System.out.println("Commit Before");
                 }
-                if (RF.relation[cycles.get(i - 1)][cycles.get(i)]) {
+                if (RF.relation.get(cycles.get(i - 1), cycles.get(i))) {
                     System.out.println("Read From");
                 }
                 System.out.println(history.transactions.get(cycles.get(i)));
@@ -55,12 +57,15 @@ public class MongoDBSIChecker {
         }
     }
 
-    public static void checkAll() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
+    public static void checkAll() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException{
+        checkAll("/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store");
+    }
+
+    public static void checkAll(String base) throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
         String URLHistory;
         String URLOplog;
         String URLMongodLog;
 
-        String base = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store";
         File store = new File(base);
         HashMap<String, String> keyVariant = new HashMap<>();
         keyVariant.put("sharded", "Session-SI");
@@ -100,7 +105,7 @@ public class MongoDBSIChecker {
     }
 
     public static void checkSample() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
-        String base = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority r:majority tw:majority tr:snapshot partition/20211111T072636.000Z/";
+        String base = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/";
         String URLHistory = base + "history.edn";
         String URLOplog = base + "txns.json";
         String URLMongodLog = base + "mongod.json";
@@ -114,8 +119,12 @@ public class MongoDBSIChecker {
     }
 
     public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException {
-//        checkLatest();
-        checkAll();
-//        checkSample();
+        if(args.length == 0){
+            checkAll();
+        }else{
+            System.out.println("args is " + Arrays.toString(args));
+            String base = args[0];
+            checkAll(base);
+        }
     }
 }

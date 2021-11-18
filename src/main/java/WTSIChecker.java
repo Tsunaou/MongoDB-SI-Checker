@@ -8,41 +8,119 @@ import History.WiredTiger.WiredTigerTransaction;
 import History.WiredTiger.WiredTigerHistoryReader;
 import Relation.*;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 public class WTSIChecker {
-    public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException {
-        for(int i=0 ; i<10 ;i++){
+
+    public static void CheckSI(String urlHistory, String urlWtLog) throws HistoryInvalidException, DSGInvalidException, RelationInvalidException {
+        long begin = System.currentTimeMillis();
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Checking history for Strong-SI at " + urlHistory);
+        WiredTigerHistory history = WiredTigerHistoryReader.readHistory(urlHistory, urlWtLog);
+
+        int nTransaction = history.transactions.size();
+        Relation<WiredTigerTransaction> R = new Relation<WiredTigerTransaction>(nTransaction);
+
+        CommitBefore<WiredTigerTransaction> CB = new CommitBefore<WiredTigerTransaction>(nTransaction);
+        CB.calculateRelation(history);
+        R.union(CB);
+
+        ReturnBefore<WiredTigerTransaction> RB = new ReturnBefore<WiredTigerTransaction>(nTransaction);
+        RB.calculateRelation(history);
+        R.union(RB);
+
+        ReadFrom<WiredTigerTransaction> RF = new ReadFrom<WiredTigerTransaction>(nTransaction);
+        RF.calculateRelation(history);
+        R.union(RF);
+
+        TidBefore TB = new TidBefore(nTransaction);
+        TB.calculateRelation(history);
+        R.union(TB);
+//        DirectSerializationGraph<WiredTigerTransaction> dsg = new DirectSerializationGraph<WiredTigerTransaction>(history, CB);
+//        dsg.checkSI("StrongSI");
+
+        if (CycleChecker.topoCycleChecker(R.relation)) {
+            System.out.println("The Relation is Cyclic");
+        } else {
+            System.out.println("The Relation is StrongSI");
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("Cost " + (end - begin) + " ms");
+    }
+
+    public static void checkResource() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
+        for (int i = 0; i < 10; i++) {
             System.out.println("========== Testing History " + i + "===========");
             String BASE = "/media/young/Education/Programs/Java-Programs/Snapshot-Isolation-Checker-Java/src/main/resources/data-1022/" + i + "/";
             String URLHistory = BASE + "history.edn";
             String URLWTLog = BASE + "wiredtiger.log";
+            CheckSI(URLHistory, URLWTLog);
+        }
+    }
 
-            WiredTigerHistory history = WiredTigerHistoryReader.readHistory(URLHistory, URLWTLog);
-            DirectSerializationGraph<WiredTigerTransaction> dsg = new DirectSerializationGraph<WiredTigerTransaction>(history);
-            dsg.checkSI("StrongSI");
-            int nTransaction = history.transactions.size();
+    public static void checkAll() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
 
-            ReturnBefore RB = new ReturnBefore(nTransaction);
-            CommitBefore<WiredTigerTransaction> CB = new CommitBefore<WiredTigerTransaction>(nTransaction);
-            ReadFrom<WiredTigerTransaction> RF = new ReadFrom<WiredTigerTransaction>(nTransaction);
-            TidBefore TB = new TidBefore(nTransaction);
+        String URLHistory;
+        String URLWTLog;
 
-            RB.calculateRelation(history);
-            CB.calculateRelation(history);
-            RF.calculateRelation(history);
-            TB.calculateRelation(history);
+        String base = "/home/young/DisAlg/jepsen.wiredtiger/store";
+        File store = new File(base);
+        HashMap<String, String> keyVariant = new HashMap<>();
+        keyVariant.put("register", "Strong-SI");
 
-            Relation<WiredTigerTransaction> R = new Relation<WiredTigerTransaction>(nTransaction);
-            R.union(RB);
-            R.union(CB);
-            R.union(RF);
-            R.union(TB);
+        for (File file : Objects.requireNonNull(store.listFiles())) {
+            for (Map.Entry<String, String> entry : keyVariant.entrySet()) {
+                String keyword = entry.getKey();
+                String variant = entry.getValue();
+                if (file.isDirectory() && file.getPath().contains(keyword)) {
+                    for (File data : Objects.requireNonNull(file.listFiles())) {
+                        if (data.isDirectory() && !data.getPath().contains("latest")) {
+                            URLHistory = data.getPath() + "/history.edn";
+                            URLWTLog = data.getPath() + "/wiredtiger.log";
 
-            if(CycleChecker.topoCycleChecker(R.relation)){
-                System.out.println("The Relation is Cyclic");
-            }else{
-                System.out.println("The Relation is StrongSI");
+                            if (new File(URLHistory).exists() && new File(URLWTLog).exists()) {
+                                try {
+                                    CheckSI(URLHistory, URLWTLog);
+                                } catch (RelationInvalidException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
+    }
 
+    public static void checkSample() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
+        String BASE = "/home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger:rw-register/20211115T194949.000+0800/";
+        String URLHistory = BASE + "history.edn";
+        String URLWTLog = BASE + "wiredtiger.log";
+        try {
+            CheckSI(URLHistory, URLWTLog);
+        } catch (RelationInvalidException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void checkLatest() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
+        String BASE = "/home/young/DisAlg/jepsen.wiredtiger/store/latest/";
+        String URLHistory = BASE + "history.edn";
+        String URLWTLog = BASE + "wiredtiger.log";
+        try {
+            CheckSI(URLHistory, URLWTLog);
+        } catch (RelationInvalidException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException {
+//        checkSample();
+        checkAll();
+//        checkLatest();
+//        checkResource();
     }
 }
