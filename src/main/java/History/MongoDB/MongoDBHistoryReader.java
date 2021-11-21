@@ -164,8 +164,11 @@ public class MongoDBHistoryReader extends HistoryReader {
         // 4. Merge information
         MongoDBTransaction txn = null;
         for(OplogTxn oplogTxn: oplogHistory.txns){
+            if(oplogTxn.ops.isEmpty()){
+                // TODO: Figure out why there are transactions committed but no operations(may be read only transactions)
+                continue;
+            }
             Operation op = oplogTxn.ops.get(0);
-//            System.out.println(oplogTxn);
             int idx;
             try{
                 idx = KVTxnMap.get(Arrays.asList(op.key, op.value));

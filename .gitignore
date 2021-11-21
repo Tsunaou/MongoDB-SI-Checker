@@ -116,3 +116,4 @@ gen
 hs_err_pid*
 
 !/src/main/resources/example/wiredtiger.log
+/src/main/resources/store-1120/sharded-cluster/
