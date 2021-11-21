@@ -16,7 +16,7 @@
     </properties>
 
     <build>
-        <finalName>Causal-Memory-Checking-Java</finalName>
+        <finalName>MongoDB-SI-Checker</finalName>
         <plugins>
             <plugin>
                 <!-- 指定maven编译的jdk版本,如果不指定,maven3默认用jdk 1.5 maven2默认用jdk1.3 -->
