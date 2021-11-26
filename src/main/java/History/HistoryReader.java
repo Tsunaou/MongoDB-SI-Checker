@@ -16,4 +16,11 @@ public class HistoryReader {
     public static Keyword sessionInfo = newKeyword("session-info");
     public static Keyword uuid = newKeyword("uuid");
 
+    // For results.edn
+    public static Keyword stats = newKeyword("stats");
+    public static Keyword count = newKeyword("count");
+    public static Keyword okCount = newKeyword("ok-count");
+    public static Keyword failCount = newKeyword("fail-count");
+    public static Keyword infoCount = newKeyword("info-count");
+
 }

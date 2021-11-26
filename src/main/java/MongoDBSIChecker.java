@@ -6,6 +6,7 @@ import Exceptions.RelationInvalidException;
 import History.MongoDB.MongoDBHistory;
 import History.MongoDB.MongoDBHistoryReader;
 import History.MongoDB.MongoDBTransaction;
+import History.ResultReader;
 import Relation.*;
 import TestUtil.Finals;
 
@@ -14,7 +15,8 @@ import java.util.*;
 
 public class MongoDBSIChecker {
 
-    public static void checkSI(String urlHistory, String urlOplog, String urlMongodLog, String SIVariant) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException, NullPointerException {
+    public static void checkSI(String urlHistory, String urlOplog, String urlMongodLog, String urlResults, String SIVariant) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException, NullPointerException {
+        long begin = System.currentTimeMillis();
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history for " + SIVariant + " at " + urlHistory);
         MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
@@ -55,9 +57,11 @@ public class MongoDBSIChecker {
         } else {
             System.out.println("The Relation is " + SIVariant);
         }
+        long end = System.currentTimeMillis();
+        System.out.println("Cost " + (end - begin) + " ms");
     }
 
-    public static void checkAll() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException{
+    public static void checkAll() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
         checkAll("/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store");
     }
 
@@ -65,6 +69,7 @@ public class MongoDBSIChecker {
         String URLHistory;
         String URLOplog;
         String URLMongodLog;
+        String URLResults;
 
         File store = new File(base);
         HashMap<String, String> keyVariant = new HashMap<>();
@@ -81,13 +86,17 @@ public class MongoDBSIChecker {
                             URLHistory = data.getPath() + "/history.edn";
                             URLOplog = data.getPath() + "/txns.json";
                             URLMongodLog = data.getPath() + "/mongod.json";
+                            URLResults = data.getPath() + "/results.edn";
 
                             if (new File(URLHistory).exists() && new File(URLOplog).exists()) {
                                 try {
-                                    checkSI(URLHistory, URLOplog, URLMongodLog, variant);
+                                    checkSI(URLHistory, URLOplog, URLMongodLog, URLResults, variant);
                                 } catch (NullPointerException | HistoryInvalidException e) {
                                     e.printStackTrace();
                                 }
+                            }
+                            if (new File(URLResults).exists()) {
+                                ResultReader.report(URLResults);
                             }
                         }
                     }
@@ -101,7 +110,8 @@ public class MongoDBSIChecker {
         String URLHistory = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/history.edn";
         String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/txns.json";
         String URLMongodLog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/mongod.json";
-        checkSI(URLHistory, URLOplog, URLMongodLog, "Session-SI");
+        String URLResults = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/results.json";
+        checkSI(URLHistory, URLOplog, URLMongodLog, URLResults, "Session-SI");
     }
 
     public static void checkSample() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
@@ -109,9 +119,10 @@ public class MongoDBSIChecker {
         String URLHistory = base + "history.edn";
         String URLOplog = base + "txns.json";
         String URLMongodLog = base + "mongod.json";
+        String URLResults = base + "results.json";
         if (new File(URLHistory).exists() && new File(URLOplog).exists()) {
             try {
-                checkSI(URLHistory, URLOplog, URLMongodLog, "Session-SI");
+                checkSI(URLHistory, URLOplog, URLMongodLog, URLResults, "Session-SI");
             } catch (NullPointerException | HistoryInvalidException e) {
                 e.printStackTrace();
             }
@@ -119,9 +130,9 @@ public class MongoDBSIChecker {
     }
 
     public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException {
-        if(args.length == 0){
+        if (args.length == 0) {
             checkAll();
-        }else{
+        } else {
             System.out.println("args is " + Arrays.toString(args));
             String base = args[0];
             checkAll(base);
