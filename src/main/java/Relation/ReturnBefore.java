@@ -22,7 +22,7 @@ public class ReturnBefore<Txn extends Transaction> extends Relation<Txn> {
             txn1 = history.transactions.get(i);
             for(int j=i+1; j<n; j++){
                 txn2 = history.transactions.get(j);
-                if(txn1.commitTimestamp.compareTo(txn2.startTimestamp) < 0){
+                if(txn1.commitTimestamp.compareTo(txn2.startTimestamp) <= 0){
                     addRelation(i, j);
                 }
             }

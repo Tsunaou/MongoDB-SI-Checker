@@ -15,6 +15,12 @@ import java.util.*;
 
 public class MongoDBSIChecker {
 
+    public static void checkHistoryValid(String urlHistory, String urlOplog, String urlMongodLog, String urlResults, String SIVariant) throws HistoryInvalidException, RelationInvalidException, NullPointerException {
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Checking history valid for " + SIVariant + " at " + urlHistory);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
+    }
+
     public static void checkSI(String urlHistory, String urlOplog, String urlMongodLog, String urlResults, String SIVariant) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException, NullPointerException {
         long begin = System.currentTimeMillis();
         System.out.println("---------------------------------------------------------------------------------");

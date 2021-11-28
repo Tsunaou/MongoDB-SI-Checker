@@ -9,6 +9,7 @@ import History.WiredTiger.WiredTigerHistoryReader;
 import Relation.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -52,9 +53,11 @@ public class WTSIChecker {
     }
 
     public static void checkResource() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
-        for (int i = 0; i < 10; i++) {
+        String resources = Objects.requireNonNull(WTSIChecker.class.getResource("/")).getPath();
+        System.out.println(resources);
+        for (int i = 0; i < 1; i++) {
             System.out.println("========== Testing History " + i + "===========");
-            String BASE = "/media/young/Education/Programs/Java-Programs/Snapshot-Isolation-Checker-Java/src/main/resources/data-1022/" + i + "/";
+            String BASE = resources + "data-1022/" + i + "/";
             String URLHistory = BASE + "history.edn";
             String URLWTLog = BASE + "wiredtiger.log";
             CheckSI(URLHistory, URLWTLog);
@@ -119,8 +122,8 @@ public class WTSIChecker {
 
     public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException {
 //        checkSample();
-        checkAll();
+//        checkAll();
 //        checkLatest();
-//        checkResource();
+        checkResource();
     }
 }

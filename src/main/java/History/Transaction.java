@@ -5,6 +5,7 @@ import History.MongoDB.LogicalClock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class Transaction {
     public long process;
@@ -22,6 +23,10 @@ public class Transaction {
 
     public HashMap<Long, ArrayList<Operation>> writesByKey;
     public HashMap<Long, ArrayList<Operation>> readsByKey;
+    public HashMap<Long, ArrayList<Operation>> operationsByKey;
+
+    public HashMap<Long, Operation> firstReadyByKey;
+    public HashMap<Long, Operation> lastWriteByKey;
 
     public Transaction(long process) {
         this.process = process;
@@ -38,27 +43,61 @@ public class Transaction {
 
         this.writesByKey = new HashMap<>();
         this.readsByKey = new HashMap<>();
+        this.operationsByKey = new HashMap<>();
+
+        this.firstReadyByKey = new HashMap<>();
+        this.lastWriteByKey = new HashMap<>();
+    }
+
+    public void calculateRelationsForEXT() {
+        long key;
+        ArrayList<Operation> ops;
+        Operation first, last;
+        // Calculate the last write for key in this transaction
+        for (Map.Entry<Long, ArrayList<Operation>> entry : writesByKey.entrySet()) {
+            key = entry.getKey();
+            ops = entry.getValue();
+            if (ops.isEmpty()) {
+                continue;
+            }
+            last = ops.get(ops.size() - 1);
+            this.lastWriteByKey.put(key, last);
+        }
+
+        // Calculate the first read for key before write
+        for (Map.Entry<Long, ArrayList<Operation>> entry : operationsByKey.entrySet()) {
+            key = entry.getKey();
+            ops = entry.getValue();
+            first = ops.get(0);
+            if(first.type == OPType.write){
+                continue;
+            }
+            this.firstReadyByKey.put(key, first);
+        }
+
+    }
+
+    public void addOpToMapByKey(HashMap<Long, ArrayList<Operation>> maps, Operation op) {
+        if (!maps.containsKey(op.key)) {
+            maps.put(op.key, new ArrayList<>());
+        }
+        maps.get(op.key).add(op);
     }
 
     public void addOperation(Operation op) {
         operations.add(op);
         keySet.add(op.key);
+        this.addOpToMapByKey(operationsByKey, op);
         switch (op.type) {
             case read:
                 reads.add(op);
                 readKeySet.add(op.key);
-                if (!readsByKey.containsKey(op.key)) {
-                    readsByKey.put(op.key, new ArrayList<>());
-                }
-                readsByKey.get(op.key).add(op);
+                this.addOpToMapByKey(readsByKey, op);
                 break;
             case write:
                 writes.add(op);
                 writeKeySet.add(op.key);
-                if (!writesByKey.containsKey(op.key)) {
-                    writesByKey.put(op.key, new ArrayList<>());
-                }
-                writesByKey.get(op.key).add(op);
+                this.addOpToMapByKey(writesByKey, op);
                 break;
             default:
                 System.out.println("[ERROR] TYPE ERROR: Add operation into list failed");
