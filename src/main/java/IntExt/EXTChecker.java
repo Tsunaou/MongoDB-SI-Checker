@@ -90,11 +90,15 @@ public class EXTChecker<Txn extends Transaction> {
     }
 
     public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException {
-        String base = "D:\\Education\\Programs\\Java\\MongoDB-SI-Checker\\src\\main\\resources\\store-1127\\replica\\20211126T140432.000Z\\";
+        String base = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T042110.000Z/";
         String urlHistory = base + "history.edn";
         String urlOplog = base + "txns.json";
         String urlMongodLog = base + "mongod.json";
         MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
+
+        INTChecker<MongoDBTransaction> intChecker = new INTChecker<MongoDBTransaction>();
+        intChecker.checkINT(history);
+
         EXTChecker<MongoDBTransaction> checker = new EXTChecker<MongoDBTransaction>();
         long begin = System.currentTimeMillis();
         if (checker.checkEXT(history)) {

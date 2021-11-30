@@ -1,6 +1,7 @@
 import re
 from files import *
 
+
 class Result(object):
 
     def __init__(self) -> None:
@@ -40,9 +41,12 @@ class Result(object):
         self.satisfy = self.INT and self.EXT
 
     def __str__(self) -> str:
-        return "Checking {} {} count={}, ok={}, fail={}, info={}".format(self.type, self.satisfy, self.count, self.ok,
-                                                                         self.fail,
-                                                                         self.info)
+        return "Checking {} {} count={}, ok={}, fail={}, info={}, time={}".format(self.type, self.satisfy, self.count,
+                                                                                  self.ok,
+                                                                                  self.fail,
+                                                                                  self.info,
+                                                                                  self.time)
+
 
 def new_result_map():
     result_map = {
@@ -100,6 +104,7 @@ def new_result_map():
 
     return result_map
 
+
 if __name__ == '__main__':
     filename = "./output1129"
     with open(filename, "r") as f:
@@ -145,15 +150,57 @@ if __name__ == '__main__':
         result.check()
         results.append(result)
 
-
     ok_result_map = new_result_map()
     unknown_resut_map = new_result_map()
+    ok_count = 0
+    unknown_count = 0
     for res in results:
-        if res.satisfy and not res.exception:
+        if res.satisfy:
             ok_result_map[res.deployment][res.txn_len][res.runtime].append(res)
+            ok_count = ok_count + 1
         else:
             unknown_resut_map[res.deployment][res.txn_len][res.runtime].append(res)
+            unknown_count = unknown_count + 1
 
-    save_obj_pickle(results, "results-1129.pickle")
-    save_obj_pickle(ok_result_map, "ok_result_map-1129.pickle")
-    save_obj_pickle(unknown_resut_map, "unknown_resut_map-1129.pickle")
+    # save_obj_pickle(results, "results-1129.pickle")
+    # save_obj_pickle(ok_result_map, "ok_result_map-1129.pickle")
+    # save_obj_pickle(unknown_resut_map, "unknown_resut_map-1129.pickle")
+
+    for deploy in ok_result_map.keys():
+        deploy_data = ok_result_map.get(deploy)
+        for txn_len in deploy_data.keys():
+            txn_data = deploy_data.get(txn_len)
+            for runtime in txn_data.keys():
+                check_data = txn_data.get(runtime)
+                print("------- {} {} {}----------".format(deploy, txn_len, runtime))
+                all_count = 0
+                all_ok = 0
+                all_fail = 0
+                all_info = 0
+                all_time = 0
+
+                for res in check_data:
+                    # print(res)
+                    all_count = all_count + res.count
+                    all_ok = all_ok + res.ok
+                    all_fail = all_fail + res.fail
+                    all_info = all_info + res.info
+                    all_time = all_time + res.time
+
+                n = len(check_data)
+                avg_count = all_count / n
+                avg_ok = all_ok / n
+                avg_fail = all_fail / n
+                avg_info = all_info / n
+                avg_time = all_time / n
+                print("Check {} txns, avg_count={}, avg_ok={}, avg_info={}, avg_info={}, avg_time={}".format(n,
+                                                                                                             int(
+                                                                                                                 avg_count),
+                                                                                                             int(
+                                                                                                                 avg_ok),
+                                                                                                             int(
+                                                                                                                 avg_fail),
+                                                                                                             int(
+                                                                                                                 avg_info),
+                                                                                                             int(
+                                                                                                                 avg_time)))

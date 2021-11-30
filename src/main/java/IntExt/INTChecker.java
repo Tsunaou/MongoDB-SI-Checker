@@ -2,6 +2,9 @@ package IntExt;
 
 import Exceptions.HistoryInvalidException;
 import History.*;
+import History.MongoDB.MongoDBHistory;
+import History.MongoDB.MongoDBHistoryReader;
+import History.MongoDB.MongoDBTransaction;
 import History.WiredTiger.WiredTigerHistory;
 import History.WiredTiger.WiredTigerHistoryReader;
 import History.WiredTiger.WiredTigerTransaction;
@@ -40,7 +43,7 @@ public class INTChecker<Txn extends Transaction> {
         return true;
     }
 
-    public static void main(String[] args) throws HistoryInvalidException {
+    public static void checkWiredTigerResource() throws HistoryInvalidException{
         String resources = Objects.requireNonNull(INTChecker.class.getResource("/")).getPath();
         INTChecker<WiredTigerTransaction> checker = new INTChecker<WiredTigerTransaction>();
         for (int i = 0; i < 10; i++) {
@@ -55,5 +58,22 @@ public class INTChecker<Txn extends Transaction> {
                 System.out.println("[ERROR] Checking INT Failed");
             }
         }
+    }
+
+    public static void main(String[] args) throws HistoryInvalidException {
+        String base = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211129T091546.000Z/";
+        String urlHistory = base + "history.edn";
+        String urlOplog = base + "txns.json";
+        String urlMongodLog = base + "mongod.json";
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
+        INTChecker<MongoDBTransaction> checker = new INTChecker<MongoDBTransaction>();
+        long begin = System.currentTimeMillis();
+        if (checker.checkINT(history)) {
+            System.out.println("[INFO] Checking EXT Successfully");
+        } else {
+            System.out.println("[ERROR] Checking EXT Failed");
+        }
+        long end = System.currentTimeMillis();
+        System.out.println("Cost " + (end - begin) + " ms");
     }
 }
