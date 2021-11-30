@@ -14,7 +14,10 @@ import java.util.*;
 
 public class EXTChecker<Txn extends Transaction> {
 
-    public boolean checkEXT(History<Txn> history) throws RelationInvalidException {
+    public boolean checkEXT(History<Txn> history) throws RelationInvalidException{
+        return checkEXT(history, false);
+    }
+    public boolean checkEXT(History<Txn> history, boolean fixme) throws RelationInvalidException {
         // Checking EXT
         for (Txn transaction : history.transactions) {
             transaction.calculateRelationsForEXT();
@@ -25,7 +28,7 @@ public class EXTChecker<Txn extends Transaction> {
         CommitBefore<Txn> AR = new CommitBefore<Txn>(nTransaction);
         AR.calculateRelation(history);
 
-        ReturnBefore<Txn> VIS = new ReturnBefore<Txn>(nTransaction);
+        ReturnBefore<Txn> VIS = new ReturnBefore<Txn>(nTransaction, fixme);
         VIS.calculateRelation(history);
 
         // All transactions write into key
@@ -44,10 +47,13 @@ public class EXTChecker<Txn extends Transaction> {
                     continue;
                 }
                 HashSet<Txn> writeTxn = writeTxnByKey.get(key);
-                HashSet<Txn> visTxn = VIS.relationLeft(txn);
-//                System.out.println("writeTxn: " + writeTxn);
-//                System.out.println("visTxn: " + visTxn);
-                visTxn.retainAll(writeTxn); // Intersection
+
+                HashSet<Txn> visTxn = new HashSet<>();
+                for(Txn t: writeTxn){
+                    if(VIS.relation.get(t.index, txn.index)){
+                        visTxn.add(t);
+                    }
+                }
                 if (visTxn.isEmpty()) {
                     continue;
                 }
@@ -72,24 +78,28 @@ public class EXTChecker<Txn extends Transaction> {
         return true;
     }
 
-    void checkWiredTigerResource() throws HistoryInvalidException, RelationInvalidException {
+    public static void checkWiredTigerResource(int n) throws HistoryInvalidException, RelationInvalidException {
         String resources = Objects.requireNonNull(INTChecker.class.getResource("/")).getPath();
         EXTChecker<WiredTigerTransaction> checker = new EXTChecker<WiredTigerTransaction>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.println("------------------------------------------------------------");
             String BASE = resources + "data-1022/" + i + "/";
             String urlHistory = BASE + "history.edn";
             String urlWtLog = BASE + "wiredtiger.log";
             WiredTigerHistory history = WiredTigerHistoryReader.readHistory(urlHistory, urlWtLog);
-            if (checker.checkEXT(history)) {
+            long begin = System.currentTimeMillis();
+
+            if (checker.checkEXT(history, true)) {
                 System.out.println("[INFO] Checking EXT Successfully");
             } else {
                 System.out.println("[ERROR] Checking EXT Failed");
             }
+            long end = System.currentTimeMillis();
+            System.out.println("Cost " + (end - begin) + " ms");
         }
     }
 
-    public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException {
+    public static void checkMongoDBSample() throws HistoryInvalidException, RelationInvalidException{
         String base = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T042110.000Z/";
         String urlHistory = base + "history.edn";
         String urlOplog = base + "txns.json";
@@ -108,5 +118,9 @@ public class EXTChecker<Txn extends Transaction> {
         }
         long end = System.currentTimeMillis();
         System.out.println("Cost " + (end - begin) + " ms");
+    }
+
+    public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException {
+        checkWiredTigerResource(10);
     }
 }

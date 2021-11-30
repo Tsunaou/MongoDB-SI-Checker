@@ -26,11 +26,34 @@ public class LogicalClock implements Comparable<LogicalClock>{
         }
     }
 
+    public LogicalClock getAdvance(LogicalClock clock){
+        if(this.compareTo(clock) < 0){
+            return null;
+        }else{
+            long incDiff = this.inc - clock.inc;
+            if(incDiff >= 0){
+                return new LogicalClock(this.time - clock.time, incDiff);
+            }else{
+                return new LogicalClock(this.time -1 - clock.time, incDiff + Long.MAX_VALUE);
+            }
+        }
+
+    }
+
+    public String toSecond(){
+        return String.valueOf((double) this.time / 1000000000);
+    }
+
     public static void main(String[] args) {
         LogicalClock t1 = new LogicalClock(1636007504,8);
         LogicalClock t2 = new LogicalClock(1636007490,25);
         System.out.println(t1);
         System.out.println(t2);
         System.out.println(t1.compareTo(t1) == 0);
+        System.out.println(t1.getAdvance(t2));
     }
+
+
+
+
 }

@@ -1,22 +1,47 @@
 import CycleChecker.CycleChecker;
-import DSG.DirectSerializationGraph;
 import Exceptions.DSGInvalidException;
 import Exceptions.HistoryInvalidException;
 import Exceptions.RelationInvalidException;
+import History.ResultReader;
 import History.WiredTiger.WiredTigerHistory;
 import History.WiredTiger.WiredTigerTransaction;
 import History.WiredTiger.WiredTigerHistoryReader;
+import IntExt.EXTChecker;
+import IntExt.INTChecker;
 import Relation.*;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class WTSIChecker {
 
-    public static void CheckSI(String urlHistory, String urlWtLog) throws HistoryInvalidException, DSGInvalidException, RelationInvalidException {
+    public static void checkSIIntExt(String urlHistory, String urlWtLog) throws HistoryInvalidException, DSGInvalidException, RelationInvalidException {
+        long begin = System.currentTimeMillis();
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Checking history for Strong-SI at " + urlHistory);
+        WiredTigerHistory history = WiredTigerHistoryReader.readHistory(urlHistory, urlWtLog);
+
+        INTChecker<WiredTigerTransaction> intChecker = new INTChecker<WiredTigerTransaction>();
+        if (intChecker.checkINT(history)) {
+            System.out.println("[INFO] Checking INT Successfully");
+        } else {
+            System.out.println("[ERROR] Checking INT Failed");
+        }
+
+        EXTChecker<WiredTigerTransaction> extChecker = new EXTChecker<WiredTigerTransaction>();
+        if (extChecker.checkEXT(history, true)) {
+            System.out.println("[INFO] Checking EXT Successfully");
+        } else {
+            System.out.println("[ERROR] Checking EXT Failed");
+        }
+
+        long end = System.currentTimeMillis();
+        System.out.println("Cost " + (end - begin) + " ms");
+    }
+
+    public static void checkSI(String urlHistory, String urlWtLog) throws HistoryInvalidException, DSGInvalidException, RelationInvalidException {
         long begin = System.currentTimeMillis();
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history for Strong-SI at " + urlHistory);
@@ -52,15 +77,16 @@ public class WTSIChecker {
         System.out.println("Cost " + (end - begin) + " ms");
     }
 
-    public static void checkResource() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
+    public static void checkResource(int n) throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
         String resources = Objects.requireNonNull(WTSIChecker.class.getResource("/")).getPath();
         System.out.println(resources);
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.println("========== Testing History " + i + "===========");
             String BASE = resources + "data-1022/" + i + "/";
             String URLHistory = BASE + "history.edn";
             String URLWTLog = BASE + "wiredtiger.log";
-            CheckSI(URLHistory, URLWTLog);
+//            CheckSI(URLHistory, URLWTLog);
+            checkSIIntExt(URLHistory, URLWTLog);
         }
     }
 
@@ -68,6 +94,7 @@ public class WTSIChecker {
 
         String URLHistory;
         String URLWTLog;
+        String URLResults;
 
         String base = "/home/young/DisAlg/jepsen.wiredtiger/store";
         File store = new File(base);
@@ -83,13 +110,18 @@ public class WTSIChecker {
                         if (data.isDirectory() && !data.getPath().contains("latest")) {
                             URLHistory = data.getPath() + "/history.edn";
                             URLWTLog = data.getPath() + "/wiredtiger.log";
+                            URLResults = data.getPath() + "/results.edn";
 
                             if (new File(URLHistory).exists() && new File(URLWTLog).exists()) {
                                 try {
-                                    CheckSI(URLHistory, URLWTLog);
+                                    checkSI(URLHistory, URLWTLog);
                                 } catch (RelationInvalidException e) {
                                     e.printStackTrace();
                                 }
+                            }
+
+                            if (new File(URLResults).exists()) {
+                                ResultReader.report(URLResults);
                             }
                         }
                     }
@@ -103,7 +135,7 @@ public class WTSIChecker {
         String URLHistory = BASE + "history.edn";
         String URLWTLog = BASE + "wiredtiger.log";
         try {
-            CheckSI(URLHistory, URLWTLog);
+            checkSI(URLHistory, URLWTLog);
         } catch (RelationInvalidException e) {
             e.printStackTrace();
         }
@@ -114,7 +146,7 @@ public class WTSIChecker {
         String URLHistory = BASE + "history.edn";
         String URLWTLog = BASE + "wiredtiger.log";
         try {
-            CheckSI(URLHistory, URLWTLog);
+            checkSI(URLHistory, URLWTLog);
         } catch (RelationInvalidException e) {
             e.printStackTrace();
         }
@@ -124,6 +156,6 @@ public class WTSIChecker {
 //        checkSample();
 //        checkAll();
 //        checkLatest();
-        checkResource();
+        checkResource(10);
     }
 }
