@@ -1,0 +1,113 @@
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java -javaagent:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/lib/idea_rt.jar=45485:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/bin -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/media/young/Education/Programs/Java-Programs/Snapshot-Isolation-Checker-Java/target/classes:/home/young/.m2/repository/us/bpsm/edn-java/0.7.1/edn-java-0.7.1.jar:/home/young/.m2/repository/org/jgrapht/jgrapht-core/1.4.0/jgrapht-core-1.4.0.jar:/home/young/.m2/repository/org/jheaps/jheaps/0.11/jheaps-0.11.jar:/home/young/.m2/repository/com/alibaba/fastjson/1.2.75/fastjson-1.2.75.jar MongoDBSIChecker
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 r:majority tw:majority tr:snapshot partition/20211126T123713.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=10539
+Count: 10539 Size:10539
+The Relation is Realtime-SI
+Cost 3948 ms
+History Status: [count=10611, okCount=10539, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 r:majority tw:majority tr:snapshot partition/20211126T124416.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=13649
+Count: 13649 Size:13649
+The Relation is Realtime-SI
+Cost 5161 ms
+History Status: [count=13721, okCount=13649, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 r:majority tw:majority tr:snapshot partition/20211126T124118.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=14747
+Count: 14747 Size:14747
+The Relation is Realtime-SI
+Cost 5810 ms
+History Status: [count=14819, okCount=14747, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 r:majority tw:majority tr:snapshot partition/20211126T130346.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=10243
+Count: 10243 Size:10243
+The Relation is Realtime-SI
+Cost 2748 ms
+History Status: [count=10315, okCount=10243, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 r:majority tw:majority tr:snapshot partition/20211126T123430.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=11646
+Count: 11646 Size:11646
+The Relation is Realtime-SI
+Cost 3106 ms
+History Status: [count=11718, okCount=11646, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 r:majority tw:majority tr:snapshot partition/20211126T123956.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=14140
+Count: 14140 Size:14140
+The Relation is Realtime-SI
+Cost 4680 ms
+History Status: [count=14212, okCount=14140, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 r:majority tw:majority tr:snapshot partition/20211126T123835.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=14002
+Count: 14002 Size:14002
+The Relation is Realtime-SI
+Cost 4745 ms
+History Status: [count=14074, okCount=14002, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 r:majority tw:majority tr:snapshot partition/20211126T123553.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=11044
+Count: 11044 Size:11044
+The Relation is Realtime-SI
+Cost 2894 ms
+History Status: [count=11116, okCount=11044, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 r:majority tw:majority tr:snapshot partition/20211126T124243.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=13765
+Count: 13765 Size:13765
+The Relation is Realtime-SI
+Cost 4372 ms
+History Status: [count=13837, okCount=13765, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 r:majority tw:majority tr:snapshot partition/20211126T123310.000Z/history.edn
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+Start Checking Cyclic, n=9986
+Count: 9986 Size:9986
+The Relation is Realtime-SI
+Cost 2344 ms
+History Status: [count=10058, okCount=9986, failCount=0, infoCount=72]
+
+Process finished with exit code 0

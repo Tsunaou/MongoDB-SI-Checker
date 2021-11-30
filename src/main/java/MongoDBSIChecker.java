@@ -7,6 +7,9 @@ import History.MongoDB.MongoDBHistory;
 import History.MongoDB.MongoDBHistoryReader;
 import History.MongoDB.MongoDBTransaction;
 import History.ResultReader;
+import History.WiredTiger.WiredTigerTransaction;
+import IntExt.EXTChecker;
+import IntExt.INTChecker;
 import Relation.*;
 import TestUtil.Finals;
 
@@ -19,6 +22,30 @@ public class MongoDBSIChecker {
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history valid for " + SIVariant + " at " + urlHistory);
         MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
+    }
+
+    public static void checkSIIntExt(String urlHistory, String urlOplog, String urlMongodLog, String urlResults, String SIVariant) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException, NullPointerException{
+        long begin = System.currentTimeMillis();
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Checking history for " + SIVariant + " at " + urlHistory);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
+
+        INTChecker<MongoDBTransaction> intChecker = new INTChecker<MongoDBTransaction>();
+        if (intChecker.checkINT(history)) {
+            System.out.println("[INFO] Checking INT Successfully");
+        } else {
+            System.out.println("[ERROR] Checking INT Failed");
+        }
+
+        EXTChecker<MongoDBTransaction> extChecker = new EXTChecker<MongoDBTransaction>();
+        if (extChecker.checkEXT(history)) {
+            System.out.println("[INFO] Checking EXT Successfully");
+        } else {
+            System.out.println("[ERROR] Checking EXT Failed");
+        }
+
+        long end = System.currentTimeMillis();
+        System.out.println("Cost " + (end - begin) + " ms");
     }
 
     public static void checkSI(String urlHistory, String urlOplog, String urlMongodLog, String urlResults, String SIVariant) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException, NullPointerException {
@@ -96,7 +123,9 @@ public class MongoDBSIChecker {
 
                             if (new File(URLHistory).exists() && new File(URLOplog).exists()) {
                                 try {
-                                    checkSI(URLHistory, URLOplog, URLMongodLog, URLResults, variant);
+//                                    checkSI(URLHistory, URLOplog, URLMongodLog, URLResults, variant);
+                                    checkSIIntExt(URLHistory, URLOplog, URLMongodLog, URLResults, variant);
+//                                    checkHistoryValid(URLHistory, URLOplog, URLMongodLog, URLResults, variant);
                                 } catch (NullPointerException | HistoryInvalidException e) {
                                     e.printStackTrace();
                                 }

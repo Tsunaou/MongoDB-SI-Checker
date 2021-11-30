@@ -1,0 +1,3062 @@
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java -javaagent:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/lib/idea_rt.jar=43773:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/bin -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/media/young/Education/Programs/Java-Programs/Snapshot-Isolation-Checker-Java/target/classes:/home/young/.m2/repository/us/bpsm/edn-java/0.7.1/edn-java-0.7.1.jar:/home/young/.m2/repository/org/jgrapht/jgrapht-core/1.4.0/jgrapht-core-1.4.0.jar:/home/young/.m2/repository/org/jheaps/jheaps/0.11/jheaps-0.11.jar:/home/young/.m2/repository/com/alibaba/fastjson/1.2.75/fastjson-1.2.75.jar MongoDBSIChecker
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T041308.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 533 ms
+History Status: [count=1384, okCount=1384, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T110339.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 828 ms
+History Status: [count=2695, okCount=2695, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T042913.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 173 ms
+History Status: [count=1294, okCount=1294, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T110642.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=2646, okCount=2646, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T042110.000Z/history.edn
+java.lang.NullPointerException
+	at History.MongoDB.LogicalClock.compareTo(LogicalClock.java:22)
+	at Relation.ReturnBefore.calculateRelation(ReturnBefore.java:25)
+	at IntExt.EXTChecker.checkEXT(EXTChecker.java:29)
+	at MongoDBSIChecker.checkSIIntExt(MongoDBSIChecker.java:41)
+	at MongoDBSIChecker.checkAll(MongoDBSIChecker.java:127)
+	at MongoDBSIChecker.checkAll(MongoDBSIChecker.java:98)
+	at MongoDBSIChecker.main(MongoDBSIChecker.java:169)
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 180 ms
+History Status: [count=1396, okCount=1396, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T041613.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 188 ms
+History Status: [count=1357, okCount=1357, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T043149.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 183 ms
+History Status: [count=1359, okCount=1359, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T041004.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 203 ms
+History Status: [count=1460, okCount=1460, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T093623.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 244 ms
+History Status: [count=1729, okCount=1729, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T042629.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=1404, okCount=1404, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211129T090942.000Z/history.edn
+java.lang.NullPointerException
+	at History.MongoDB.LogicalClock.compareTo(LogicalClock.java:22)
+	at Relation.ReturnBefore.calculateRelation(ReturnBefore.java:25)
+	at IntExt.EXTChecker.checkEXT(EXTChecker.java:29)
+	at MongoDBSIChecker.checkSIIntExt(MongoDBSIChecker.java:41)
+	at MongoDBSIChecker.checkAll(MongoDBSIChecker.java:127)
+	at MongoDBSIChecker.checkAll(MongoDBSIChecker.java:98)
+	at MongoDBSIChecker.main(MongoDBSIChecker.java:169)
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3229 ms
+History Status: [count=6836, okCount=6836, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T022542.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1836 ms
+History Status: [count=5038, okCount=5038, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T021718.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1998 ms
+History Status: [count=5304, okCount=5304, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T023433.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1820 ms
+History Status: [count=5168, okCount=5168, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211129T083809.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3349 ms
+History Status: [count=6998, okCount=6998, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T103047.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=10204, okCount=10204, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211129T091546.000Z/history.edn
+java.lang.NullPointerException
+	at History.MongoDB.LogicalClock.compareTo(LogicalClock.java:22)
+	at Relation.ReturnBefore.calculateRelation(ReturnBefore.java:25)
+	at IntExt.EXTChecker.checkEXT(EXTChecker.java:29)
+	at MongoDBSIChecker.checkSIIntExt(MongoDBSIChecker.java:41)
+	at MongoDBSIChecker.checkAll(MongoDBSIChecker.java:127)
+	at MongoDBSIChecker.checkAll(MongoDBSIChecker.java:98)
+	at MongoDBSIChecker.main(MongoDBSIChecker.java:169)
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2996 ms
+History Status: [count=6574, okCount=6574, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T020155.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=5317, okCount=5317, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211129T101713.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 7095 ms
+History Status: [count=9930, okCount=9930, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T123439.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 7046 ms
+History Status: [count=9752, okCount=9752, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T041705.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 7145 ms
+History Status: [count=9952, okCount=9880, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T041946.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 7942 ms
+History Status: [count=10520, okCount=10448, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T035931.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 6715 ms
+History Status: [count=9750, okCount=9678, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T041416.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 6525 ms
+History Status: [count=9688, okCount=9616, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T042107.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 6427 ms
+History Status: [count=9606, okCount=9534, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T042349.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 6537 ms
+History Status: [count=9759, okCount=9687, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T041826.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 5548 ms
+History Status: [count=8930, okCount=8858, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T042228.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 6925 ms
+History Status: [count=9881, okCount=9809, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T041252.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 6733 ms
+History Status: [count=9706, okCount=9634, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T041540.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 5043 ms
+History Status: [count=8568, okCount=8496, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T042513.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 6968 ms
+History Status: [count=9896, okCount=9824, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T100530.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1171 ms
+History Status: [count=4104, okCount=4104, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T100246.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1267 ms
+History Status: [count=4353, okCount=4353, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T003214.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=2078, okCount=2078, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T003836.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=1939, okCount=1939, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T004747.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 287 ms
+History Status: [count=1934, okCount=1934, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T100010.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1138 ms
+History Status: [count=4108, okCount=4108, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T101111.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1168 ms
+History Status: [count=4082, okCount=4082, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T003459.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=2127, okCount=2127, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T004441.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 261 ms
+History Status: [count=1946, okCount=1946, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T004145.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 308 ms
+History Status: [count=2021, okCount=2021, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T100808.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 939 ms
+History Status: [count=3761, okCount=3761, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T101350.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 913 ms
+History Status: [count=3713, okCount=3713, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T213426.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3708 ms
+History Status: [count=8743, okCount=8743, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T114147.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 13704 ms
+History Status: [count=15913, okCount=15913, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T215159.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3715 ms
+History Status: [count=8739, okCount=8739, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T113107.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 13544 ms
+History Status: [count=15974, okCount=15974, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T112529.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 12479 ms
+History Status: [count=15196, okCount=15196, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T214711.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=9052, okCount=9052, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T213910.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3756 ms
+History Status: [count=8834, okCount=8834, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T113614.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 13774 ms
+History Status: [count=15911, okCount=15911, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T215700.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3570 ms
+History Status: [count=8554, okCount=8554, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T220140.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=8906, okCount=8906, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T011154.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 621 ms
+History Status: [count=2954, okCount=2954, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T005630.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 608 ms
+History Status: [count=2965, okCount=2965, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T005242.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=3149, okCount=3149, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T010436.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 643 ms
+History Status: [count=3078, okCount=3078, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T010815.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 672 ms
+History Status: [count=3090, okCount=3090, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T122414.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2297 ms
+History Status: [count=5763, okCount=5763, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T101627.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=6031, okCount=6031, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T010032.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 666 ms
+History Status: [count=3138, okCount=3138, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T011650.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=2926, okCount=2926, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T122032.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2465 ms
+History Status: [count=5927, okCount=5927, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T043833.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 35421 ms
+History Status: [count=19415, okCount=19271, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T044058.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 35596 ms
+History Status: [count=19892, okCount=19748, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T042858.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 34891 ms
+History Status: [count=19192, okCount=19048, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T044808.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 40037 ms
+History Status: [count=20289, okCount=20145, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T043610.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 37293 ms
+History Status: [count=20589, okCount=20445, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T042633.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 30053 ms
+History Status: [count=18551, okCount=18407, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T043344.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 37063 ms
+History Status: [count=19665, okCount=19521, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T044545.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 31934 ms
+History Status: [count=18657, okCount=18513, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T044321.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 39650 ms
+History Status: [count=20286, okCount=20142, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T043121.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 37833 ms
+History Status: [count=20066, okCount=19922, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T012038.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1250 ms
+History Status: [count=4196, okCount=4196, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T013749.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1226 ms
+History Status: [count=4205, okCount=4205, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T102600.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 4334 ms
+History Status: [count=7872, okCount=7872, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T013313.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1320 ms
+History Status: [count=4363, okCount=4363, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T015651.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1203 ms
+History Status: [count=4211, okCount=4211, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T015212.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1281 ms
+History Status: [count=4244, okCount=4244, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T102034.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=7859, okCount=7859, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T012519.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1097 ms
+History Status: [count=4023, okCount=4023, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T014227.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1156 ms
+History Status: [count=4103, okCount=4103, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T014732.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1095 ms
+History Status: [count=3971, okCount=3971, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T081105.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 62554 ms
+History Status: [count=22915, okCount=22699, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T080407.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 76482 ms
+History Status: [count=24836, okCount=24620, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T075007.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 59425 ms
+History Status: [count=23109, okCount=22893, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T080039.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 79005 ms
+History Status: [count=25759, okCount=25543, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T074315.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 63770 ms
+History Status: [count=23659, okCount=23443, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T111921.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 51980 ms
+History Status: [count=21632, okCount=21416, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T075701.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=24838, okCount=24622, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T080738.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 69159 ms
+History Status: [count=24060, okCount=23844, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T074641.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 72044 ms
+History Status: [count=24023, okCount=23807, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T075334.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 56501 ms
+History Status: [count=22617, okCount=22401, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T040824.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 37 ms
+History Status: [count=654, okCount=654, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T040440.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=729, okCount=729, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T105751.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 139 ms
+History Status: [count=1320, okCount=1320, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T105930.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 135 ms
+History Status: [count=1276, okCount=1276, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T110133.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 141 ms
+History Status: [count=1332, okCount=1332, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T035714.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 41 ms
+History Status: [count=674, okCount=674, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T035918.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 41 ms
+History Status: [count=712, okCount=712, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T040057.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 33 ms
+History Status: [count=608, okCount=608, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T035459.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 39 ms
+History Status: [count=705, okCount=705, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T040626.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 44 ms
+History Status: [count=682, okCount=682, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T040234.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 42 ms
+History Status: [count=672, okCount=672, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T074052.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 25736 ms
+History Status: [count=16170, okCount=16026, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T073116.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 24020 ms
+History Status: [count=15830, okCount=15686, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T073339.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 22543 ms
+History Status: [count=15284, okCount=15140, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T072851.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 22592 ms
+History Status: [count=15261, okCount=15117, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T072403.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 22055 ms
+History Status: [count=15122, okCount=14978, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T073829.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 21581 ms
+History Status: [count=15475, okCount=15331, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T073603.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 23455 ms
+History Status: [count=15301, okCount=15157, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T071915.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 24104 ms
+History Status: [count=15558, okCount=15414, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T072626.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 20754 ms
+History Status: [count=14863, okCount=14719, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T072140.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 22790 ms
+History Status: [count=15401, okCount=15257, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T131102.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2162 ms
+History Status: [count=5076, okCount=5076, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T050546.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 583 ms
+History Status: [count=2722, okCount=2722, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T052507.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=2846, okCount=2846, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T045627.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 558 ms
+History Status: [count=2621, okCount=2621, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T050107.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 609 ms
+History Status: [count=2741, okCount=2741, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T051309.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 673 ms
+History Status: [count=2874, okCount=2874, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T112141.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2689 ms
+History Status: [count=5428, okCount=5428, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T051744.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 660 ms
+History Status: [count=2918, okCount=2918, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T112622.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2566 ms
+History Status: [count=5682, okCount=5682, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:240 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T130619.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2509 ms
+History Status: [count=5541, okCount=5541, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T071629.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 6220 ms
+History Status: [count=8725, okCount=8653, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T070701.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 4985 ms
+History Status: [count=7807, okCount=7735, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T070540.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 4654 ms
+History Status: [count=7536, okCount=7464, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T071227.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 4385 ms
+History Status: [count=7384, okCount=7312, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T071105.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 4634 ms
+History Status: [count=7631, okCount=7559, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T071347.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 4853 ms
+History Status: [count=7710, okCount=7638, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T071508.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 5239 ms
+History Status: [count=8006, okCount=7934, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T070823.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 5216 ms
+History Status: [count=7862, okCount=7790, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T070944.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 4830 ms
+History Status: [count=7646, okCount=7574, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T071753.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 4903 ms
+History Status: [count=7762, okCount=7690, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T203829.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 824 ms
+History Status: [count=4141, okCount=4141, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T204116.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 710 ms
+History Status: [count=3802, okCount=3802, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T205232.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 675 ms
+History Status: [count=3860, okCount=3860, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T204650.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 805 ms
+History Status: [count=4072, okCount=4072, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T204928.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 792 ms
+History Status: [count=4110, okCount=4110, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T111603.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2688 ms
+History Status: [count=7607, okCount=7607, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T204413.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 708 ms
+History Status: [count=3861, okCount=3861, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T111910.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2715 ms
+History Status: [count=7612, okCount=7612, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T203553.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 843 ms
+History Status: [count=4171, okCount=4171, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T205727.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=4178, okCount=4178, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T084606.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 139157 ms
+History Status: [count=30855, okCount=30567, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T084136.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 116108 ms
+History Status: [count=29704, okCount=29416, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T083235.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 162802 ms
+History Status: [count=32500, okCount=32212, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T082334.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 120847 ms
+History Status: [count=31121, okCount=30833, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T081434.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 124624 ms
+History Status: [count=29822, okCount=29534, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T081905.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 132181 ms
+History Status: [count=31416, okCount=31128, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T082806.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 105909 ms
+History Status: [count=29258, okCount=28970, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T085507.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 130074 ms
+History Status: [count=30260, okCount=29972, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T085037.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 122334 ms
+History Status: [count=30595, okCount=30307, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T083704.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 134236 ms
+History Status: [count=32396, okCount=32108, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T052137.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 95271 ms
+History Status: [count=29933, okCount=29717, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T045035.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 97487 ms
+History Status: [count=30348, okCount=30132, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T045731.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 109264 ms
+History Status: [count=31527, okCount=31311, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T050425.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 113791 ms
+History Status: [count=30612, okCount=30396, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T050058.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 99497 ms
+History Status: [count=29228, okCount=29012, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T045402.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 85976 ms
+History Status: [count=29122, okCount=28906, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T051443.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 110009 ms
+History Status: [count=31854, okCount=31638, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T051810.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 117902 ms
+History Status: [count=31550, okCount=31334, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T050750.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 89185 ms
+History Status: [count=29242, okCount=29026, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T051117.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 89340 ms
+History Status: [count=29456, okCount=29240, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T200501.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 65470 ms
+History Status: [count=30543, okCount=30543, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211129T042725.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 60491 ms
+History Status: [count=29339, okCount=29339, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T230659.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 16336 ms
+History Status: [count=16885, okCount=16885, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211129T043615.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 66345 ms
+History Status: [count=29800, okCount=29800, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T233445.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 14439 ms
+History Status: [count=16690, okCount=16690, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T203647.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 57991 ms
+History Status: [count=29612, okCount=29612, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T202753.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 56762 ms
+History Status: [count=29314, okCount=29314, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T205719.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 62822 ms
+History Status: [count=29773, okCount=29773, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T201906.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 60704 ms
+History Status: [count=29512, okCount=29512, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T231634.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=16475, okCount=16475, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T143321.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3299 ms
+History Status: [count=6332, okCount=6332, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T022125.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 9517 ms
+History Status: [count=10520, okCount=10520, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T025439.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 8922 ms
+History Status: [count=10218, okCount=10218, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T033236.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 8618 ms
+History Status: [count=9984, okCount=9984, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T031437.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 8477 ms
+History Status: [count=9966, okCount=9966, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T020327.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 8878 ms
+History Status: [count=10239, okCount=10239, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T064914.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2326 ms
+History Status: [count=5357, okCount=5357, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T062849.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2399 ms
+History Status: [count=5386, okCount=5386, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T061950.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=5787, okCount=5787, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T024550.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 8824 ms
+History Status: [count=10108, okCount=10108, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T021235.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 8902 ms
+History Status: [count=10242, okCount=10242, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T061109.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2748 ms
+History Status: [count=5769, okCount=5769, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T001431.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 61 ms
+History Status: [count=1008, okCount=1008, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T121856.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 247 ms
+History Status: [count=1931, okCount=1931, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T001606.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 67 ms
+History Status: [count=1041, okCount=1041, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T002836.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 72 ms
+History Status: [count=1024, okCount=1024, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T002405.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=1175, okCount=1175, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T095551.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 234 ms
+History Status: [count=1851, okCount=1851, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T003009.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 78 ms
+History Status: [count=974, okCount=974, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T134206.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 182 ms
+History Status: [count=1666, okCount=1666, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T001742.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 67 ms
+History Status: [count=989, okCount=989, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T002232.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 77 ms
+History Status: [count=1094, okCount=1094, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T094401.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 217808 ms
+History Status: [count=39072, okCount=38712, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T091047.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 243937 ms
+History Status: [count=38044, okCount=37684, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T094936.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 251753 ms
+History Status: [count=39959, okCount=39599, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T093258.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 219995 ms
+History Status: [count=38595, okCount=38235, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T085937.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 204934 ms
+History Status: [count=37559, okCount=37199, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T090512.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 251633 ms
+History Status: [count=39995, okCount=39635, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T093830.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 201263 ms
+History Status: [count=37634, okCount=37274, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T092724.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 209610 ms
+History Status: [count=37809, okCount=37449, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T092150.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 227885 ms
+History Status: [count=37366, okCount=37006, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T091618.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 211320 ms
+History Status: [count=37723, okCount=37363, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211129T081811.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 11366 ms
+History Status: [count=15041, okCount=15041, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211129T094838.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 18423 ms
+History Status: [count=18396, okCount=18396, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T224040.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 5752 ms
+History Status: [count=10827, okCount=10827, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T115239.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 21345 ms
+History Status: [count=18969, okCount=18969, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T181849.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 18382 ms
+History Status: [count=18246, okCount=18246, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211129T083214.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=13941, okCount=13941, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T175629.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 18737 ms
+History Status: [count=18542, okCount=18542, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211129T100058.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 21138 ms
+History Status: [count=18886, okCount=18886, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T174421.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 11163 ms
+History Status: [count=14408, okCount=14408, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211129T041149.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 20388 ms
+History Status: [count=18787, okCount=18787, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T182429.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=18990, okCount=18990, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T193924.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 125434 ms
+History Status: [count=39175, okCount=38815, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T192302.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 123113 ms
+History Status: [count=39349, okCount=38989, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T195550.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 138119 ms
+History Status: [count=39772, okCount=39412, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T200117.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 125493 ms
+History Status: [count=39178, okCount=38818, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T195022.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 131341 ms
+History Status: [count=39031, okCount=38671, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T194453.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 122589 ms
+History Status: [count=39184, okCount=38824, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T193357.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 127885 ms
+History Status: [count=39518, okCount=39158, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T192829.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 115246 ms
+History Status: [count=38318, okCount=37958, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T200645.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 130064 ms
+History Status: [count=38993, okCount=38633, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T201215.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 133258 ms
+History Status: [count=39113, okCount=38753, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T055210.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 226496 ms
+History Status: [count=42108, okCount=41820, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T053407.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 225358 ms
+History Status: [count=39827, okCount=39539, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T060541.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 231043 ms
+History Status: [count=42003, okCount=41715, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T054309.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 220046 ms
+History Status: [count=40750, okCount=40462, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T052936.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 235691 ms
+History Status: [count=40644, okCount=40356, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T060112.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 212358 ms
+History Status: [count=40007, okCount=39719, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T052503.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 186372 ms
+History Status: [count=39110, okCount=38822, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T054739.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 243828 ms
+History Status: [count=42041, okCount=41753, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T053840.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 198381 ms
+History Status: [count=38668, okCount=38380, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T055641.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 209107 ms
+History Status: [count=40596, okCount=40308, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T012051.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3365 ms
+History Status: [count=6430, okCount=6430, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T055916.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3532 ms
+History Status: [count=6724, okCount=6724, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T060150.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1043 ms
+History Status: [count=3521, okCount=3521, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T015742.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3697 ms
+History Status: [count=6797, okCount=6797, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T055333.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3374 ms
+History Status: [count=6476, okCount=6476, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T113153.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=6485, okCount=6485, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T142737.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1539 ms
+History Status: [count=4242, okCount=4242, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T013628.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3213 ms
+History Status: [count=6217, okCount=6217, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T054444.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3634 ms
+History Status: [count=6650, okCount=6650, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T053019.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1068 ms
+History Status: [count=3626, okCount=3626, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211129T010529.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 3421 ms
+History Status: [count=6458, okCount=6458, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:300 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T053649.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1133 ms
+History Status: [count=3707, okCount=3707, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T232323.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 18427 ms
+History Status: [count=15392, okCount=15392, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T032650.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 4577 ms
+History Status: [count=8026, okCount=8026, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211129T001711.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 20622 ms
+History Status: [count=15346, okCount=15346, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211129T000817.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 17417 ms
+History Status: [count=15085, okCount=15085, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T104842.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=15387, okCount=15387, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T223851.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 16063 ms
+History Status: [count=14551, okCount=14551, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T231433.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 18912 ms
+History Status: [count=15151, okCount=15151, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211129T051431.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 18057 ms
+History Status: [count=14968, okCount=14968, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T024627.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 4866 ms
+History Status: [count=8401, okCount=8401, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211129T003449.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=14845, okCount=14845, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:480 timeout-txn:30 txn-len:8 r:majority tw:majority tr:snapshot partition/20211128T235037.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 18803 ms
+History Status: [count=15213, okCount=15213, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T044847.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 362 ms
+History Status: [count=2107, okCount=2107, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T111656.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1526 ms
+History Status: [count=4220, okCount=4220, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T110932.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1351 ms
+History Status: [count=4118, okCount=4118, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T045246.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 418 ms
+History Status: [count=2255, okCount=2255, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T043456.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=2172, okCount=2172, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T130220.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=4169, okCount=4169, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T044459.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=2077, okCount=2077, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T142307.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 446 ms
+History Status: [count=2306, okCount=2306, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T134627.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=3533, okCount=3533, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T044123.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 375 ms
+History Status: [count=2119, okCount=2119, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211127T111317.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1417 ms
+History Status: [count=4135, okCount=4135, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T173540.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2043 ms
+History Status: [count=6796, okCount=6724, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T110829.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 7865 ms
+History Status: [count=12434, okCount=12362, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T173252.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=6954, okCount=6882, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T173013.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2240 ms
+History Status: [count=6864, okCount=6792, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T172854.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 858 ms
+History Status: [count=4309, okCount=4237, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T173700.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2343 ms
+History Status: [count=7069, okCount=6997, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T173133.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2345 ms
+History Status: [count=7119, okCount=7047, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T173420.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1993 ms
+History Status: [count=6588, okCount=6516, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T173940.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2352 ms
+History Status: [count=7124, okCount=7052, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:60 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T173821.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2431 ms
+History Status: [count=7122, okCount=7050, failCount=0, infoCount=72]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T210801.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1874 ms
+History Status: [count=6241, okCount=6241, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T210402.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1883 ms
+History Status: [count=6271, okCount=6271, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T212301.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1893 ms
+History Status: [count=6337, okCount=6337, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T213024.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2148 ms
+History Status: [count=6662, okCount=6662, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T211515.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2208 ms
+History Status: [count=6757, okCount=6757, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T212641.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1935 ms
+History Status: [count=6298, okCount=6298, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T210010.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+History Status: [count=6120, okCount=6120, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T211139.000Z/history.edn
+java.lang.NullPointerException
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 2112 ms
+History Status: [count=6565, okCount=6565, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T112147.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 5493 ms
+History Status: [count=10591, okCount=10591, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:180 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T211854.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 1932 ms
+History Status: [count=6365, okCount=6365, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T203035.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 184 ms
+History Status: [count=1953, okCount=1953, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T202654.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 223 ms
+History Status: [count=2220, okCount=2220, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T202830.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 225 ms
+History Status: [count=2200, okCount=2200, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211128T111428.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 620 ms
+History Status: [count=3634, okCount=3634, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T202232.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 217 ms
+History Status: [count=2214, okCount=2214, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T201742.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 165 ms
+History Status: [count=1901, okCount=1901, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T201920.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 209 ms
+History Status: [count=2138, okCount=2138, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T203210.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 210 ms
+History Status: [count=2140, okCount=2140, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T203418.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 237 ms
+History Status: [count=2081, okCount=2081, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Session-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:60 timeout-txn:30 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T202056.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 194 ms
+History Status: [count=2056, okCount=2056, failCount=0, infoCount=0]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T064904.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 306704 ms
+History Status: [count=47361, okCount=47001, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T070007.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 305521 ms
+History Status: [count=47196, okCount=46836, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T061547.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 359851 ms
+History Status: [count=47793, okCount=47433, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T061011.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 366733 ms
+History Status: [count=49090, okCount=48730, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T065435.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 319074 ms
+History Status: [count=47444, okCount=47084, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T063224.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 333792 ms
+History Status: [count=49055, okCount=48695, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T064330.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 373164 ms
+History Status: [count=51327, okCount=50967, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T063757.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 433826 ms
+History Status: [count=52072, okCount=51712, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T062653.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 337932 ms
+History Status: [count=47764, okCount=47404, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:300 timeout-txn:10 txn-len:8 r:majority tw:majority tr:snapshot partition/20211127T062119.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 362391 ms
+History Status: [count=49995, okCount=49635, failCount=0, infoCount=360]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T183844.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 66139 ms
+History Status: [count=31013, okCount=30725, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T190943.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 64534 ms
+History Status: [count=30810, okCount=30522, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T190051.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 72858 ms
+History Status: [count=31448, okCount=31160, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T185626.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 71498 ms
+History Status: [count=31653, okCount=31365, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T185201.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 69660 ms
+History Status: [count=31194, okCount=30906, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T184309.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 65180 ms
+History Status: [count=30398, okCount=30110, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T191410.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 70867 ms
+History Status: [count=31455, okCount=31167, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T184735.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 66068 ms
+History Status: [count=30583, okCount=30295, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T190517.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 72752 ms
+History Status: [count=31469, okCount=31181, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:240 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T191836.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 68855 ms
+History Status: [count=32069, okCount=31781, failCount=0, infoCount=288]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T174101.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 9678 ms
+History Status: [count=13975, okCount=13831, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T180222.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 11443 ms
+History Status: [count=15279, okCount=15135, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T174804.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 11021 ms
+History Status: [count=14544, okCount=14400, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T174543.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 11117 ms
+History Status: [count=14768, okCount=14624, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T175510.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 11221 ms
+History Status: [count=14752, okCount=14608, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T174321.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 11905 ms
+History Status: [count=15212, okCount=15068, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T175735.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 12649 ms
+History Status: [count=15490, okCount=15346, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T175025.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 11864 ms
+History Status: [count=15225, okCount=15081, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T175957.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 12043 ms
+History Status: [count=15396, okCount=15252, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:120 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T175247.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 11917 ms
+History Status: [count=15322, okCount=15178, failCount=0, infoCount=144]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T181820.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 30448 ms
+History Status: [count=22597, okCount=22381, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T182145.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 29665 ms
+History Status: [count=22579, okCount=22363, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T182509.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 33630 ms
+History Status: [count=23627, okCount=23411, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T180808.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 31439 ms
+History Status: [count=22944, okCount=22728, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T182833.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 34532 ms
+History Status: [count=23283, okCount=23067, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T183157.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 31156 ms
+History Status: [count=22834, okCount=22618, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T183520.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 33895 ms
+History Status: [count=23228, okCount=23012, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T181132.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 31720 ms
+History Status: [count=23127, okCount=22911, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T181455.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 33115 ms
+History Status: [count=23627, okCount=23411, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Checking history for Realtime-SI at /home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority time:180 timeout-txn:10 txn-len:4 r:majority tw:majority tr:snapshot partition/20211127T180445.000Z/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+[INFO] Checking EXT Successfully
+Cost 33506 ms
+History Status: [count=23886, okCount=23670, failCount=0, infoCount=216]
+---------------------------------------------------------------------------------
+Process finished with exit code 0
