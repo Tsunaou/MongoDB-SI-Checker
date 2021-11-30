@@ -14,9 +14,10 @@ import java.util.*;
 
 public class EXTChecker<Txn extends Transaction> {
 
-    public boolean checkEXT(History<Txn> history) throws RelationInvalidException{
+    public boolean checkEXT(History<Txn> history) throws RelationInvalidException {
         return checkEXT(history, false);
     }
+
     public boolean checkEXT(History<Txn> history, boolean fixme) throws RelationInvalidException {
         // Checking EXT
         for (Txn transaction : history.transactions) {
@@ -49,8 +50,8 @@ public class EXTChecker<Txn extends Transaction> {
                 HashSet<Txn> writeTxn = writeTxnByKey.get(key);
 
                 HashSet<Txn> visTxn = new HashSet<>();
-                for(Txn t: writeTxn){
-                    if(VIS.relation.get(t.index, txn.index)){
+                for (Txn t : writeTxn) {
+                    if (VIS.relation.get(t.index, txn.index)) {
                         visTxn.add(t);
                     }
                 }
@@ -99,7 +100,7 @@ public class EXTChecker<Txn extends Transaction> {
         }
     }
 
-    public static void checkMongoDBSample() throws HistoryInvalidException, RelationInvalidException{
+    public static void checkMongoDBSample() throws HistoryInvalidException, RelationInvalidException {
         String base = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr sharded-cluster w:majority time:120 timeout-txn:30 txn-len:12 r:majority tw:majority tr:snapshot partition/20211128T042110.000Z/";
         String urlHistory = base + "history.edn";
         String urlOplog = base + "txns.json";

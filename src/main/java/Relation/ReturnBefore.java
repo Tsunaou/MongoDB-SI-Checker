@@ -39,6 +39,15 @@ public class ReturnBefore<Txn extends Transaction> extends Relation<Txn> {
         for (int i = 0; i < n; i++) {
             txn1 = history.transactions.get(i);
             for (int j = i + 1; j < n; j++) {
+                /**
+                 * history.transactions have been sorted by tid(commit timestamp in MongoDB layer)
+                 * VIS: txn1.commit < txn2.start
+                 * 1. WiredTiger: txn1.tid < txn2.tid, so if txn1 VIS txn2, txn1.tid must less than txn2.tid,
+                 *      otherwise txn1.tid > txn2.snap_max, it is impossible.
+                 * 2. MongoDB: txn1.commit_ts < txn2.commit_ts, so if txn1 VIS txn2, txn1.commit_ts must less than txn2.commit_ts,
+                 *      otherwise txn1.commit_ts > txn2.commit_ts > txn2.read_ts, it is impossible.
+                 * Actually, VIS \subseteq AR, so we can and only find VIS in the AR
+                 */
                 txn2 = history.transactions.get(j);
                 if (txn1.commitTimestamp.compareTo(txn2.startTimestamp) <= 0) {
                     addRelation(i, j);
@@ -53,7 +62,7 @@ public class ReturnBefore<Txn extends Transaction> extends Relation<Txn> {
             }
         }
 
-        if(fixme){
+        if (fixme) {
             System.out.println("[INFO] " + count + " times of fixing in " + history.transactions.size() + " transactions");
             System.out.println("[INFO] The error scale is " + scale.toSecond() + "seconds");
         }

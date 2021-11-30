@@ -1,0 +1,93 @@
+"D:\Program Files\Java\jdk-11.0.11\bin\java.exe" -javaagent:C:\Users\Young\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\211.6693.111\lib\idea_rt.jar=59575:C:\Users\Young\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\211.6693.111\bin -Dfile.encoding=UTF-8 -classpath D:\Education\Programs\Java\MongoDB-SI-Checker\target\classes;C:\Users\Young\.m2\repository\us\bpsm\edn-java\0.7.1\edn-java-0.7.1.jar;C:\Users\Young\.m2\repository\org\jgrapht\jgrapht-core\1.4.0\jgrapht-core-1.4.0.jar;C:\Users\Young\.m2\repository\org\jheaps\jheaps\0.11\jheaps-0.11.jar;C:\Users\Young\.m2\repository\com\alibaba\fastjson\1.2.75\fastjson-1.2.75.jar IntExt.EXTChecker
+------------------------------------------------------------
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 558 times of fixing in 6343 transactions
+[INFO] The error scale is 0.018312741seconds
+[INFO] Checking EXT Successfully
+Cost 658 ms
+------------------------------------------------------------
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 332 times of fixing in 7545 transactions
+[INFO] The error scale is 0.017403669seconds
+[INFO] Checking EXT Successfully
+Cost 807 ms
+------------------------------------------------------------
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 198 times of fixing in 8594 transactions
+[INFO] The error scale is 0.010776551seconds
+[INFO] Checking EXT Successfully
+Cost 977 ms
+------------------------------------------------------------
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 128 times of fixing in 9058 transactions
+[INFO] The error scale is 0.009904082seconds
+[INFO] Checking EXT Successfully
+Cost 1079 ms
+------------------------------------------------------------
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 143 times of fixing in 9149 transactions
+[INFO] The error scale is 0.018109022seconds
+[INFO] Checking EXT Successfully
+Cost 1192 ms
+------------------------------------------------------------
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 169 times of fixing in 8750 transactions
+[INFO] The error scale is 0.010823262seconds
+[INFO] Checking EXT Successfully
+Cost 1029 ms
+------------------------------------------------------------
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 501 times of fixing in 6721 transactions
+[INFO] The error scale is 0.016496195seconds
+[INFO] Checking EXT Successfully
+Cost 580 ms
+------------------------------------------------------------
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 45 times of fixing in 9561 transactions
+[INFO] The error scale is 0.00974493seconds
+[INFO] Checking EXT Successfully
+Cost 1267 ms
+------------------------------------------------------------
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 369 times of fixing in 4805 transactions
+[INFO] The error scale is 0.02061693seconds
+[INFO] Checking EXT Successfully
+Cost 314 ms
+------------------------------------------------------------
+[INFO] History is valid
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 91 times of fixing in 9380 transactions
+[INFO] The error scale is 0.007919494seconds
+[INFO] Checking EXT Successfully
+Cost 1218 ms
+
+Process finished with exit code 0

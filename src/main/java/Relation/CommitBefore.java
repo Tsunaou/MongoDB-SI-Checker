@@ -5,7 +5,7 @@ import History.History;
 import History.Transaction;
 
 
-public class CommitBefore<Txn extends Transaction> extends Relation<Txn>{
+public class CommitBefore<Txn extends Transaction> extends Relation<Txn> {
     public CommitBefore(int n) {
         super(n);
     }
