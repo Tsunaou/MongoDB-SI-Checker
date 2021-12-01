@@ -70,6 +70,12 @@ public class EXTChecker<Txn extends Transaction> {
                 int n = visWrite.size();
                 Operation last = visWrite.get(n - 1).lastWriteByKey.get(key);
                 if (!read.value.equals(last.value)) {
+                    System.out.println("Checking for read " + read + " in " + txn);
+                    for (Txn t : writeTxn) {
+                        if (VIS.relation.get(t.index, txn.index)) {
+                            visTxn.add(t);
+                        }
+                    }
                     return false;
                 }
             }
@@ -84,10 +90,19 @@ public class EXTChecker<Txn extends Transaction> {
         EXTChecker<WiredTigerTransaction> checker = new EXTChecker<WiredTigerTransaction>();
         for (int i = 0; i < n; i++) {
             System.out.println("------------------------------------------------------------");
-            String BASE = resources + "data-1022/" + i + "/";
+            String BASE = resources + "data-1131/" + i + "/";
             String urlHistory = BASE + "history.edn";
             String urlWtLog = BASE + "wiredtiger.log";
             WiredTigerHistory history = WiredTigerHistoryReader.readHistory(urlHistory, urlWtLog);
+
+            try{
+                TidBefore TB = new TidBefore(history.transactions.size());
+                TB.calculateRelation(history);
+            }catch (RelationInvalidException e){
+                System.out.println(e);
+                continue;
+            }
+
             long begin = System.currentTimeMillis();
 
             if (checker.checkEXT(history, true)) {
@@ -122,6 +137,6 @@ public class EXTChecker<Txn extends Transaction> {
     }
 
     public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException {
-        checkWiredTigerResource(10);
+        checkWiredTigerResource(4);
     }
 }

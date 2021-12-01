@@ -11,6 +11,7 @@ import IntExt.INTChecker;
 import Relation.*;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -35,6 +36,12 @@ public class WTSIChecker {
             System.out.println("[INFO] Checking EXT Successfully");
         } else {
             System.out.println("[ERROR] Checking EXT Failed");
+            try{
+                TidBefore TB = new TidBefore(history.transactions.size());
+                TB.calculateRelation(history);
+            }catch (RelationInvalidException e){
+                System.out.println(e);
+            }
         }
 
         long end = System.currentTimeMillis();
@@ -90,13 +97,17 @@ public class WTSIChecker {
         }
     }
 
-    public static void checkAll() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
+    public static void checkAll() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException{
+        String base = "/home/young/DisAlg/jepsen.wiredtiger/store";
+        checkAll(base);
+    }
+
+    public static void checkAll(String base) throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
 
         String URLHistory;
         String URLWTLog;
         String URLResults;
 
-        String base = "/home/young/DisAlg/jepsen.wiredtiger/store";
         File store = new File(base);
         HashMap<String, String> keyVariant = new HashMap<>();
         keyVariant.put("register", "Strong-SI");
@@ -114,7 +125,7 @@ public class WTSIChecker {
 
                             if (new File(URLHistory).exists() && new File(URLWTLog).exists()) {
                                 try {
-                                    checkSI(URLHistory, URLWTLog);
+                                    checkSIIntExt(URLHistory, URLWTLog);
                                 } catch (RelationInvalidException e) {
                                     e.printStackTrace();
                                 }
@@ -153,9 +164,12 @@ public class WTSIChecker {
     }
 
     public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException {
-//        checkSample();
-//        checkAll();
-//        checkLatest();
-        checkResource(10);
+        if (args.length == 0) {
+            checkAll();
+        } else {
+            System.out.println("args is " + Arrays.toString(args));
+            String base = args[0];
+            checkAll(base);
+        }
     }
 }

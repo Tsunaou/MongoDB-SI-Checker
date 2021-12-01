@@ -45,7 +45,7 @@
                             <!--指定外部jar所在的路径，添加的classpath为 【路径】/jar文件名，Maven自动解析文件名，使用本项目生成的jar包时，当前目录下有lib文件夹，lib文件夹中有本项目使用的外部jar文件即可-->
                             <classpathPrefix>lib/</classpathPrefix>
                             <!--指定本项目jar包的Main-Class-->
-                            <mainClass>Checker</mainClass>
+                            <mainClass>SIChecker</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -57,7 +57,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>MongoDBSIChecker</mainClass>
+                            <mainClass>SIChecker</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

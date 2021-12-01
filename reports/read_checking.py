@@ -106,7 +106,7 @@ def new_result_map():
 
 
 if __name__ == '__main__':
-    filename = "./output1129"
+    filename = "mongodb/1129/output1129"
     with open(filename, "r") as f:
         outputs = list(map(lambda x: x.strip('\n'), f.readlines()))
 
