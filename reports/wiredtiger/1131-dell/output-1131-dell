@@ -1,0 +1,2183 @@
+/usr/lib/jvm/java-11-openjdk-amd64/bin/java -Xmx6144m -javaagent:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/lib/idea_rt.jar=41535:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/bin -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/media/young/Education/Programs/Java-Programs/Snapshot-Isolation-Checker-Java/target/classes:/home/young/.m2/repository/us/bpsm/edn-java/0.7.1/edn-java-0.7.1.jar:/home/young/.m2/repository/org/jgrapht/jgrapht-core/1.4.0/jgrapht-core-1.4.0.jar:/home/young/.m2/repository/org/jheaps/jheaps/0.11/jheaps-0.11.jar:/home/young/.m2/repository/com/alibaba/fastjson/1.2.75/fastjson-1.2.75.jar WTSIChecker
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:8/20211201T012305.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 417 times of fixing in 13539 transactions
+[INFO] The error scale is 0.015181242seconds
+[INFO] Checking EXT Successfully
+Cost 3244 ms
+History Status: [count=19785, okCount=13539, failCount=0, infoCount=6246]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:8/20211201T012106.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 585 times of fixing in 11210 transactions
+[INFO] The error scale is 0.04897192seconds
+[INFO] Checking EXT Successfully
+Cost 1700 ms
+History Status: [count=20042, okCount=11210, failCount=0, infoCount=8832]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:8/20211201T012404.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 541 times of fixing in 11767 transactions
+[INFO] The error scale is 0.012312119seconds
+[INFO] Checking EXT Successfully
+Cost 1808 ms
+History Status: [count=20074, okCount=11767, failCount=0, infoCount=8307]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:8/20211201T012205.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 596 times of fixing in 10694 transactions
+[INFO] The error scale is 0.011877595seconds
+[INFO] Checking EXT Successfully
+Cost 1496 ms
+History Status: [count=20029, okCount=10694, failCount=0, infoCount=9335]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:8/20211201T012235.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 348 times of fixing in 15017 transactions
+[INFO] The error scale is 0.010906915seconds
+[INFO] Checking EXT Successfully
+Cost 3280 ms
+History Status: [count=19997, okCount=15017, failCount=0, infoCount=4980]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:8/20211201T012135.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 584 times of fixing in 10883 transactions
+[INFO] The error scale is 0.018815623seconds
+[INFO] Checking EXT Successfully
+Cost 1642 ms
+History Status: [count=20091, okCount=10883, failCount=0, infoCount=9208]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:8/20211201T012334.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 381 times of fixing in 13881 transactions
+[INFO] The error scale is 0.012124595seconds
+[INFO] Checking EXT Successfully
+Cost 2769 ms
+History Status: [count=19940, okCount=13881, failCount=0, infoCount=6059]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:8/20211201T012434.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 553 times of fixing in 11584 transactions
+[INFO] The error scale is 0.012219071seconds
+[INFO] Checking EXT Successfully
+Cost 1917 ms
+History Status: [count=19984, okCount=11584, failCount=0, infoCount=8400]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:8/20211201T012036.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 391 times of fixing in 13644 transactions
+[INFO] The error scale is 0.014943106seconds
+[INFO] Checking EXT Successfully
+Cost 2523 ms
+History Status: [count=19919, okCount=13644, failCount=0, infoCount=6275]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:8/20211201T012007.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 701 times of fixing in 8578 transactions
+[INFO] The error scale is 0.014874867seconds
+[INFO] Checking EXT Successfully
+Cost 1036 ms
+History Status: [count=20092, okCount=8578, failCount=0, infoCount=11514]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:4/20211201T003215.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 119 times of fixing in 9114 transactions
+[INFO] The error scale is 0.008196319seconds
+[INFO] Checking EXT Successfully
+Cost 1195 ms
+History Status: [count=9917, okCount=9114, failCount=0, infoCount=803]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:4/20211201T003348.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 53 times of fixing in 9552 transactions
+[INFO] The error scale is 0.007432627seconds
+[INFO] Checking EXT Successfully
+Cost 1406 ms
+History Status: [count=9978, okCount=9552, failCount=0, infoCount=426]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:4/20211201T003234.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 54 times of fixing in 9572 transactions
+[INFO] The error scale is 0.007000051seconds
+[INFO] Checking EXT Successfully
+Cost 1499 ms
+History Status: [count=10012, okCount=9572, failCount=0, infoCount=440]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:4/20211201T003252.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 55 times of fixing in 9636 transactions
+[INFO] The error scale is 0.012898525seconds
+[INFO] Checking EXT Successfully
+Cost 1298 ms
+History Status: [count=10040, okCount=9636, failCount=0, infoCount=404]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:4/20211201T003139.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 55 times of fixing in 9508 transactions
+[INFO] The error scale is 0.003366823seconds
+[INFO] Checking EXT Successfully
+Cost 1348 ms
+History Status: [count=9896, okCount=9508, failCount=0, infoCount=388]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:4/20211201T003330.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 53 times of fixing in 9385 transactions
+[INFO] The error scale is 0.011520844seconds
+[INFO] Checking EXT Successfully
+Cost 1196 ms
+History Status: [count=9949, okCount=9385, failCount=0, infoCount=564]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:4/20211201T003157.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 88 times of fixing in 9306 transactions
+[INFO] The error scale is 0.009370814seconds
+[INFO] Checking EXT Successfully
+Cost 1149 ms
+History Status: [count=10039, okCount=9306, failCount=0, infoCount=733]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:4/20211201T003102.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 108 times of fixing in 9315 transactions
+[INFO] The error scale is 0.013589476seconds
+[INFO] Checking EXT Successfully
+Cost 1176 ms
+History Status: [count=10024, okCount=9315, failCount=0, infoCount=709]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:4/20211201T003120.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 67 times of fixing in 9431 transactions
+[INFO] The error scale is 0.014267764seconds
+[INFO] Checking EXT Successfully
+Cost 1189 ms
+History Status: [count=10019, okCount=9431, failCount=0, infoCount=588]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:4/20211201T003311.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 80 times of fixing in 9279 transactions
+[INFO] The error scale is 0.009437472seconds
+[INFO] Checking EXT Successfully
+Cost 1155 ms
+History Status: [count=9937, okCount=9279, failCount=0, infoCount=658]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:12/20211201T020955.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 494 times of fixing in 5922 transactions
+[INFO] The error scale is 0.009480242seconds
+[INFO] Checking EXT Successfully
+Cost 590 ms
+History Status: [count=19176, okCount=5922, failCount=0, infoCount=13254]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:12/20211201T021025.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 500 times of fixing in 5930 transactions
+[INFO] The error scale is 0.009439693seconds
+[INFO] Checking EXT Successfully
+Cost 583 ms
+History Status: [count=19152, okCount=5930, failCount=0, infoCount=13222]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:12/20211201T020926.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 509 times of fixing in 5988 transactions
+[INFO] The error scale is 0.018034712seconds
+[INFO] Checking EXT Successfully
+Cost 622 ms
+History Status: [count=19034, okCount=5988, failCount=0, infoCount=13046]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:12/20211201T020658.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 497 times of fixing in 6041 transactions
+[INFO] The error scale is 0.01318952seconds
+[INFO] Checking EXT Successfully
+Cost 618 ms
+History Status: [count=19139, okCount=6041, failCount=0, infoCount=13098]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:12/20211201T020856.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 470 times of fixing in 6033 transactions
+[INFO] The error scale is 0.010837677seconds
+[INFO] Checking EXT Successfully
+Cost 613 ms
+History Status: [count=19118, okCount=6033, failCount=0, infoCount=13085]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:12/20211201T020827.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 499 times of fixing in 5962 transactions
+[INFO] The error scale is 0.010141917seconds
+[INFO] Checking EXT Successfully
+Cost 622 ms
+History Status: [count=19164, okCount=5962, failCount=0, infoCount=13202]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:12/20211201T020629.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 477 times of fixing in 6005 transactions
+[INFO] The error scale is 0.013252416seconds
+[INFO] Checking EXT Successfully
+Cost 604 ms
+History Status: [count=19150, okCount=6005, failCount=0, infoCount=13145]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:12/20211201T020728.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 527 times of fixing in 5986 transactions
+[INFO] The error scale is 0.013521954seconds
+[INFO] Checking EXT Successfully
+Cost 581 ms
+History Status: [count=19124, okCount=5986, failCount=0, infoCount=13138]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:12/20211201T020757.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 504 times of fixing in 6077 transactions
+[INFO] The error scale is 0.010939871seconds
+[INFO] Checking EXT Successfully
+Cost 617 ms
+History Status: [count=19200, okCount=6077, failCount=0, infoCount=13123]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:12/20211201T021054.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 449 times of fixing in 5935 transactions
+[INFO] The error scale is 0.013564012seconds
+[INFO] Checking EXT Successfully
+Cost 577 ms
+History Status: [count=19179, okCount=5935, failCount=0, infoCount=13244]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:4/20211201T005059.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 206 times of fixing in 38327 transactions
+[INFO] The error scale is 0.008481989seconds
+[INFO] Checking EXT Successfully
+Cost 29282 ms
+History Status: [count=39900, okCount=38327, failCount=0, infoCount=1573]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:4/20211201T004916.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 174 times of fixing in 38644 transactions
+[INFO] The error scale is 0.009160287seconds
+[INFO] Checking EXT Successfully
+Cost 27836 ms
+History Status: [count=39962, okCount=38644, failCount=0, infoCount=1318]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:4/20211201T004824.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 128 times of fixing in 38477 transactions
+[INFO] The error scale is 0.011427333seconds
+[INFO] Checking EXT Successfully
+Cost 22789 ms
+History Status: [count=39800, okCount=38477, failCount=0, infoCount=1323]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:4/20211201T004732.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 165 times of fixing in 38681 transactions
+[INFO] The error scale is 0.01040479seconds
+[INFO] Checking EXT Successfully
+Cost 24143 ms
+History Status: [count=40094, okCount=38681, failCount=0, infoCount=1413]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:4/20211201T005333.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 185 times of fixing in 38207 transactions
+[INFO] The error scale is 0.00920059seconds
+[INFO] Checking EXT Successfully
+Cost 22835 ms
+History Status: [count=39891, okCount=38207, failCount=0, infoCount=1684]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:4/20211201T004549.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 184 times of fixing in 38688 transactions
+[INFO] The error scale is 0.011275252seconds
+[INFO] Checking EXT Successfully
+Cost 23726 ms
+History Status: [count=40147, okCount=38688, failCount=0, infoCount=1459]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:4/20211201T005008.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 279 times of fixing in 38027 transactions
+[INFO] The error scale is 0.020646104seconds
+[INFO] Checking EXT Successfully
+Cost 22861 ms
+History Status: [count=40185, okCount=38027, failCount=0, infoCount=2158]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:4/20211201T005242.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 217 times of fixing in 38288 transactions
+[INFO] The error scale is 0.013259567seconds
+[INFO] Checking EXT Successfully
+Cost 26000 ms
+History Status: [count=39812, okCount=38288, failCount=0, infoCount=1524]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:4/20211201T004641.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 169 times of fixing in 38804 transactions
+[INFO] The error scale is 0.007851939seconds
+[INFO] Checking EXT Successfully
+Cost 27166 ms
+History Status: [count=40302, okCount=38804, failCount=0, infoCount=1498]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:4/20211201T005150.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 148 times of fixing in 38702 transactions
+[INFO] The error scale is 0.008504906seconds
+[INFO] Checking EXT Successfully
+Cost 26672 ms
+History Status: [count=40071, okCount=38702, failCount=0, infoCount=1369]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:12/20211201T021952.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 920 times of fixing in 11636 transactions
+[INFO] The error scale is 0.010930576seconds
+[INFO] Checking EXT Successfully
+Cost 1962 ms
+History Status: [count=38513, okCount=11636, failCount=0, infoCount=26877]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:12/20211201T022318.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 982 times of fixing in 11779 transactions
+[INFO] The error scale is 0.015365232seconds
+[INFO] Checking EXT Successfully
+Cost 2061 ms
+History Status: [count=38452, okCount=11779, failCount=0, infoCount=26673]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:12/20211201T022501.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 945 times of fixing in 11509 transactions
+[INFO] The error scale is 0.017758022seconds
+[INFO] Checking EXT Successfully
+Cost 1904 ms
+History Status: [count=37704, okCount=11509, failCount=0, infoCount=26195]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:12/20211201T022227.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 962 times of fixing in 11713 transactions
+[INFO] The error scale is 0.013358858seconds
+[INFO] Checking EXT Successfully
+Cost 1975 ms
+History Status: [count=38529, okCount=11713, failCount=0, infoCount=26816]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:12/20211201T022135.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 957 times of fixing in 11946 transactions
+[INFO] The error scale is 0.014030756seconds
+[INFO] Checking EXT Successfully
+Cost 2048 ms
+History Status: [count=38490, okCount=11946, failCount=0, infoCount=26544]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:12/20211201T022043.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 995 times of fixing in 11723 transactions
+[INFO] The error scale is 0.023114383seconds
+[INFO] Checking EXT Successfully
+Cost 1968 ms
+History Status: [count=38485, okCount=11723, failCount=0, infoCount=26762]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:12/20211201T022409.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 981 times of fixing in 11654 transactions
+[INFO] The error scale is 0.013478874seconds
+[INFO] Checking EXT Successfully
+Cost 1966 ms
+History Status: [count=38298, okCount=11654, failCount=0, infoCount=26644]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:12/20211201T022552.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1028 times of fixing in 11736 transactions
+[INFO] The error scale is 0.049866691seconds
+[INFO] Checking EXT Successfully
+Cost 2010 ms
+History Status: [count=38515, okCount=11736, failCount=0, infoCount=26779]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:12/20211201T021809.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1015 times of fixing in 11711 transactions
+[INFO] The error scale is 0.012047813seconds
+[INFO] Checking EXT Successfully
+Cost 1976 ms
+History Status: [count=38397, okCount=11711, failCount=0, infoCount=26686]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:12/20211201T021901.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 994 times of fixing in 11835 transactions
+[INFO] The error scale is 0.014310452seconds
+[INFO] Checking EXT Successfully
+Cost 1934 ms
+History Status: [count=38301, okCount=11835, failCount=0, infoCount=26466]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:4/20211201T004225.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 144 times of fixing in 28816 transactions
+[INFO] The error scale is 0.008750119seconds
+[INFO] Checking EXT Successfully
+Cost 12155 ms
+History Status: [count=30062, okCount=28816, failCount=0, infoCount=1246]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:4/20211201T004508.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 160 times of fixing in 28677 transactions
+[INFO] The error scale is 0.009287841seconds
+[INFO] Checking EXT Successfully
+Cost 11699 ms
+History Status: [count=30013, okCount=28677, failCount=0, infoCount=1336]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:4/20211201T004346.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 123 times of fixing in 28873 transactions
+[INFO] The error scale is 0.004443492seconds
+[INFO] Checking EXT Successfully
+Cost 11819 ms
+History Status: [count=29927, okCount=28873, failCount=0, infoCount=1054]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:4/20211201T003902.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 135 times of fixing in 28677 transactions
+[INFO] The error scale is 0.010072854seconds
+[INFO] Checking EXT Successfully
+Cost 11738 ms
+History Status: [count=29927, okCount=28677, failCount=0, infoCount=1250]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:4/20211201T004428.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 163 times of fixing in 28607 transactions
+[INFO] The error scale is 0.010602339seconds
+[INFO] Checking EXT Successfully
+Cost 11254 ms
+History Status: [count=29930, okCount=28607, failCount=0, infoCount=1323]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:4/20211201T004104.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 114 times of fixing in 28778 transactions
+[INFO] The error scale is 0.007409436seconds
+[INFO] Checking EXT Successfully
+Cost 11970 ms
+History Status: [count=29988, okCount=28778, failCount=0, infoCount=1210]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:4/20211201T003942.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 134 times of fixing in 29055 transactions
+[INFO] The error scale is 0.004589154seconds
+Checking for read (r 28 222) in [tid=3459, process=399, operations=[(w 27 235), (r 28 222)], startTimestamp=(4924880920,0), commitTimestamp=(4924986510,0);
+[ERROR] Checking EXT Failed
+Calculation Relation.TidBefore
+[tid=3456, process=192, operations=[(w 28 220), (w 24 99)], startTimestamp=(4923502054,0), commitTimestamp=(4923923597,0);
+[tid=3458, process=186, operations=[(w 28 221), (w 28 222), (w 27 234)], startTimestamp=(4923817180,0), commitTimestamp=(4923893385,0);
+Exceptions.RelationInvalidException: Conflict with Lemma 10
+Cost 11865 ms
+History Status: [count=29990, okCount=29055, failCount=0, infoCount=935]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:4/20211201T004023.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 123 times of fixing in 29068 transactions
+[INFO] The error scale is 0.006409751seconds
+[INFO] Checking EXT Successfully
+Cost 12528 ms
+History Status: [count=30147, okCount=29068, failCount=0, infoCount=1079]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:4/20211201T004144.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 94 times of fixing in 29032 transactions
+[INFO] The error scale is 0.017693733seconds
+Checking for read (r 8 38) in [tid=61, process=15, operations=[(r 8 38), (w 7 27), (w 6 9)], startTimestamp=(141557631,0), commitTimestamp=(141783584,0);
+[ERROR] Checking EXT Failed
+Calculation Relation.TidBefore
+[tid=58, process=36, operations=[(r 9 65), (w 8 37), (r 3 0)], startTimestamp=(137314642,0), commitTimestamp=(137797466,0);
+[tid=59, process=13, operations=[(w 8 38)], startTimestamp=(137639822,0), commitTimestamp=(137747331,0);
+Exceptions.RelationInvalidException: Conflict with Lemma 10
+Cost 11878 ms
+History Status: [count=29974, okCount=29032, failCount=0, infoCount=942]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:4/20211201T004305.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 170 times of fixing in 28506 transactions
+[INFO] The error scale is 0.015080551seconds
+[INFO] Checking EXT Successfully
+Cost 11703 ms
+History Status: [count=29998, okCount=28506, failCount=0, infoCount=1492]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:8/20211201T015000.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 704 times of fixing in 38666 transactions
+[INFO] The error scale is 0.009890786seconds
+[INFO] Checking EXT Successfully
+Cost 27287 ms
+History Status: [count=49963, okCount=38666, failCount=0, infoCount=11297]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:8/20211201T014033.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 727 times of fixing in 39262 transactions
+[INFO] The error scale is 0.035503624seconds
+Checking for read (r 18 79) in [tid=553, process=704, operations=[(w 19 35), (r 18 79), (r 18 79), (w 19 36), (w 19 37), (r 19 37)], startTimestamp=(1695998938,0), commitTimestamp=(1700654131,0);
+[ERROR] Checking EXT Failed
+Calculation Relation.TidBefore
+[tid=550, process=605, operations=[(w 18 62), (w 18 63), (r 18 63)], startTimestamp=(1689234915,0), commitTimestamp=(1691737559,0);
+[tid=551, process=740, operations=[(w 19 33), (w 18 78), (r 15 141), (r 19 33), (r 19 33), (w 18 79)], startTimestamp=(1691591787,0), commitTimestamp=(1691734443,0);
+Exceptions.RelationInvalidException: Conflict with Lemma 10
+Cost 27746 ms
+History Status: [count=50106, okCount=39262, failCount=0, infoCount=10844]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:8/20211201T014239.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 642 times of fixing in 39877 transactions
+[INFO] The error scale is 0.012140669seconds
+[INFO] Checking EXT Successfully
+Cost 29655 ms
+History Status: [count=49950, okCount=39877, failCount=0, infoCount=10073]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:8/20211201T014445.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 716 times of fixing in 39049 transactions
+[INFO] The error scale is 0.04082194seconds
+[INFO] Checking EXT Successfully
+Cost 27781 ms
+History Status: [count=49975, okCount=39049, failCount=0, infoCount=10926]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:8/20211201T014857.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 596 times of fixing in 40221 transactions
+[INFO] The error scale is 0.009005644seconds
+[INFO] Checking EXT Successfully
+Cost 29929 ms
+History Status: [count=49864, okCount=40221, failCount=0, infoCount=9643]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:8/20211201T014651.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 719 times of fixing in 38572 transactions
+[INFO] The error scale is 0.014114072seconds
+Checking for read (r 28 88) in [tid=2147483647, process=1295, operations=[(r 4 89), (r 28 88), (r 27 170), (r 28 88), (r 28 88)], startTimestamp=(2876975094,0), commitTimestamp=(2877856166,0);
+[ERROR] Checking EXT Failed
+Calculation Relation.TidBefore
+[tid=1026, process=1297, operations=[(r 21 240), (w 28 81)], startTimestamp=(2862352889,0), commitTimestamp=(2866737049,0);
+[tid=1027, process=1222, operations=[(r 28 81), (w 28 88)], startTimestamp=(2866464395,0), commitTimestamp=(2866681963,0);
+Exceptions.RelationInvalidException: Conflict with Lemma 10
+Cost 26410 ms
+History Status: [count=50166, okCount=38572, failCount=0, infoCount=11594]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:8/20211201T014342.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 708 times of fixing in 38280 transactions
+[INFO] The error scale is 0.009693531seconds
+[INFO] Checking EXT Successfully
+Cost 26034 ms
+History Status: [count=49846, okCount=38280, failCount=0, infoCount=11566]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:8/20211201T014548.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 754 times of fixing in 39208 transactions
+[INFO] The error scale is 0.0111904seconds
+[INFO] Checking EXT Successfully
+Cost 27845 ms
+History Status: [count=49976, okCount=39208, failCount=0, infoCount=10768]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:8/20211201T014754.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 595 times of fixing in 39687 transactions
+[INFO] The error scale is 0.025351162seconds
+[INFO] Checking EXT Successfully
+Cost 28335 ms
+History Status: [count=49900, okCount=39687, failCount=0, infoCount=10213]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:8/20211201T014135.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 750 times of fixing in 38835 transactions
+[INFO] The error scale is 0.010702407seconds
+[INFO] Checking EXT Successfully
+Cost 27369 ms
+History Status: [count=49925, okCount=38835, failCount=0, infoCount=11090]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:8/20211201T020209.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 627 times of fixing in 50508 transactions
+[INFO] The error scale is 0.00886524seconds
+[INFO] Checking EXT Successfully
+Cost 56117 ms
+History Status: [count=59891, okCount=50508, failCount=0, infoCount=9383]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:8/20211201T015331.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 578 times of fixing in 50812 transactions
+[INFO] The error scale is 0.011110671seconds
+[INFO] Checking EXT Successfully
+Cost 57695 ms
+History Status: [count=60180, okCount=50812, failCount=0, infoCount=9368]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:8/20211201T015941.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 607 times of fixing in 50402 transactions
+[INFO] The error scale is 0.053025468seconds
+[INFO] Checking EXT Successfully
+Cost 55804 ms
+History Status: [count=59854, okCount=50402, failCount=0, infoCount=9452]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:8/20211201T015217.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 664 times of fixing in 49130 transactions
+[INFO] The error scale is 0.011773875seconds
+[INFO] Checking EXT Successfully
+Cost 51606 ms
+History Status: [count=59623, okCount=49130, failCount=0, infoCount=10493]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:8/20211201T015445.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 803 times of fixing in 46830 transactions
+[INFO] The error scale is 0.014495139seconds
+[INFO] Checking EXT Successfully
+Cost 46173 ms
+History Status: [count=60073, okCount=46830, failCount=0, infoCount=13243]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:8/20211201T015559.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 619 times of fixing in 50108 transactions
+[INFO] The error scale is 0.00956281seconds
+[INFO] Checking EXT Successfully
+Cost 55092 ms
+History Status: [count=60045, okCount=50108, failCount=0, infoCount=9937]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:8/20211201T015103.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 815 times of fixing in 46974 transactions
+[INFO] The error scale is 0.043069389seconds
+[INFO] Checking EXT Successfully
+Cost 46400 ms
+History Status: [count=59985, okCount=46974, failCount=0, infoCount=13011]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:8/20211201T015828.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1001 times of fixing in 45048 transactions
+[INFO] The error scale is 0.012607905seconds
+[INFO] Checking EXT Successfully
+Cost 41009 ms
+History Status: [count=59779, okCount=45048, failCount=0, infoCount=14731]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:8/20211201T020056.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 971 times of fixing in 44391 transactions
+[INFO] The error scale is 0.01910074seconds
+[INFO] Checking EXT Successfully
+Cost 39562 ms
+History Status: [count=59759, okCount=44391, failCount=0, infoCount=15368]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:8/20211201T015714.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 860 times of fixing in 46050 transactions
+[INFO] The error scale is 0.016912635seconds
+[INFO] Checking EXT Successfully
+Cost 43949 ms
+History Status: [count=60084, okCount=46050, failCount=0, infoCount=14034]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:4/20211201T011322.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 285 times of fixing in 57592 transactions
+[INFO] The error scale is 0.012081978seconds
+[INFO] Checking EXT Successfully
+Cost 84361 ms
+History Status: [count=60014, okCount=57592, failCount=0, infoCount=2422]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:4/20211201T010942.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 215 times of fixing in 58121 transactions
+[INFO] The error scale is 0.006906866seconds
+[INFO] Checking EXT Successfully
+Cost 85661 ms
+History Status: [count=59907, okCount=58121, failCount=0, infoCount=1786]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:4/20211201T011548.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 299 times of fixing in 57897 transactions
+[INFO] The error scale is 0.009747697seconds
+[INFO] Checking EXT Successfully
+Cost 79835 ms
+History Status: [count=60290, okCount=57897, failCount=0, infoCount=2393]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:4/20211201T011055.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 335 times of fixing in 57410 transactions
+[INFO] The error scale is 0.008840446seconds
+[INFO] Checking EXT Successfully
+Cost 79043 ms
+History Status: [count=59993, okCount=57410, failCount=0, infoCount=2583]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:4/20211201T010602.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 202 times of fixing in 57749 transactions
+[INFO] The error scale is 0.009188777seconds
+[INFO] Checking EXT Successfully
+Cost 78405 ms
+History Status: [count=59755, okCount=57749, failCount=0, infoCount=2006]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:4/20211201T010828.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 228 times of fixing in 58138 transactions
+[INFO] The error scale is 0.009450806seconds
+[INFO] Checking EXT Successfully
+Cost 79706 ms
+History Status: [count=60016, okCount=58138, failCount=0, infoCount=1878]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:4/20211201T011208.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 236 times of fixing in 57940 transactions
+[INFO] The error scale is 0.010426261seconds
+[INFO] Checking EXT Successfully
+Cost 80036 ms
+History Status: [count=60061, okCount=57940, failCount=0, infoCount=2121]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:4/20211201T011435.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 280 times of fixing in 57511 transactions
+[INFO] The error scale is 0.009497882seconds
+[INFO] Checking EXT Successfully
+Cost 81117 ms
+History Status: [count=59882, okCount=57511, failCount=0, infoCount=2371]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:4/20211201T010715.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 298 times of fixing in 57664 transactions
+[INFO] The error scale is 0.012388314seconds
+[INFO] Checking EXT Successfully
+Cost 78628 ms
+History Status: [count=59968, okCount=57664, failCount=0, infoCount=2304]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:4/20211201T010447.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 275 times of fixing in 57577 transactions
+[INFO] The error scale is 0.00890723seconds
+[INFO] Checking EXT Successfully
+Cost 79288 ms
+History Status: [count=59998, okCount=57577, failCount=0, infoCount=2421]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:12/20211201T024159.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1483 times of fixing in 17704 transactions
+[INFO] The error scale is 0.014788189seconds
+[INFO] Checking EXT Successfully
+Cost 4127 ms
+History Status: [count=57957, okCount=17704, failCount=0, infoCount=40253]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:12/20211201T023706.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1493 times of fixing in 17642 transactions
+[INFO] The error scale is 0.012117639seconds
+[INFO] Checking EXT Successfully
+Cost 4115 ms
+History Status: [count=57892, okCount=17642, failCount=0, infoCount=40250]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:12/20211201T023933.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1490 times of fixing in 17369 transactions
+[INFO] The error scale is 0.012587488seconds
+[INFO] Checking EXT Successfully
+Cost 4008 ms
+History Status: [count=57738, okCount=17369, failCount=0, infoCount=40369]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:12/20211201T024650.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1460 times of fixing in 17720 transactions
+[INFO] The error scale is 0.01320109seconds
+[INFO] Checking EXT Successfully
+Cost 4301 ms
+History Status: [count=57894, okCount=17720, failCount=0, infoCount=40174]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:12/20211201T023820.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1489 times of fixing in 17552 transactions
+[INFO] The error scale is 0.013345337seconds
+[INFO] Checking EXT Successfully
+Cost 3986 ms
+History Status: [count=57903, okCount=17552, failCount=0, infoCount=40351]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:12/20211201T024312.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1453 times of fixing in 17350 transactions
+[INFO] The error scale is 0.014762204seconds
+[INFO] Checking EXT Successfully
+Cost 4116 ms
+History Status: [count=58000, okCount=17350, failCount=0, infoCount=40650]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:12/20211201T024803.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1539 times of fixing in 17588 transactions
+[INFO] The error scale is 0.014496081seconds
+[INFO] Checking EXT Successfully
+Cost 4459 ms
+History Status: [count=57921, okCount=17588, failCount=0, infoCount=40333]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:12/20211201T024046.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1446 times of fixing in 17616 transactions
+[INFO] The error scale is 0.014789949seconds
+[INFO] Checking EXT Successfully
+Cost 4065 ms
+History Status: [count=57995, okCount=17616, failCount=0, infoCount=40379]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:12/20211201T024537.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1489 times of fixing in 17648 transactions
+[INFO] The error scale is 0.034302253seconds
+[INFO] Checking EXT Successfully
+Cost 4229 ms
+History Status: [count=58053, okCount=17648, failCount=0, infoCount=40405]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:60 txn-len:12/20211201T024425.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1438 times of fixing in 17560 transactions
+[INFO] The error scale is 0.011975923seconds
+[INFO] Checking EXT Successfully
+Cost 4296 ms
+History Status: [count=57885, okCount=17560, failCount=0, infoCount=40325]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:12/20211201T020552.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 265 times of fixing in 3016 transactions
+[INFO] The error scale is 0.011632419seconds
+[INFO] Checking EXT Successfully
+Cost 192 ms
+History Status: [count=9386, okCount=3016, failCount=0, infoCount=6370]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:12/20211201T020419.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 256 times of fixing in 3080 transactions
+[INFO] The error scale is 0.012033618seconds
+[INFO] Checking EXT Successfully
+Cost 195 ms
+History Status: [count=9325, okCount=3080, failCount=0, infoCount=6245]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:12/20211201T020342.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 230 times of fixing in 2934 transactions
+[INFO] The error scale is 0.011264707seconds
+[INFO] Checking EXT Successfully
+Cost 185 ms
+History Status: [count=9304, okCount=2934, failCount=0, infoCount=6370]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:12/20211201T020610.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 242 times of fixing in 2915 transactions
+[INFO] The error scale is 0.011465829seconds
+[INFO] Checking EXT Successfully
+Cost 183 ms
+History Status: [count=9196, okCount=2915, failCount=0, infoCount=6281]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:12/20211201T020438.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 269 times of fixing in 3057 transactions
+[INFO] The error scale is 0.01081187seconds
+[INFO] Checking EXT Successfully
+Cost 194 ms
+History Status: [count=9435, okCount=3057, failCount=0, infoCount=6378]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:12/20211201T020323.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 237 times of fixing in 3072 transactions
+[INFO] The error scale is 0.010000695seconds
+[INFO] Checking EXT Successfully
+Cost 195 ms
+History Status: [count=9369, okCount=3072, failCount=0, infoCount=6297]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:12/20211201T020400.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 264 times of fixing in 3108 transactions
+[INFO] The error scale is 0.015313631seconds
+[INFO] Checking EXT Successfully
+Cost 199 ms
+History Status: [count=9396, okCount=3108, failCount=0, infoCount=6288]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:12/20211201T020456.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 237 times of fixing in 3035 transactions
+[INFO] The error scale is 0.013640983seconds
+[INFO] Checking EXT Successfully
+Cost 207 ms
+History Status: [count=9420, okCount=3035, failCount=0, infoCount=6385]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:12/20211201T020533.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 236 times of fixing in 3055 transactions
+[INFO] The error scale is 0.011082387seconds
+[INFO] Checking EXT Successfully
+Cost 196 ms
+History Status: [count=9458, okCount=3055, failCount=0, infoCount=6403]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:12/20211201T020515.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 225 times of fixing in 2987 transactions
+[INFO] The error scale is 0.010405926seconds
+[INFO] Checking EXT Successfully
+Cost 181 ms
+History Status: [count=9290, okCount=2987, failCount=0, infoCount=6303]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:12/20211201T021204.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 751 times of fixing in 8836 transactions
+[INFO] The error scale is 0.01051843seconds
+[INFO] Checking EXT Successfully
+Cost 1175 ms
+History Status: [count=28680, okCount=8836, failCount=0, infoCount=19844]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:12/20211201T021406.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 709 times of fixing in 8936 transactions
+[INFO] The error scale is 0.013912681seconds
+[INFO] Checking EXT Successfully
+Cost 1147 ms
+History Status: [count=28745, okCount=8936, failCount=0, infoCount=19809]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:12/20211201T021124.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 731 times of fixing in 8798 transactions
+[INFO] The error scale is 0.047765361seconds
+[INFO] Checking EXT Successfully
+Cost 1177 ms
+History Status: [count=28786, okCount=8798, failCount=0, infoCount=19988]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:12/20211201T021607.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 764 times of fixing in 9047 transactions
+[INFO] The error scale is 0.012899274seconds
+[INFO] Checking EXT Successfully
+Cost 1250 ms
+History Status: [count=28688, okCount=9047, failCount=0, infoCount=19641]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:12/20211201T021728.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 757 times of fixing in 8852 transactions
+[INFO] The error scale is 0.012783588seconds
+[INFO] Checking EXT Successfully
+Cost 1167 ms
+History Status: [count=28837, okCount=8852, failCount=0, infoCount=19985]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:12/20211201T021245.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 728 times of fixing in 8752 transactions
+[INFO] The error scale is 0.014488176seconds
+[INFO] Checking EXT Successfully
+Cost 1202 ms
+History Status: [count=28782, okCount=8752, failCount=0, infoCount=20030]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:12/20211201T021648.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 757 times of fixing in 8805 transactions
+[INFO] The error scale is 0.012811444seconds
+[INFO] Checking EXT Successfully
+Cost 1182 ms
+History Status: [count=28824, okCount=8805, failCount=0, infoCount=20019]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:12/20211201T021325.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 788 times of fixing in 8833 transactions
+[INFO] The error scale is 0.011938293seconds
+[INFO] Checking EXT Successfully
+Cost 1218 ms
+History Status: [count=28778, okCount=8833, failCount=0, infoCount=19945]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:12/20211201T021446.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 721 times of fixing in 8880 transactions
+[INFO] The error scale is 0.010451072seconds
+[INFO] Checking EXT Successfully
+Cost 1194 ms
+History Status: [count=28900, okCount=8880, failCount=0, infoCount=20020]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:12/20211201T021527.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 719 times of fixing in 8812 transactions
+[INFO] The error scale is 0.011230119seconds
+[INFO] Checking EXT Successfully
+Cost 1110 ms
+History Status: [count=28966, okCount=8812, failCount=0, infoCount=20154]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:4/20211201T003634.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 134 times of fixing in 18954 transactions
+[INFO] The error scale is 0.01271999seconds
+[INFO] Checking EXT Successfully
+Cost 4398 ms
+History Status: [count=19944, okCount=18954, failCount=0, infoCount=990]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:4/20211201T003535.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 116 times of fixing in 19059 transactions
+[INFO] The error scale is 0.011204558seconds
+[INFO] Checking EXT Successfully
+Cost 4592 ms
+History Status: [count=19956, okCount=19059, failCount=0, infoCount=897]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:4/20211201T003604.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 90 times of fixing in 19298 transactions
+[INFO] The error scale is 0.006917471seconds
+[INFO] Checking EXT Successfully
+Cost 4551 ms
+History Status: [count=20086, okCount=19298, failCount=0, infoCount=788]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:4/20211201T003733.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 91 times of fixing in 19169 transactions
+[INFO] The error scale is 0.018153879seconds
+[INFO] Checking EXT Successfully
+Cost 4616 ms
+History Status: [count=20023, okCount=19169, failCount=0, infoCount=854]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:4/20211201T003505.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 102 times of fixing in 19253 transactions
+[INFO] The error scale is 0.010716263seconds
+[INFO] Checking EXT Successfully
+Cost 4624 ms
+History Status: [count=20040, okCount=19253, failCount=0, infoCount=787]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:4/20211201T003704.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 109 times of fixing in 19298 transactions
+[INFO] The error scale is 0.007514248seconds
+[INFO] Checking EXT Successfully
+Cost 4664 ms
+History Status: [count=20052, okCount=19298, failCount=0, infoCount=754]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:4/20211201T003832.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 99 times of fixing in 19104 transactions
+[INFO] The error scale is 0.009587505seconds
+[INFO] Checking EXT Successfully
+Cost 4616 ms
+History Status: [count=19908, okCount=19104, failCount=0, infoCount=804]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:4/20211201T003803.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 114 times of fixing in 19018 transactions
+[INFO] The error scale is 0.014328853seconds
+[INFO] Checking EXT Successfully
+Cost 4623 ms
+History Status: [count=20082, okCount=19018, failCount=0, infoCount=1064]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:4/20211201T003436.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 129 times of fixing in 19046 transactions
+[INFO] The error scale is 0.010108205seconds
+[INFO] Checking EXT Successfully
+Cost 4507 ms
+History Status: [count=20014, okCount=19046, failCount=0, infoCount=968]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:20 txn-len:4/20211201T003406.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 105 times of fixing in 19238 transactions
+[INFO] The error scale is 0.009385339seconds
+[INFO] Checking EXT Successfully
+Cost 4616 ms
+History Status: [count=20074, okCount=19238, failCount=0, infoCount=836]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:4/20211201T010038.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 151 times of fixing in 48463 transactions
+[INFO] The error scale is 0.009051191seconds
+[INFO] Checking EXT Successfully
+Cost 49376 ms
+History Status: [count=49968, okCount=48463, failCount=0, infoCount=1505]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:4/20211201T005425.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 214 times of fixing in 48106 transactions
+[INFO] The error scale is 0.012674541seconds
+[INFO] Checking EXT Successfully
+Cost 49587 ms
+History Status: [count=49849, okCount=48106, failCount=0, infoCount=1743]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:4/20211201T005936.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 168 times of fixing in 48295 transactions
+[INFO] The error scale is 0.009247496seconds
+[INFO] Checking EXT Successfully
+Cost 50876 ms
+History Status: [count=49952, okCount=48295, failCount=0, infoCount=1657]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:4/20211201T005527.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 159 times of fixing in 48191 transactions
+[INFO] The error scale is 0.008228281seconds
+[INFO] Checking EXT Successfully
+Cost 49152 ms
+History Status: [count=49701, okCount=48191, failCount=0, infoCount=1510]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:4/20211201T010243.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 217 times of fixing in 48059 transactions
+[INFO] The error scale is 0.010240904seconds
+[INFO] Checking EXT Successfully
+Cost 49360 ms
+History Status: [count=50009, okCount=48059, failCount=0, infoCount=1950]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:4/20211201T005833.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 169 times of fixing in 48447 transactions
+[INFO] The error scale is 0.008470813seconds
+[INFO] Checking EXT Successfully
+Cost 50336 ms
+History Status: [count=49994, okCount=48447, failCount=0, infoCount=1547]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:4/20211201T010345.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 207 times of fixing in 48192 transactions
+[INFO] The error scale is 0.017974154seconds
+[INFO] Checking EXT Successfully
+Cost 49274 ms
+History Status: [count=49982, okCount=48192, failCount=0, infoCount=1790]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:4/20211201T005731.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 215 times of fixing in 47804 transactions
+[INFO] The error scale is 0.008219232seconds
+[INFO] Checking EXT Successfully
+Cost 47641 ms
+History Status: [count=49799, okCount=47804, failCount=0, infoCount=1995]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:4/20211201T005629.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 188 times of fixing in 48528 transactions
+[INFO] The error scale is 0.006884509seconds
+[INFO] Checking EXT Successfully
+Cost 50469 ms
+History Status: [count=50209, okCount=48528, failCount=0, infoCount=1681]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:4/20211201T010140.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 180 times of fixing in 48218 transactions
+[INFO] The error scale is 0.00704878seconds
+[INFO] Checking EXT Successfully
+Cost 49609 ms
+History Status: [count=49946, okCount=48218, failCount=0, infoCount=1728]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:8/20211201T012503.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 578 times of fixing in 21499 transactions
+[INFO] The error scale is 0.014483198seconds
+[INFO] Checking EXT Successfully
+Cost 5854 ms
+History Status: [count=29969, okCount=21499, failCount=0, infoCount=8470]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:8/20211201T012625.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 566 times of fixing in 21719 transactions
+[INFO] The error scale is 0.009325326seconds
+[INFO] Checking EXT Successfully
+Cost 6086 ms
+History Status: [count=30132, okCount=21719, failCount=0, infoCount=8413]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:8/20211201T012747.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 541 times of fixing in 21495 transactions
+[INFO] The error scale is 0.012907089seconds
+[INFO] Checking EXT Successfully
+Cost 6086 ms
+History Status: [count=30017, okCount=21495, failCount=0, infoCount=8522]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:8/20211201T012909.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 502 times of fixing in 22437 transactions
+[INFO] The error scale is 0.013380139seconds
+[INFO] Checking EXT Successfully
+Cost 6599 ms
+History Status: [count=30027, okCount=22437, failCount=0, infoCount=7590]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:8/20211201T012706.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 817 times of fixing in 17294 transactions
+[INFO] The error scale is 0.01085571seconds
+[INFO] Checking EXT Successfully
+Cost 3916 ms
+History Status: [count=30205, okCount=17294, failCount=0, infoCount=12911]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:8/20211201T013031.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 456 times of fixing in 22550 transactions
+[INFO] The error scale is 0.015118337seconds
+[INFO] Checking EXT Successfully
+Cost 6553 ms
+History Status: [count=29897, okCount=22550, failCount=0, infoCount=7347]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:8/20211201T013112.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 495 times of fixing in 22377 transactions
+[INFO] The error scale is 0.010736221seconds
+[INFO] Checking EXT Successfully
+Cost 6515 ms
+History Status: [count=29939, okCount=22377, failCount=0, infoCount=7562]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:8/20211201T012544.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 410 times of fixing in 23661 transactions
+[INFO] The error scale is 0.013121286seconds
+[INFO] Checking EXT Successfully
+Cost 7294 ms
+History Status: [count=29990, okCount=23661, failCount=0, infoCount=6329]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:8/20211201T012828.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 417 times of fixing in 23259 transactions
+[INFO] The error scale is 0.011845999seconds
+[INFO] Checking EXT Successfully
+Cost 7135 ms
+History Status: [count=29985, okCount=23259, failCount=0, infoCount=6726]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:30 txn-len:8/20211201T012950.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 440 times of fixing in 23191 transactions
+[INFO] The error scale is 0.016154147seconds
+[INFO] Checking EXT Successfully
+Cost 7148 ms
+History Status: [count=29873, okCount=23191, failCount=0, infoCount=6682]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:12/20211201T023604.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1264 times of fixing in 14696 transactions
+[INFO] The error scale is 0.040846413seconds
+[INFO] Checking EXT Successfully
+Cost 3074 ms
+History Status: [count=48081, okCount=14696, failCount=0, infoCount=33385]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:12/20211201T023156.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1285 times of fixing in 14834 transactions
+[INFO] The error scale is 0.028607561seconds
+[INFO] Checking EXT Successfully
+Cost 3269 ms
+History Status: [count=48244, okCount=14834, failCount=0, infoCount=33410]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:12/20211201T023258.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1194 times of fixing in 14573 transactions
+[INFO] The error scale is 0.016023424seconds
+[INFO] Checking EXT Successfully
+Cost 2911 ms
+History Status: [count=48265, okCount=14573, failCount=0, infoCount=33692]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:12/20211201T022952.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1300 times of fixing in 14754 transactions
+[INFO] The error scale is 0.017421752seconds
+[INFO] Checking EXT Successfully
+Cost 2811 ms
+History Status: [count=48235, okCount=14754, failCount=0, infoCount=33481]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:12/20211201T023400.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1218 times of fixing in 14512 transactions
+[INFO] The error scale is 0.015273472seconds
+[INFO] Checking EXT Successfully
+Cost 2775 ms
+History Status: [count=48244, okCount=14512, failCount=0, infoCount=33732]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:12/20211201T023502.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1248 times of fixing in 14566 transactions
+[INFO] The error scale is 0.013289411seconds
+[INFO] Checking EXT Successfully
+Cost 2803 ms
+History Status: [count=48111, okCount=14566, failCount=0, infoCount=33545]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:12/20211201T023054.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1206 times of fixing in 14515 transactions
+[INFO] The error scale is 0.011377373seconds
+[INFO] Checking EXT Successfully
+Cost 2849 ms
+History Status: [count=48194, okCount=14515, failCount=0, infoCount=33679]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:12/20211201T022746.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1232 times of fixing in 14653 transactions
+[INFO] The error scale is 0.011768458seconds
+[INFO] Checking EXT Successfully
+Cost 2931 ms
+History Status: [count=48106, okCount=14653, failCount=0, infoCount=33453]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:12/20211201T022645.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1215 times of fixing in 14602 transactions
+[INFO] The error scale is 0.012403033seconds
+[INFO] Checking EXT Successfully
+Cost 2998 ms
+History Status: [count=48151, okCount=14602, failCount=0, infoCount=33549]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:50 txn-len:12/20211201T022849.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 1182 times of fixing in 14565 transactions
+[INFO] The error scale is 0.015965577seconds
+[INFO] Checking EXT Successfully
+Cost 2999 ms
+History Status: [count=48210, okCount=14565, failCount=0, infoCount=33645]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:8/20211201T013757.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 667 times of fixing in 30180 transactions
+[INFO] The error scale is 0.013886428seconds
+[INFO] Checking EXT Successfully
+Cost 13839 ms
+History Status: [count=40069, okCount=30180, failCount=0, infoCount=9889]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:8/20211201T013705.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 595 times of fixing in 31603 transactions
+[INFO] The error scale is 0.012451015seconds
+[INFO] Checking EXT Successfully
+Cost 15806 ms
+History Status: [count=40089, okCount=31603, failCount=0, infoCount=8486]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:8/20211201T013849.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 595 times of fixing in 30502 transactions
+[INFO] The error scale is 0.016984258seconds
+[INFO] Checking EXT Successfully
+Cost 13885 ms
+History Status: [count=40020, okCount=30502, failCount=0, infoCount=9518]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:8/20211201T013613.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 611 times of fixing in 31103 transactions
+[INFO] The error scale is 0.014164167seconds
+[INFO] Checking EXT Successfully
+Cost 14272 ms
+History Status: [count=39793, okCount=31103, failCount=0, infoCount=8690]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:8/20211201T013941.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 618 times of fixing in 30745 transactions
+[INFO] The error scale is 0.013039738seconds
+[INFO] Checking EXT Successfully
+Cost 14844 ms
+History Status: [count=40050, okCount=30745, failCount=0, infoCount=9305]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:8/20211201T013244.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 600 times of fixing in 30327 transactions
+[INFO] The error scale is 0.013924929seconds
+[INFO] Checking EXT Successfully
+Cost 13717 ms
+History Status: [count=40164, okCount=30327, failCount=0, infoCount=9837]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:8/20211201T013153.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 688 times of fixing in 28476 transactions
+[INFO] The error scale is 0.020080893seconds
+[INFO] Checking EXT Successfully
+Cost 11126 ms
+History Status: [count=40281, okCount=28476, failCount=0, infoCount=11805]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:8/20211201T013337.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 496 times of fixing in 32402 transactions
+[INFO] The error scale is 0.009978565seconds
+[INFO] Checking EXT Successfully
+Cost 15556 ms
+History Status: [count=40143, okCount=32402, failCount=0, infoCount=7741]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:8/20211201T013429.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 537 times of fixing in 31887 transactions
+[INFO] The error scale is 0.015072077seconds
+[INFO] Checking EXT Successfully
+Cost 15816 ms
+History Status: [count=40050, okCount=31887, failCount=0, infoCount=8163]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:40 txn-len:8/20211201T013521.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 485 times of fixing in 32404 transactions
+[INFO] The error scale is 0.014583588seconds
+[INFO] Checking EXT Successfully
+Cost 16233 ms
+History Status: [count=39963, okCount=32404, failCount=0, infoCount=7559]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:8/20211201T011930.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 349 times of fixing in 4736 transactions
+[INFO] The error scale is 0.011605508seconds
+[INFO] Checking EXT Successfully
+Cost 366 ms
+History Status: [count=10008, okCount=4736, failCount=0, infoCount=5272]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:8/20211201T011815.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 347 times of fixing in 4179 transactions
+[INFO] The error scale is 0.013784523seconds
+[INFO] Checking EXT Successfully
+Cost 293 ms
+History Status: [count=9897, okCount=4179, failCount=0, infoCount=5718]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:8/20211201T011720.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 374 times of fixing in 4324 transactions
+[INFO] The error scale is 0.0159566seconds
+[INFO] Checking EXT Successfully
+Cost 318 ms
+History Status: [count=9982, okCount=4324, failCount=0, infoCount=5658]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:8/20211201T011738.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 282 times of fixing in 5607 transactions
+[INFO] The error scale is 0.010132166seconds
+[INFO] Checking EXT Successfully
+Cost 495 ms
+History Status: [count=9968, okCount=5607, failCount=0, infoCount=4361]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:8/20211201T011834.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 343 times of fixing in 4289 transactions
+[INFO] The error scale is 0.01016921seconds
+[INFO] Checking EXT Successfully
+Cost 321 ms
+History Status: [count=10047, okCount=4289, failCount=0, infoCount=5758]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:8/20211201T011911.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 363 times of fixing in 4326 transactions
+[INFO] The error scale is 0.012760133seconds
+[INFO] Checking EXT Successfully
+Cost 312 ms
+History Status: [count=9847, okCount=4326, failCount=0, infoCount=5521]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:8/20211201T011757.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 378 times of fixing in 4302 transactions
+[INFO] The error scale is 0.009272902seconds
+[INFO] Checking EXT Successfully
+Cost 320 ms
+History Status: [count=9986, okCount=4302, failCount=0, infoCount=5684]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:8/20211201T011701.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 356 times of fixing in 4399 transactions
+[INFO] The error scale is 0.02308007seconds
+[INFO] Checking EXT Successfully
+Cost 315 ms
+History Status: [count=9963, okCount=4399, failCount=0, infoCount=5564]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:8/20211201T011949.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 406 times of fixing in 4624 transactions
+[INFO] The error scale is 0.012585997seconds
+[INFO] Checking EXT Successfully
+Cost 356 ms
+History Status: [count=9894, okCount=4624, failCount=0, infoCount=5270]
+---------------------------------------------------------------------------------
+Checking history for Strong-SI at /home/young/DisAlg/jepsen.wiredtiger/store/wiredtiger :rw-register time:10 txn-len:8/20211201T011852.000+0800/history.edn
+[INFO] History is valid
+[INFO] Checking INT Successfully
+Calculation Relation.CommitBefore
+Calculation Relation.ReturnBefore
+Calculation Relation.ReadFrom
+[INFO] 332 times of fixing in 4294 transactions
+[INFO] The error scale is 0.016182993seconds
+[INFO] Checking EXT Successfully
+Cost 302 ms
+History Status: [count=10009, okCount=4294, failCount=0, infoCount=5715]
+
+Process finished with exit code 0
