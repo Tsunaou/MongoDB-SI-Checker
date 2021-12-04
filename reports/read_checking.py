@@ -209,6 +209,28 @@ if __name__ == '__main__':
 
     # Fig. Perf
     if is_mongo:
+        perf_txn = {
+            'replica-set': {
+                4: {},
+                8: {},
+                12: {}
+            },
+            'sharded-cluster': {
+                4: {},
+                8: {},
+                12: {}
+            }
+        }
+    else:
+        perf_txn = {
+            'wiredtiger': {
+                4: {},
+                8: {},
+                12: {}
+            }
+        }
+
+    if is_mongo:
         perf = {
             'replica-set': {
                 60: {},
@@ -346,6 +368,7 @@ if __name__ == '__main__':
                     all_info.append(res.info)
                     all_time.append(res.time)
                     all_error.append(res.error)
+                    perf_txn[deploy][txn_len][res.ok] = res.time
 
                 n = len(check_data)
                 if n == 0:
@@ -407,3 +430,15 @@ if __name__ == '__main__':
         for runtime in deploy_stat.keys():
             td = deploy_stat[runtime]
             print("{} {} {} {}".format(runtime, td[4], td[8], td[12]))
+
+    print("Checking time with txn numbers")
+    for deploy in perf_txn.keys():
+        print("----------------------------{}----------------".format(deploy))
+        deploy_stat = perf_txn[deploy]
+        for txn_len in deploy_stat.keys():
+            print("----------------txn-len: {} ------------------".format(txn_len))
+            all_data = deploy_stat[txn_len]
+            nums = sorted(all_data.keys())
+            for txn_num in nums:
+                ctime = all_data[txn_num]
+                print("{} {}".format(txn_num, ctime/1000))
