@@ -1,69 +1,34 @@
 # MongoDB Snapshot Isolation Checker
 
+This is the checker for our paper in [[2111.14946\] Verifying Transactional Consistency of MongoDB (arxiv.org)](https://arxiv.org/abs/2111.14946).
+
+This project is responsible for **checking** whether a given execution history satisfies its corresponding snapshot isolation variant.
+
+The execution history of can be found in:
+
+- WiredTiger(Standalone) deployment: [Tsunaou/wiredtiger-txn](https://github.com/Tsunaou/wiredtiger-txn)
+- MongoDB replica set and sharded cluster deployment: [Tsunaou/mongodb](https://github.com/Tsunaou/mongodb)
+
+## 0. Update 
+
+- The version v0.2  with proof will be announced in arxiv at Tue, 7 Dec 2021 01:00:00 GMT.
+
+  <img src="./images/arxiv-scheduled.png" width="80%"/>
+
+## 1. Introduction
+
+MongoDB is a popular general-purpose, document-oriented, distributed NoSQL database. It supports transactions in three different deployments: single-document transactions utilizing the WiredTiger storage engine in a standalone node, multi-document transactions in a replica set which consists of a primary node and several secondary nodes, and distributed transactions in a sharded cluster which is a group of multiple replica sets, among which data is sharded. A natural and fundamental question about MongoDB transactions is: 
+
+**What transactional consistency guarantee do MongoDB Transactions in each deployment provide?** 
+
+However, it lacks both concise pseudocode of MongoDB transactions in each deployment and formal specification of the consistency guarantees which MongoDB claimed to provide. 
+
+In this work, we formally specify and verify the transactional consistency protocols of MongoDB. Specifically, 
+
+- **We provide a concise pseudocode for the transactional consistency protocols** in each MongoDB deployment, namely WIREDTIGER, REPLICASET, and SHARDEDCLUSTER, based on the official documents and source code. 
+- **We then prove that WIREDTIGER, REPLICASET, and SHARDEDCLUSTER satisfy different variants of snapshot isolation**, namely Strong-SI, Realtime-SI, and Session-SI, respectively.
+
+**We also propose and evaluate efficient white-box checking algorithms for MongoDB transaction protocols against their consistency guarantees**, effectively circumventing the NP-hard obstacle in theory.
 
 
-## 1. Algorithm in WiredTiger Layer
 
-### 1.1 Visibility Relaiton: VIS = RB
-
-A transaction $txn_1$ returns before $txn_2$ in real-time, denoted $txn_1 \stackrel{RB}{\longrightarrow} txn_2$, if
-$$
-commit(txn_1)<start(txn_2)
-$$
-
-### 1.2 Arbitray Relation.Relation: AR = CB
-
-A transaction $txn_1$ commits before $txn_2$ in real-time, denoted $txn_1 \stackrel{CB}{\longrightarrow} txn_2$, if
-$$
-commit(txn_1)<commit(txn_2)
-$$
-
-### 1.3 Read From Relation.Relation: RF
-
-A transaction $txn_1$ reads from $txn_2$, denoted $txn_1 \stackrel{RF}{\longrightarrow} txn_2$, if $txn_1$ writes $(key_i,val_i)$ and $txn_2$ reads $(key_i, val_i)$
-
- 
-
-### 1.4 Tid Before: TB
-
-A transaction $txn_1$ tid before $txn_2$, denoted $txn_1 \stackrel{TB}\longrightarrow txn_2$, if $txn_1$ and $txn_2$ write the same key and $txn_1.tid < txn_2.tid$
-
-
-
-## 2. Algorithm in Replica Set Layer
-
-### 2.1 Visibility Relaiton
-
-$$
-\forall txn_1, txn_2 \in \mathsf{RS\_TXN}. txn_1 \stackrel{VIS_{RS}}{\longrightarrow} txn_2 
-\Longleftrightarrow	
-txn_1.\mathsf{commit\_ts} \le txn_2.\mathsf{read\_ts}
-$$
-
-### 2.2 Arbitray Relation
-
-$$
-\forall txn_1, txn_2 \in \mathsf{RS\_TXN}. txn_1 \stackrel{VIS_{AR}}{\longrightarrow} txn_2 
-\Longleftrightarrow	
-txn_1.\mathsf{commit\_ts} \le txn_2.\mathsf{commit\_ts}
-$$
-
-## 3. Algorithm in Sharded Cluster Layer
-
-### 2.2 Visibility Relaiton
-
-$$
-\forall txn_1, txn_2 \in \mathsf{SC\_TXN}. txn_1 \stackrel{VIS_{SC}}{\longrightarrow} txn_2 
-\Longleftrightarrow	
-txn_1.\mathsf{commit\_ts} \le txn_2.\mathsf{read\_ts}
-$$
-
-### 2.2 Arbitray Relation
-
-$$
-\forall txn_1, txn_2 \in \mathsf{SC\_TXN}. txn_1 \stackrel{VIS_{AR}}{\longrightarrow} txn_2 
-\Longleftrightarrow	
-txn_1.\mathsf{commit\_ts} \le txn_2.\mathsf{commit\_ts}
-$$
-
-### 
