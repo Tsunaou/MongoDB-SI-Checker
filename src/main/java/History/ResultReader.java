@@ -47,10 +47,10 @@ public class ResultReader {
             Map<?, ?> m = (Map<?, ?>) p.nextValue(pbr);
             Map<?, ?> statsMap = (Map<?, ?>)m.get(HistoryReader.stats);
             Stats stats = new Stats();
-            stats.count = (long) statsMap.get(HistoryReader.count);
-            stats.okCount = (long) statsMap.get(HistoryReader.okCount);
-            stats.failCount = (long) statsMap.get(HistoryReader.failCount);
-            stats.infoCount = (long) statsMap.get(HistoryReader.infoCount);
+            stats.count = (Long) statsMap.get(HistoryReader.count);
+            stats.okCount = (Long) statsMap.get(HistoryReader.okCount);
+            stats.failCount = (Long) statsMap.get(HistoryReader.failCount);
+            stats.infoCount = (Long) statsMap.get(HistoryReader.infoCount);
             System.out.println(stats);
             in.close();
         } catch (IOException e) {
