@@ -65,7 +65,8 @@ public class INTChecker<Txn extends Transaction> {
         String urlHistory = base + "history.edn";
         String urlOplog = base + "txns.json";
         String urlMongodLog = base + "mongod.json";
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
+        String urlRoOplog = base + "ro_txns.json";
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog);
         INTChecker<MongoDBTransaction> checker = new INTChecker<MongoDBTransaction>();
         long begin = System.currentTimeMillis();
         if (checker.checkINT(history)) {

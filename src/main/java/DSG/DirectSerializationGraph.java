@@ -297,11 +297,12 @@ public class DirectSerializationGraph<Txn extends Transaction> {
     }
 
     public static void MongoDBExample() throws HistoryInvalidException, DSGInvalidException, RelationInvalidException {
-        String BASE = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211104T135432.000Z/";
-        String URLHistory = BASE + "history.edn";
-        String URLOplog = BASE + "txns.json";
-        String URLMongodLog = BASE + "mongod.json";
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(URLHistory, URLOplog, URLMongodLog);
+        String base = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/mongodb wr replica-set w:majority r:majority tw:majority tr:snapshot partition/20211104T135432.000Z/";
+        String urlHistory = base + "history.edn";
+        String urlOplog = base + "txns.json";
+        String urlMongodLog = base + "mongod.json";
+        String urlRoOplog = base + "ro_txns.json";
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog);
         DirectSerializationGraph<MongoDBTransaction> dsg = new DirectSerializationGraph<MongoDBTransaction>(history, null);
         dsg.checkSI("Realtime-SI/Session-SI");
     }

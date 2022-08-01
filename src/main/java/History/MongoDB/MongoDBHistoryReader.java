@@ -29,7 +29,8 @@ public class MongoDBHistoryReader extends HistoryReader {
 
     private static final String URL_RO_TXNS = "src/main/resources/data-20220726/ro_txns.json";
 
-    public static MongoDBHistory readHistory(String urlHistory, String urlOplog, String urlMongodLog) throws HistoryInvalidException {
+    public static MongoDBHistory readHistory(String urlHistory, String urlOplog, String urlMongodLog, String urlRoOplog)
+            throws HistoryInvalidException {
         ArrayList<MongoDBTransaction> transactions = new ArrayList<>();
         OplogHistory oplogHistory = new OplogHistory();
         HashMap<List<Long>, Integer> KVTxnMap = new HashMap<>();
@@ -85,7 +86,7 @@ public class MongoDBHistoryReader extends HistoryReader {
         }
 
         // 2. Reading txns.json
-        JSONReader reader = null;
+        JSONReader reader;
         try {
             reader = new JSONReader(new FileReader(urlOplog));
             reader.startArray();
@@ -98,8 +99,8 @@ public class MongoDBHistoryReader extends HistoryReader {
                 JSONArray part = obj.getJSONArray("participants");
 
                 LogicalClock clock = new LogicalClock(ts.getInteger(0), ts.getInteger(1));
-                TxnType txnType = null;
-                if (type.equals("replica")) {
+                TxnType txnType;
+                if ("replica".equals(type)) {
                     txnType = TxnType.REPLICA_SET_TXN;
                 } else {
                     txnType = TxnType.SHARDED_CLUSTER_TXN;
@@ -169,7 +170,7 @@ public class MongoDBHistoryReader extends HistoryReader {
         }
 
         // 4. Merge information
-        MongoDBTransaction txn = null;
+        MongoDBTransaction txn;
         for (OplogTxn oplogTxn : oplogHistory.txns) {
             if (oplogTxn.ops.isEmpty()) {
                 // TODO: Figure out why there are transactions committed but no operations(may be read only transactions)
@@ -195,12 +196,12 @@ public class MongoDBHistoryReader extends HistoryReader {
                 readOnlyTxns.add(transaction);
             }
         }
-        fillTsOfReadOnlyTxns(readOnlyTxns);
+        fillTsOfReadOnlyTxns(urlRoOplog, readOnlyTxns);
 
         return new MongoDBHistory(transactions, oplogHistory);
     }
 
-    private static void fillTsOfReadOnlyTxns(ArrayList<MongoDBTransaction> readOnlyTxns) {
+    private static void fillTsOfReadOnlyTxns(String urlRoOplog, ArrayList<MongoDBTransaction> readOnlyTxns) {
         System.out.println(readOnlyTxns.size());
         List<ArrayList<MongoDBTransaction>> uuidClassifications = new ArrayList<>();
         for (MongoDBTransaction txn : readOnlyTxns) {
@@ -213,7 +214,7 @@ public class MongoDBHistoryReader extends HistoryReader {
         JSONReader reader;
         List<ArrayList<JSONObject>> uuidClassificationsJson = new ArrayList<>();
         try {
-            reader = new JSONReader(new FileReader(URL_RO_TXNS));
+            reader = new JSONReader(new FileReader(urlRoOplog));
             reader.startArray();
             while (reader.hasNext()) {
                 JSONObject obj = (JSONObject) reader.readObject();
@@ -292,7 +293,7 @@ public class MongoDBHistoryReader extends HistoryReader {
 //        String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/txns.json";
 //        String URLMongodLog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/mongod.json";
 
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(URL_HISTORY, URL_OPLOG, URL_MONGOD_LOG);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(URL_HISTORY, URL_OPLOG, URL_MONGOD_LOG, URL_RO_TXNS);
         ArrayList<MongoDBTransaction> transactions = history.transactions;
 
         int readOnly = 0;

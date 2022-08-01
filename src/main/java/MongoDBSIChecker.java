@@ -18,17 +18,21 @@ import java.util.*;
 
 public class MongoDBSIChecker {
 
-    public static void checkHistoryValid(String urlHistory, String urlOplog, String urlMongodLog, String urlResults, String SIVariant) throws HistoryInvalidException, RelationInvalidException, NullPointerException {
+    public static void checkHistoryValid(String urlHistory, String urlOplog, String urlMongodLog,
+                                         String urlResults, String urlRoOplog, String SIVariant)
+            throws HistoryInvalidException, RelationInvalidException, NullPointerException {
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history valid for " + SIVariant + " at " + urlHistory);
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog);
     }
 
-    public static void checkSIIntExt(String urlHistory, String urlOplog, String urlMongodLog, String urlResults, String SIVariant) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException, NullPointerException{
+    public static void checkSIIntExt(String urlHistory, String urlOplog, String urlMongodLog,
+                                     String urlResults, String urlRoOplog, String SIVariant)
+            throws HistoryInvalidException, RelationInvalidException, DSGInvalidException, NullPointerException{
         long begin = System.currentTimeMillis();
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history for " + SIVariant + " at " + urlHistory);
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog);
 
         INTChecker<MongoDBTransaction> intChecker = new INTChecker<MongoDBTransaction>();
         if (intChecker.checkINT(history)) {
@@ -48,11 +52,13 @@ public class MongoDBSIChecker {
         System.out.println("Cost " + (end - begin) + " ms");
     }
 
-    public static void checkSI(String urlHistory, String urlOplog, String urlMongodLog, String urlResults, String SIVariant) throws HistoryInvalidException, RelationInvalidException, DSGInvalidException, NullPointerException {
+    public static void checkSI(String urlHistory, String urlOplog, String urlMongodLog,
+                               String urlResults, String urlRoOplog, String SIVariant)
+            throws HistoryInvalidException, RelationInvalidException, DSGInvalidException, NullPointerException {
         long begin = System.currentTimeMillis();
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history for " + SIVariant + " at " + urlHistory);
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog);
 
         int nTransaction = history.transactions.size();
         Relation<MongoDBTransaction> R = new Relation<MongoDBTransaction>(nTransaction);
@@ -99,10 +105,11 @@ public class MongoDBSIChecker {
     }
 
     public static void checkAll(String base) throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
-        String URLHistory;
-        String URLOplog;
-        String URLMongodLog;
-        String URLResults;
+        String urlHistory;
+        String urlOplog;
+        String urlMongodLog;
+        String urlResults;
+        String urlRoOplog;
 
         File store = new File(base);
         HashMap<String, String> keyVariant = new HashMap<>();
@@ -116,22 +123,23 @@ public class MongoDBSIChecker {
                 if (file.isDirectory() && file.getPath().contains(keyword)) {
                     for (File data : Objects.requireNonNull(file.listFiles())) {
                         if (data.isDirectory() && !data.getPath().contains("latest")) {
-                            URLHistory = data.getPath() + "/history.edn";
-                            URLOplog = data.getPath() + "/txns.json";
-                            URLMongodLog = data.getPath() + "/mongod.json";
-                            URLResults = data.getPath() + "/results.edn";
+                            urlHistory = data.getPath() + "/history.edn";
+                            urlOplog = data.getPath() + "/txns.json";
+                            urlMongodLog = data.getPath() + "/mongod.json";
+                            urlResults = data.getPath() + "/results.edn";
+                            urlRoOplog = data.getPath() + "/ro_txns.json";
 
-                            if (new File(URLHistory).exists() && new File(URLOplog).exists()) {
+                            if (new File(urlHistory).exists() && new File(urlOplog).exists()) {
                                 try {
 //                                    checkSI(URLHistory, URLOplog, URLMongodLog, URLResults, variant);
-                                    checkSIIntExt(URLHistory, URLOplog, URLMongodLog, URLResults, variant);
+                                    checkSIIntExt(urlHistory, urlOplog, urlMongodLog, urlResults, urlRoOplog, variant);
 //                                    checkHistoryValid(URLHistory, URLOplog, URLMongodLog, URLResults, variant);
                                 } catch (NullPointerException | HistoryInvalidException e) {
                                     e.printStackTrace();
                                 }
                             }
-                            if (new File(URLResults).exists()) {
-                                ResultReader.report(URLResults);
+                            if (new File(urlResults).exists()) {
+                                ResultReader.report(urlResults);
                             }
                         }
                     }
@@ -142,22 +150,24 @@ public class MongoDBSIChecker {
     }
 
     public static void checkLatest() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
-        String URLHistory = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/history.edn";
-        String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/txns.json";
-        String URLMongodLog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/mongod.json";
-        String URLResults = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/results.json";
-        checkSI(URLHistory, URLOplog, URLMongodLog, URLResults, "Session-SI");
+        String urlHistory = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/history.edn";
+        String urlOplog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/txns.json";
+        String urlMongodLog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/mongod.json";
+        String urlResults = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/results.json";
+        String urlRoOplog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/ro_txns.json";
+        checkSI(urlHistory, urlOplog, urlMongodLog, urlResults, urlRoOplog, "Session-SI");
     }
 
     public static void checkSample() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
         String base = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/";
-        String URLHistory = base + "history.edn";
-        String URLOplog = base + "txns.json";
-        String URLMongodLog = base + "mongod.json";
-        String URLResults = base + "results.json";
-        if (new File(URLHistory).exists() && new File(URLOplog).exists()) {
+        String urlHistory = base + "history.edn";
+        String urlOplog = base + "txns.json";
+        String urlMongodLog = base + "mongod.json";
+        String urlResults = base + "results.json";
+        String urlRoOplog = base + "ro_txns.json";
+        if (new File(urlHistory).exists() && new File(urlOplog).exists()) {
             try {
-                checkSI(URLHistory, URLOplog, URLMongodLog, URLResults, "Session-SI");
+                checkSI(urlHistory, urlOplog, urlMongodLog, urlResults, urlRoOplog, "Session-SI");
             } catch (NullPointerException | HistoryInvalidException e) {
                 e.printStackTrace();
             }
