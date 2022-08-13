@@ -227,9 +227,10 @@ public class MongoDBHistoryReader extends HistoryReader {
             jsonObjectList.sort((o1, o2) -> {
                 JSONArray ts1 = o1.getJSONArray("commitTs");
                 JSONArray ts2 = o2.getJSONArray("commitTs");
-                long t1 = ts1.getLong(0) * 1000 + ts1.getLong(1);
-                long t2 = ts2.getLong(0) * 1000 + ts2.getLong(1);
-                return (int) (t1 - t2);
+                if (!ts1.getLong(0).equals(ts2.getLong(0))) {
+                    return (int) (ts1.getLong(0) - ts2.getLong(0));
+                }
+                return (int) (ts1.getLong(1) - ts2.getLong(1));
             });
         }
         uuidClassificationsJson.sort(Comparator.comparing(o -> o.get(0).getString("UUID")));
