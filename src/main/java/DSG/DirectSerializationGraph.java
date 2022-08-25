@@ -302,7 +302,7 @@ public class DirectSerializationGraph<Txn extends Transaction> {
         String urlOplog = base + "txns.json";
         String urlMongodLog = base + "mongod.json";
         String urlRoOplog = base + "ro_txns.json";
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog, "Realtime-SI");
         DirectSerializationGraph<MongoDBTransaction> dsg = new DirectSerializationGraph<MongoDBTransaction>(history, null);
         dsg.checkSI("Realtime-SI/Session-SI");
     }

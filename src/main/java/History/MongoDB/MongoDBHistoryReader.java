@@ -29,7 +29,8 @@ public class MongoDBHistoryReader extends HistoryReader {
 
     private static final String URL_RO_TXNS = "src/main/resources/data-20220726/ro_txns.json";
 
-    public static MongoDBHistory readHistory(String urlHistory, String urlOplog, String urlMongodLog, String urlRoOplog)
+    public static MongoDBHistory readHistory(String urlHistory, String urlOplog, String urlMongodLog,
+                                             String urlRoOplog, String variant)
             throws HistoryInvalidException {
         ArrayList<MongoDBTransaction> transactions = new ArrayList<>();
         OplogHistory oplogHistory = new OplogHistory();
@@ -196,13 +197,22 @@ public class MongoDBHistoryReader extends HistoryReader {
                 readOnlyTxns.add(transaction);
             }
         }
-        fillTsOfReadOnlyTxns(urlRoOplog, readOnlyTxns);
+        fillTsOfReadOnlyTxns(urlRoOplog, readOnlyTxns, variant);
 
         return new MongoDBHistory(transactions, oplogHistory);
     }
 
-    private static void fillTsOfReadOnlyTxns(String urlRoOplog, ArrayList<MongoDBTransaction> readOnlyTxns) {
-        System.out.println(readOnlyTxns.size());
+    private static void fillTsOfReadOnlyTxns(String urlRoOplog, ArrayList<MongoDBTransaction> readOnlyTxns,
+                                             String variant) {
+        if ("Session-SI".equals(variant)) {
+            for (MongoDBTransaction txn : readOnlyTxns) {
+                LogicalClock commitTs = txn.commitTimestamp;
+                if (commitTs == null || commitTs.time == Long.MAX_VALUE && commitTs.inc == Long.MAX_VALUE) {
+                    txn.commitTimestamp = new LogicalClock(txn.startTimestamp.time, txn.startTimestamp.inc);
+                }
+            }
+            return;
+        }
         List<ArrayList<MongoDBTransaction>> uuidClassifications = new ArrayList<>();
         for (MongoDBTransaction txn : readOnlyTxns) {
             addToUuidClassifications(uuidClassifications, txn);
@@ -294,7 +304,7 @@ public class MongoDBHistoryReader extends HistoryReader {
 //        String URLOplog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/txns.json";
 //        String URLMongodLog = "/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store/latest/mongod.json";
 
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(URL_HISTORY, URL_OPLOG, URL_MONGOD_LOG, URL_RO_TXNS);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(URL_HISTORY, URL_OPLOG, URL_MONGOD_LOG, URL_RO_TXNS, "Realtime-SI");
         ArrayList<MongoDBTransaction> transactions = history.transactions;
 
         int readOnly = 0;

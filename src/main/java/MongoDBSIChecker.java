@@ -23,7 +23,7 @@ public class MongoDBSIChecker {
             throws HistoryInvalidException, RelationInvalidException, NullPointerException {
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history valid for " + SIVariant + " at " + urlHistory);
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog, SIVariant);
     }
 
     public static void checkSIIntExt(String urlHistory, String urlOplog, String urlMongodLog,
@@ -32,7 +32,7 @@ public class MongoDBSIChecker {
         long begin = System.currentTimeMillis();
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history for " + SIVariant + " at " + urlHistory);
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog, SIVariant);
 
         INTChecker<MongoDBTransaction> intChecker = new INTChecker<MongoDBTransaction>();
         if (intChecker.checkINT(history)) {
@@ -58,7 +58,7 @@ public class MongoDBSIChecker {
         long begin = System.currentTimeMillis();
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Checking history for " + SIVariant + " at " + urlHistory);
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog, SIVariant);
 
         int nTransaction = history.transactions.size();
         Relation<MongoDBTransaction> R = new Relation<MongoDBTransaction>(nTransaction);

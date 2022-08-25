@@ -121,7 +121,7 @@ public class EXTChecker<Txn extends Transaction> {
         String urlOplog = base + "txns.json";
         String urlMongodLog = base + "mongod.json";
         String urlRoOplog = base + "ro_txns.json";
-        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog);
+        MongoDBHistory history = MongoDBHistoryReader.readHistory(urlHistory, urlOplog, urlMongodLog, urlRoOplog, "Session-SI");
 
         INTChecker<MongoDBTransaction> intChecker = new INTChecker<MongoDBTransaction>();
         intChecker.checkINT(history);
