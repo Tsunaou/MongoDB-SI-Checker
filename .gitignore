@@ -118,3 +118,5 @@ hs_err_pid*
 !/src/main/resources/example/wiredtiger.log
 /src/main/resources/store-1120/sharded-cluster/
 /reports/__pycache__
+/src/main/resources/store-20221021
+/src/main/resources/store-20221029

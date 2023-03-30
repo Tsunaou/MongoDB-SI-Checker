@@ -7,6 +7,7 @@ import static us.bpsm.edn.Keyword.newKeyword;
 public class HistoryReader {
     public static Keyword type = newKeyword("type");
     public static Keyword ok = newKeyword("ok");
+    public static Keyword invoke = newKeyword("invoke");
     public static Keyword process = newKeyword("process");
     public static Keyword value = newKeyword("value");
     public static Keyword startTimestamp = newKeyword("start-timestamp");
