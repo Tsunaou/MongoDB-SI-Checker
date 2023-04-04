@@ -3,6 +3,7 @@ package history.transaction;
 import history.Session;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Transaction<KeyType, ValueType> {
     private final String transactionId;
@@ -40,7 +41,7 @@ public class Transaction<KeyType, ValueType> {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(transactionId);
     }
 
     @Override
@@ -49,6 +50,6 @@ public class Transaction<KeyType, ValueType> {
             Transaction<?, ?> txn = (Transaction<?, ?>) obj;
             return this == txn || this.transactionId.equals(txn.transactionId);
         }
-        return super.equals(obj);
+        return false;
     }
 }

@@ -1,5 +1,7 @@
 package history;
 
+import java.util.Objects;
+
 public class Edge<NodeType> {
     private final NodeType from;
     private final NodeType to;
@@ -19,7 +21,7 @@ public class Edge<NodeType> {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(from, to);
     }
 
     @Override
