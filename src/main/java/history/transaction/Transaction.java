@@ -52,4 +52,14 @@ public class Transaction<KeyType, ValueType> {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "transactionId='" + transactionId + '\'' +
+                ", operations=" + operations +
+                ", startTimestamp=" + startTimestamp +
+                ", commitTimestamp=" + commitTimestamp +
+                '}';
+    }
 }
