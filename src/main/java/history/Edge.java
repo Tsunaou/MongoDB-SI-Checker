@@ -1,12 +1,20 @@
 package history;
 
 public class Edge<NodeType> {
-    public final NodeType from;
-    public final NodeType to;
+    private final NodeType from;
+    private final NodeType to;
 
     public Edge(NodeType from, NodeType to) {
         this.from = from;
         this.to = to;
+    }
+
+    public NodeType getFrom() {
+        return from;
+    }
+
+    public NodeType getTo() {
+        return to;
     }
 
     @Override

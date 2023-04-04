@@ -37,4 +37,18 @@ public class Transaction<KeyType, ValueType> {
         this.commitTimestamp = commitTimestamp;
         this.session = session;
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Transaction<?, ?>) {
+            Transaction<?, ?> txn = (Transaction<?, ?>) obj;
+            return this == txn || this.transactionId.equals(txn.transactionId);
+        }
+        return super.equals(obj);
+    }
 }

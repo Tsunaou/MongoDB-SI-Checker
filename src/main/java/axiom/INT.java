@@ -8,7 +8,7 @@ import history.transaction.Transaction;
 import java.util.ArrayList;
 
 public class INT<KeyType, ValueType> {
-    public History<KeyType, ValueType> history;
+    private final History<KeyType, ValueType> history;
 
     public INT(History<KeyType, ValueType> history) {
         this.history = history;

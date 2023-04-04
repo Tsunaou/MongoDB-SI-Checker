@@ -1,9 +1,0 @@
-#!/bin/bash
-
-for (( i = 0; i < 1; i++ ));
-do
-  # Run jepsen test for sharded cluster
-  docker exec jepsen-control /bin/bash -c "cd jepsen && ./run-shard.sh" -u root
-  # A brute force way to check
-  /usr/lib/jvm/java-11-openjdk-amd64/bin/java -javaagent:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/lib/idea_rt.jar=45271:/home/young/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/202.6948.69/bin -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/media/young/Education/Programs/Java-Programs/Snapshot-Isolation-Checker-Java/target/classes:/home/young/.m2/repository/us/bpsm/edn-java/0.7.1/edn-java-0.7.1.jar:/home/young/.m2/repository/org/jgrapht/jgrapht-core/1.4.0/jgrapht-core-1.4.0.jar:/home/young/.m2/repository/org/jheaps/jheaps/0.11/jheaps-0.11.jar:/home/young/.m2/repository/com/alibaba/fastjson/1.2.75/fastjson-1.2.75.jar MongoDBSIChecker
-done
