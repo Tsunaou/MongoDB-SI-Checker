@@ -3,6 +3,7 @@ package reader;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;
+import history.History;
 import history.Session;
 import history.transaction.HybridLogicalClock;
 import history.transaction.OpType;
@@ -14,12 +15,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 
-public class JSONFileReader extends Reader {
+public class JSONFileReader implements Reader<Long, Long> {
     @Override
-    public Pair<ArrayList<Transaction<Long, Long>>, ArrayList<Session<Long, Long>>> read(String filepath)
-            throws RuntimeException {
+    public History<Long, Long> read(String filepath) throws RuntimeException {
         ArrayList<Transaction<Long, Long>> transactions = new ArrayList<>();
         ArrayList<Session<Long, Long>> sessions = new ArrayList<>();
+        Pair<Transaction<Long, Long>, Session<Long, Long>> initialTxn = createInitialTxn();
+        transactions.add(initialTxn.getLeft());
+        sessions.add(initialTxn.getRight());
         try {
             JSONReader jsonReader = new JSONReader(new FileReader(filepath));
             jsonReader.startArray();
@@ -64,6 +67,21 @@ public class JSONFileReader extends Reader {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        return Pair.of(transactions, sessions);
+        return new History<>(transactions, sessions);
+    }
+
+    private Pair<Transaction<Long, Long>, Session<Long, Long>> createInitialTxn() {
+        String transactionId = "initial";
+        ArrayList<Operation<Long, Long>> operations = new ArrayList<>();
+        for (long key = 0; key < 1000L; key++) {
+            operations.add(new Operation<>(OpType.write, key, null));
+        }
+        HybridLogicalClock startTimestamp = new HybridLogicalClock(0L, 0L);
+        HybridLogicalClock commitTimestamp = new HybridLogicalClock(0L, 0L);
+        Session<Long, Long> session = new Session<>("initial");
+        Transaction<Long, Long> transaction = new Transaction<>(transactionId, operations,
+                startTimestamp, commitTimestamp, session);
+        session.getTransactions().add(transaction);
+        return Pair.of(transaction, session);
     }
 }

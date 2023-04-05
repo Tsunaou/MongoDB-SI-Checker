@@ -9,6 +9,7 @@ import history.transaction.Transaction;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Objects;
 
 public class EXT<KeyType, ValueType> {
     private final History<KeyType, ValueType> history;
@@ -20,9 +21,13 @@ public class EXT<KeyType, ValueType> {
     public boolean check() {
         for (Transaction<KeyType, ValueType> txn : history.getTransactions()) {
             HashSet<KeyType> firstReadKeys = new HashSet<>();
+            HashSet<KeyType> writeKeys = new HashSet<>();
             for (Operation<KeyType, ValueType> operation : txn.getOperations()) {
                 KeyType key = operation.getKey();
-                if (operation.getType() != OpType.read || firstReadKeys.contains(key)) {
+                if (operation.getType() == OpType.write) {
+                    writeKeys.add(key);
+                    continue;
+                } else if (firstReadKeys.contains(key) || writeKeys.contains(key)) {
                     continue;
                 }
                 firstReadKeys.add(key);
@@ -33,11 +38,11 @@ public class EXT<KeyType, ValueType> {
                 fromTxns.sort(Comparator.comparing(Transaction::getCommitTimestamp));
                 boolean found = false;
                 for (int i = fromTxns.size() - 1; i >= 0; i--) {
-                    ArrayList<Operation<KeyType, ValueType>> formerOperations = fromTxns.get(i).getOperations();
-                    for (int j = formerOperations.size() - 1; j >= 0; j--) {
-                        Operation<KeyType, ValueType> formerOperation = formerOperations.get(j);
-                        if (formerOperation.getType() == OpType.write && formerOperation.getKey().equals(key)) {
-                            if (!formerOperation.getValue().equals(operation.getValue())) {
+                    ArrayList<Operation<KeyType, ValueType>> formerOps = fromTxns.get(i).getOperations();
+                    for (int j = formerOps.size() - 1; j >= 0; j--) {
+                        Operation<KeyType, ValueType> formerOp = formerOps.get(j);
+                        if (formerOp.getType() == OpType.write && Objects.equals(formerOp.getKey(), key)) {
+                            if (!Objects.equals(formerOp.getValue(), operation.getValue())) {
                                 return false;
                             } else {
                                 found = true;

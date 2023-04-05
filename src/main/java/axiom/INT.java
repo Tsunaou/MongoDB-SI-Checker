@@ -6,6 +6,7 @@ import history.transaction.Operation;
 import history.transaction.Transaction;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class INT<KeyType, ValueType> {
     private final History<KeyType, ValueType> history;
@@ -24,8 +25,8 @@ public class INT<KeyType, ValueType> {
                 }
                 for (int j = i - 1; j >= 0; j--) {
                     Operation<KeyType, ValueType> f = operations.get(j);
-                    if (e.getKey().equals(f.getKey())) {
-                        if (e.getValue().equals(f.getValue())) {
+                    if (Objects.equals(e.getKey(), f.getKey())) {
+                        if (Objects.equals(e.getValue(), f.getValue())) {
                             break;
                         } else {
                             return false;

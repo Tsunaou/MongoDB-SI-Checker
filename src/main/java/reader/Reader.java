@@ -1,11 +1,7 @@
 package reader;
 
-import history.Session;
-import history.transaction.Transaction;
-import org.apache.commons.lang3.tuple.Pair;
+import history.History;
 
-import java.util.ArrayList;
-
-public abstract class Reader {
-    public abstract Pair<ArrayList<Transaction<Long, Long>>, ArrayList<Session<Long, Long>>> read(String filepath);
+public interface Reader<KeyType, ValueType> {
+    History<KeyType, ValueType> read(String filepath);
 }
