@@ -31,10 +31,8 @@ public class EXT<KeyType, ValueType> {
                     continue;
                 }
                 firstReadKeys.add(key);
-                ArrayList<Transaction<KeyType, ValueType>> fromTxns = new ArrayList<>();
-                for (Edge<Transaction<KeyType, ValueType>> e : history.getVisInvByTxn().get(txn)) {
-                    fromTxns.add(e.getFrom());
-                }
+                ArrayList<Transaction<KeyType, ValueType>> fromTxns =
+                        new ArrayList<>(history.getVisInvByTxn().get(txn));
                 fromTxns.sort(Comparator.comparing(Transaction::getCommitTimestamp));
                 boolean found = false;
                 for (int i = fromTxns.size() - 1; i >= 0; i--) {

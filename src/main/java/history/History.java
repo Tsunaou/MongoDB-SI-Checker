@@ -13,30 +13,21 @@ public class History<KeyType, ValueType> {
     private final HashSet<Edge<Transaction<KeyType, ValueType>>> AR = new HashSet<>();
 
     private final HashMap<Transaction<KeyType, ValueType>,
-            HashSet<Edge<Transaction<KeyType, ValueType>>>> soByTxn = new HashMap<>();
+            HashSet<Transaction<KeyType, ValueType>>> visByTxn = new HashMap<>();
     private final HashMap<Transaction<KeyType, ValueType>,
-            HashSet<Edge<Transaction<KeyType, ValueType>>>> visByTxn = new HashMap<>();
+            HashSet<Transaction<KeyType, ValueType>>> arByTxn = new HashMap<>();
     private final HashMap<Transaction<KeyType, ValueType>,
-            HashSet<Edge<Transaction<KeyType, ValueType>>>> arByTxn = new HashMap<>();
-    private final HashMap<Transaction<KeyType, ValueType>,
-            HashSet<Edge<Transaction<KeyType, ValueType>>>> soInvByTxn = new HashMap<>();
-    private final HashMap<Transaction<KeyType, ValueType>,
-            HashSet<Edge<Transaction<KeyType, ValueType>>>> visInvByTxn = new HashMap<>();
-    private final HashMap<Transaction<KeyType, ValueType>,
-            HashSet<Edge<Transaction<KeyType, ValueType>>>> arInvByTxn = new HashMap<>();
+            HashSet<Transaction<KeyType, ValueType>>> visInvByTxn = new HashMap<>();
 
     public History(ArrayList<Transaction<KeyType, ValueType>> transactions,
-                   ArrayList<Session<KeyType, ValueType>> sessions) throws RuntimeException {
+                   HashSet<Session<KeyType, ValueType>> sessions) throws RuntimeException {
         this.transactions = transactions;
         this.transactions.sort(Comparator.comparing(Transaction::getCommitTimestamp));
 
         for (Transaction<KeyType, ValueType> txn : this.transactions) {
-            soByTxn.put(txn, new HashSet<>());
             visByTxn.put(txn, new HashSet<>());
             arByTxn.put(txn, new HashSet<>());
-            soInvByTxn.put(txn, new HashSet<>());
             visInvByTxn.put(txn, new HashSet<>());
-            arInvByTxn.put(txn, new HashSet<>());
         }
 
         buildSO(sessions);
@@ -49,17 +40,13 @@ public class History<KeyType, ValueType> {
         }
     }
 
-    private void buildSO(ArrayList<Session<KeyType, ValueType>> sessions) {
+    private void buildSO(HashSet<Session<KeyType, ValueType>> sessions) {
         for (Session<KeyType, ValueType> session : sessions) {
             ArrayList<Transaction<KeyType, ValueType>> txns = session.getTransactions();
             for (int i = 0; i < txns.size() - 1; i++) {
                 Transaction<KeyType, ValueType> from = txns.get(i);
                 for (int j = i + 1; j < txns.size(); j++) {
-                    Transaction<KeyType, ValueType> to = txns.get(j);
-                    Edge<Transaction<KeyType, ValueType>> edge = new Edge<>(from, to);
-                    SO.add(edge);
-                    soByTxn.get(from).add(edge);
-                    soInvByTxn.get(to).add(edge);
+                    SO.add(new Edge<>(from, txns.get(j)));
                 }
             }
         }
@@ -71,10 +58,9 @@ public class History<KeyType, ValueType> {
             for (int j = i + 1; j < transactions.size(); j++) {
                 Transaction<KeyType, ValueType> to = transactions.get(j);
                 if (to.getStartTimestamp().compareTo(from.getCommitTimestamp()) > 0) {
-                    Edge<Transaction<KeyType, ValueType>> edge = new Edge<>(from, to);
-                    VIS.add(edge);
-                    visByTxn.get(from).add(edge);
-                    visInvByTxn.get(to).add(edge);
+                    VIS.add(new Edge<>(from, to));
+                    visByTxn.get(from).add(to);
+                    visInvByTxn.get(to).add(from);
                 }
             }
         }
@@ -85,10 +71,8 @@ public class History<KeyType, ValueType> {
             Transaction<KeyType, ValueType> from = transactions.get(i);
             for (int j = i + 1; j < transactions.size(); j++) {
                 Transaction<KeyType, ValueType> to = transactions.get(j);
-                Edge<Transaction<KeyType, ValueType>> edge = new Edge<>(from, to);
-                AR.add(edge);
-                arByTxn.get(from).add(edge);
-                arInvByTxn.get(to).add(edge);
+                AR.add(new Edge<>(from, to));
+                arByTxn.get(from).add(to);
             }
         }
     }
@@ -120,8 +104,8 @@ public class History<KeyType, ValueType> {
                     txn1 = transactions.get(j);
                     txn2 = transactions.get(i);
                 }
-                for (Edge<Transaction<KeyType, ValueType>> e : arByTxn.get(txn2)) {
-                    if (!AR.contains(new Edge<>(txn1, e.getTo()))) {
+                for (Transaction<KeyType, ValueType> txn3 : arByTxn.get(txn2)) {
+                    if (!AR.contains(new Edge<>(txn1, txn3))) {
                         return false;
                     }
                 }
@@ -146,11 +130,11 @@ public class History<KeyType, ValueType> {
         return AR;
     }
 
-    public HashMap<Transaction<KeyType, ValueType>, HashSet<Edge<Transaction<KeyType, ValueType>>>> getVisByTxn() {
+    public HashMap<Transaction<KeyType, ValueType>, HashSet<Transaction<KeyType, ValueType>>> getVisByTxn() {
         return visByTxn;
     }
 
-    public HashMap<Transaction<KeyType, ValueType>, HashSet<Edge<Transaction<KeyType, ValueType>>>> getVisInvByTxn() {
+    public HashMap<Transaction<KeyType, ValueType>, HashSet<Transaction<KeyType, ValueType>>> getVisInvByTxn() {
         return visInvByTxn;
     }
 }

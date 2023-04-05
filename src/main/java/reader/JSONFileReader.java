@@ -14,37 +14,39 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class JSONFileReader implements Reader<Long, Long> {
     @Override
     public History<Long, Long> read(String filepath) throws RuntimeException {
         ArrayList<Transaction<Long, Long>> transactions = new ArrayList<>();
-        ArrayList<Session<Long, Long>> sessions = new ArrayList<>();
-        Pair<Transaction<Long, Long>, Session<Long, Long>> initialTxn = createInitialTxn();
-        transactions.add(initialTxn.getLeft());
-        sessions.add(initialTxn.getRight());
+        transactions.add(new Transaction<>(null, null, null, null, null));
+        HashMap<String, Session<Long, Long>> sessionsMap = new HashMap<>(16);
+        long maxKey = 0L;
         try {
             JSONReader jsonReader = new JSONReader(new FileReader(filepath));
             jsonReader.startArray();
             while (jsonReader.hasNext()) {
                 JSONObject jsonObject = (JSONObject) jsonReader.readObject();
-                String sessionId = jsonObject.getString("sessionId");
-                String transactionId = jsonObject.getString("transactionId");
-                JSONObject jsonStartTs = jsonObject.getJSONObject("startTimestamp");
-                Long physicalStartTs = jsonStartTs.getLong("physical");
-                Long logicalStartTs = jsonStartTs.getLong("logical");
+                String sessionId = jsonObject.getString("sid");
+                String transactionId = jsonObject.getString("tid");
+                JSONObject jsonStartTs = jsonObject.getJSONObject("sts");
+                Long physicalStartTs = jsonStartTs.getLong("p");
+                Long logicalStartTs = jsonStartTs.getLong("l");
                 HybridLogicalClock startTimestamp = new HybridLogicalClock(physicalStartTs, logicalStartTs);
-                JSONObject jsonCommitTs = jsonObject.getJSONObject("commitTimestamp");
-                Long physicalCommitTs = jsonCommitTs.getLong("physical");
-                Long logicalCommitTs = jsonCommitTs.getLong("logical");
+                JSONObject jsonCommitTs = jsonObject.getJSONObject("cts");
+                Long physicalCommitTs = jsonCommitTs.getLong("p");
+                Long logicalCommitTs = jsonCommitTs.getLong("l");
                 HybridLogicalClock commitTimestamp = new HybridLogicalClock(physicalCommitTs, logicalCommitTs);
-                JSONArray jsonOperations = jsonObject.getJSONArray("operations");
+                JSONArray jsonOperations = jsonObject.getJSONArray("ops");
                 ArrayList<Operation<Long, Long>> operations = new ArrayList<>();
                 for (Object objOperation : jsonOperations) {
                     JSONObject jsonOperation = (JSONObject) objOperation;
-                    String type = jsonOperation.getString("type");
-                    Long key = jsonOperation.getLong("key");
-                    Long value = jsonOperation.getLong("value");
+                    String type = jsonOperation.getString("t");
+                    Long key = jsonOperation.getLong("k");
+                    maxKey = (maxKey >= key) ? maxKey : key;
+                    Long value = jsonOperation.getLong("v");
                     if ("write".equalsIgnoreCase(type) || "w".equalsIgnoreCase(type)) {
                         operations.add(new Operation<>(OpType.write, key, value));
                     } else if ("read".equalsIgnoreCase(type) || "r".equalsIgnoreCase(type)) {
@@ -53,11 +55,12 @@ public class JSONFileReader implements Reader<Long, Long> {
                         throw new RuntimeException("Unknown operation type.");
                     }
                 }
-                Session<Long, Long> session = new Session<>(sessionId);
-                if (sessions.contains(session)) {
-                    session = sessions.get(sessions.indexOf(session));
+                Session<Long, Long> session;
+                if (sessionsMap.containsKey(sessionId)) {
+                    session = sessionsMap.get(sessionId);
                 } else {
-                    sessions.add(session);
+                    session = new Session<>(sessionId);
+                    sessionsMap.put(sessionId, session);
                 }
                 Transaction<Long, Long> txn = new Transaction<>(transactionId, operations,
                         startTimestamp, commitTimestamp, session);
@@ -67,13 +70,16 @@ public class JSONFileReader implements Reader<Long, Long> {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        return new History<>(transactions, sessions);
+        Pair<Transaction<Long, Long>, Session<Long, Long>> initialTxn = createInitialTxn(maxKey);
+        transactions.set(0, initialTxn.getLeft());
+        sessionsMap.put("initial", initialTxn.getRight());
+        return new History<>(transactions, new HashSet<>(sessionsMap.values()));
     }
 
-    private Pair<Transaction<Long, Long>, Session<Long, Long>> createInitialTxn() {
+    private Pair<Transaction<Long, Long>, Session<Long, Long>> createInitialTxn(long maxKey) {
         String transactionId = "initial";
         ArrayList<Operation<Long, Long>> operations = new ArrayList<>();
-        for (long key = 0; key < 1000L; key++) {
+        for (long key = 0; key <= maxKey; key++) {
             operations.add(new Operation<>(OpType.write, key, null));
         }
         HybridLogicalClock startTimestamp = new HybridLogicalClock(0L, 0L);

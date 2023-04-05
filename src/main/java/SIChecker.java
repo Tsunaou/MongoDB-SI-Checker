@@ -14,6 +14,7 @@ public class SIChecker {
         setup(args);
 
         String filepath = commandLine.getOptionValue("historyPath");
+        System.out.println("Checking " + filepath);
         decideReader(filepath);
         History<?, ?> history = reader.read(filepath);
 
@@ -53,20 +54,29 @@ public class SIChecker {
     }
 
     private static void checkAxioms(History<?, ?> history) {
+        boolean isSatisfied = true;
         if (!(new INT<>(history).check())) {
             System.err.println("Violate INT.");
+            isSatisfied = false;
         }
         if (!(new EXT<>(history).check())) {
             System.err.println("Violate EXT.");
+            isSatisfied = false;
         }
         if (!(new PREFIX<>(history).check())) {
             System.err.println("Violate PREFIX.");
+            isSatisfied = false;
         }
         if (!(new NOCONFLICT<>(history).check())) {
             System.err.println("Violate NOCONFLICT.");
+            isSatisfied = false;
         }
         if (!(new SESSION<>(history).check())) {
             System.err.println("Violate SESSION.");
+            isSatisfied = false;
+        }
+        if (isSatisfied) {
+            System.out.println("Satisfy SESSIONSI.");
         }
     }
 }
