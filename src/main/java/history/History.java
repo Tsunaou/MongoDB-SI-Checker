@@ -52,7 +52,6 @@ public class History<KeyType, ValueType> {
     private void buildSO(ArrayList<Session<KeyType, ValueType>> sessions) {
         for (Session<KeyType, ValueType> session : sessions) {
             ArrayList<Transaction<KeyType, ValueType>> txns = session.getTransactions();
-            txns.sort(Comparator.comparing(Transaction::getCommitTimestamp));
             for (int i = 0; i < txns.size() - 1; i++) {
                 Transaction<KeyType, ValueType> from = txns.get(i);
                 for (int j = i + 1; j < txns.size(); j++) {
