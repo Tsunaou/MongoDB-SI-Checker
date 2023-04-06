@@ -4,14 +4,8 @@ import history.Edge;
 import history.History;
 import history.transaction.Transaction;
 
-public class PREFIX<KeyType, ValueType> {
-    private final History<KeyType, ValueType> history;
-
-    public PREFIX(History<KeyType, ValueType> history) {
-        this.history = history;
-    }
-
-    public boolean check() {
+public class PREFIX {
+    public static <KeyType, ValueType> boolean check(History<KeyType, ValueType> history) {
         for (Edge<Transaction<KeyType, ValueType>> arEdge : history.getAR()) {
             Transaction<KeyType, ValueType> txn1 = arEdge.getFrom();
             Transaction<KeyType, ValueType> txn2 = arEdge.getTo();

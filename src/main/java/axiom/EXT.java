@@ -1,6 +1,5 @@
 package axiom;
 
-import history.Edge;
 import history.History;
 import history.transaction.OpType;
 import history.transaction.Operation;
@@ -11,14 +10,8 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Objects;
 
-public class EXT<KeyType, ValueType> {
-    private final History<KeyType, ValueType> history;
-
-    public EXT(History<KeyType, ValueType> history) {
-        this.history = history;
-    }
-
-    public boolean check() {
+public class EXT {
+    public static <KeyType, ValueType> boolean check(History<KeyType, ValueType> history) {
         for (Transaction<KeyType, ValueType> txn : history.getTransactions()) {
             HashSet<KeyType> firstReadKeys = new HashSet<>();
             HashSet<KeyType> writeKeys = new HashSet<>();

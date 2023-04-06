@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class Session<KeyType, ValueType> {
     private final String sessionId;
-    private final ArrayList<Transaction<KeyType, ValueType>> transactions = new ArrayList<>();
+    private final ArrayList<Transaction<KeyType, ValueType>> transactions = new ArrayList<>(100);
 
     public ArrayList<Transaction<KeyType, ValueType>> getTransactions() {
         return transactions;

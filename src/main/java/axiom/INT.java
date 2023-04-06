@@ -8,14 +8,8 @@ import history.transaction.Transaction;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class INT<KeyType, ValueType> {
-    private final History<KeyType, ValueType> history;
-
-    public INT(History<KeyType, ValueType> history) {
-        this.history = history;
-    }
-
-    public boolean check() {
+public class INT {
+    public static <KeyType, ValueType> boolean check(History<KeyType, ValueType> history) {
         for (Transaction<KeyType, ValueType> txn : history.getTransactions()) {
             ArrayList<Operation<KeyType, ValueType>> operations = txn.getOperations();
             for (int i = operations.size() - 1; i > 0; i--) {

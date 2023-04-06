@@ -4,14 +4,8 @@ import history.Edge;
 import history.History;
 import history.transaction.Transaction;
 
-public class SESSION<KeyType, ValueType> {
-    private final History<KeyType, ValueType> history;
-
-    public SESSION(History<KeyType, ValueType> history) {
-        this.history = history;
-    }
-
-    public boolean check() {
+public class SESSION {
+    public static <KeyType, ValueType> boolean check(History<KeyType, ValueType> history) {
         for (Edge<Transaction<KeyType, ValueType>> soEdge : history.getSO()) {
             if (!history.getVIS().contains(soEdge)) {
                 return false;

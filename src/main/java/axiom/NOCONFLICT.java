@@ -9,14 +9,8 @@ import history.transaction.Transaction;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class NOCONFLICT<KeyType, ValueType> {
-    private final History<KeyType, ValueType> history;
-
-    public NOCONFLICT(History<KeyType, ValueType> history) {
-        this.history = history;
-    }
-
-    public boolean check() {
+public class NOCONFLICT {
+    public static <KeyType, ValueType> boolean check(History<KeyType, ValueType> history) {
         ArrayList<Transaction<KeyType, ValueType>> transactions = history.getTransactions();
         HashSet<Edge<Transaction<KeyType, ValueType>>> VIS = history.getVIS();
         for (int i = 0; i < transactions.size() - 1; i++) {

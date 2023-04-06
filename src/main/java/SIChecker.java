@@ -11,6 +11,7 @@ public class SIChecker {
     private static Reader<?, ?> reader;
 
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         setup(args);
 
         String filepath = commandLine.getOptionValue("historyPath");
@@ -19,6 +20,8 @@ public class SIChecker {
         History<?, ?> history = reader.read(filepath);
 
         checkAxioms(history);
+        long end = System.currentTimeMillis();
+        System.out.println("time cost: " + (end - start) / 1000.0 + "s");
     }
 
     private static void setup(String[] args) {
@@ -55,23 +58,23 @@ public class SIChecker {
 
     private static void checkAxioms(History<?, ?> history) {
         boolean isSatisfied = true;
-        if (!(new INT<>(history).check())) {
+        if (!INT.check(history)) {
             System.err.println("Violate INT.");
             isSatisfied = false;
         }
-        if (!(new EXT<>(history).check())) {
+        if (!EXT.check(history)) {
             System.err.println("Violate EXT.");
             isSatisfied = false;
         }
-        if (!(new PREFIX<>(history).check())) {
+        if (!PREFIX.check(history)) {
             System.err.println("Violate PREFIX.");
             isSatisfied = false;
         }
-        if (!(new NOCONFLICT<>(history).check())) {
+        if (!NOCONFLICT.check(history)) {
             System.err.println("Violate NOCONFLICT.");
             isSatisfied = false;
         }
-        if (!(new SESSION<>(history).check())) {
+        if (!SESSION.check(history)) {
             System.err.println("Violate SESSION.");
             isSatisfied = false;
         }

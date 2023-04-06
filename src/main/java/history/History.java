@@ -7,41 +7,43 @@ import java.util.*;
 public class History<KeyType, ValueType> {
     private final ArrayList<Transaction<KeyType, ValueType>> transactions;
 
-    private final HashSet<Edge<Transaction<KeyType, ValueType>>> SO = new HashSet<>();
+    private final HashSet<Edge<Transaction<KeyType, ValueType>>> SO;
 
-    private final HashSet<Edge<Transaction<KeyType, ValueType>>> VIS = new HashSet<>();
-    private final HashSet<Edge<Transaction<KeyType, ValueType>>> AR = new HashSet<>();
+    private final HashSet<Edge<Transaction<KeyType, ValueType>>> VIS;
+    private final HashSet<Edge<Transaction<KeyType, ValueType>>> AR;
 
-    private final HashMap<Transaction<KeyType, ValueType>,
-            HashSet<Transaction<KeyType, ValueType>>> visByTxn = new HashMap<>();
-    private final HashMap<Transaction<KeyType, ValueType>,
-            HashSet<Transaction<KeyType, ValueType>>> arByTxn = new HashMap<>();
-    private final HashMap<Transaction<KeyType, ValueType>,
-            HashSet<Transaction<KeyType, ValueType>>> visInvByTxn = new HashMap<>();
+    private final HashMap<Transaction<KeyType, ValueType>, HashSet<Transaction<KeyType, ValueType>>> visByTxn;
+    private final HashMap<Transaction<KeyType, ValueType>, HashSet<Transaction<KeyType, ValueType>>> arByTxn;
+    private final HashMap<Transaction<KeyType, ValueType>, HashSet<Transaction<KeyType, ValueType>>> visInvByTxn;
 
     public History(ArrayList<Transaction<KeyType, ValueType>> transactions,
-                   HashSet<Session<KeyType, ValueType>> sessions) throws RuntimeException {
+                   HashMap<String, Session<KeyType, ValueType>> sessionsMap) throws RuntimeException {
         this.transactions = transactions;
         this.transactions.sort(Comparator.comparing(Transaction::getCommitTimestamp));
 
-        for (Transaction<KeyType, ValueType> txn : this.transactions) {
-            visByTxn.put(txn, new HashSet<>());
-            arByTxn.put(txn, new HashSet<>());
-            visInvByTxn.put(txn, new HashSet<>());
-        }
+        int txnSize = this.transactions.size();
+        int sessionSize = sessionsMap.size();
 
-        buildSO(sessions);
+        visByTxn = new HashMap<>(txnSize * 4 / 3 + 1);
+        arByTxn = new HashMap<>(txnSize * 4 / 3 + 1);
+        visInvByTxn = new HashMap<>(txnSize * 4 / 3 + 1);
 
-        buildVIS();
+        SO = new HashSet<>(2 * txnSize * (txnSize - sessionSize) / (3 * sessionSize) + 1);
+        buildSO(sessionsMap);
+
+        AR = new HashSet<>(2 * txnSize * (txnSize - 1) / 3 + 1);
         buildAR();
+
+        VIS = new HashSet<>(AR.size() * 4 / 3 + 1);
+        buildVIS();
 
         if (!isValid()) {
             throw new RuntimeException("Invalid history.");
         }
     }
 
-    private void buildSO(HashSet<Session<KeyType, ValueType>> sessions) {
-        for (Session<KeyType, ValueType> session : sessions) {
+    private void buildSO(HashMap<String, Session<KeyType, ValueType>> sessionsMap) {
+        for (Session<KeyType, ValueType> session : sessionsMap.values()) {
             ArrayList<Transaction<KeyType, ValueType>> txns = session.getTransactions();
             for (int i = 0; i < txns.size() - 1; i++) {
                 Transaction<KeyType, ValueType> from = txns.get(i);
@@ -53,8 +55,13 @@ public class History<KeyType, ValueType> {
     }
 
     private void buildVIS() {
-        for (int i = 0; i < transactions.size() - 1; i++) {
+        int txnSize = transactions.size();
+        for (int i = 0; i < txnSize; i++) {
+            visInvByTxn.put(transactions.get(i), new HashSet<>(i * 4 / 3 + 1));
+        }
+        for (int i = 0; i < txnSize - 1; i++) {
             Transaction<KeyType, ValueType> from = transactions.get(i);
+            visByTxn.put(from, new HashSet<>((txnSize - 1 - i) * 4 / 3 + 1));
             for (int j = i + 1; j < transactions.size(); j++) {
                 Transaction<KeyType, ValueType> to = transactions.get(j);
                 if (to.getStartTimestamp().compareTo(from.getCommitTimestamp()) > 0) {
@@ -64,17 +71,21 @@ public class History<KeyType, ValueType> {
                 }
             }
         }
+        visByTxn.put(transactions.get(txnSize - 1), new HashSet<>(1));
     }
 
     private void buildAR() {
-        for (int i = 0; i < transactions.size() - 1; i++) {
+        int txnSize = transactions.size();
+        for (int i = 0; i < txnSize - 1; i++) {
             Transaction<KeyType, ValueType> from = transactions.get(i);
+            arByTxn.put(from, new HashSet<>((txnSize - 1 - i) * 4 / 3 + 1));
             for (int j = i + 1; j < transactions.size(); j++) {
                 Transaction<KeyType, ValueType> to = transactions.get(j);
                 AR.add(new Edge<>(from, to));
                 arByTxn.get(from).add(to);
             }
         }
+        arByTxn.put(transactions.get(txnSize - 1), new HashSet<>(1));
     }
 
     private boolean isValid() {

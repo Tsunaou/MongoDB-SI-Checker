@@ -20,15 +20,17 @@ import java.util.HashSet;
 public class JSONFileReader implements Reader<Long, Long> {
     @Override
     public History<Long, Long> read(String filepath) throws RuntimeException {
-        ArrayList<Transaction<Long, Long>> transactions = new ArrayList<>();
-        transactions.add(new Transaction<>(null, null, null, null, null));
-        HashMap<String, Session<Long, Long>> sessionsMap = new HashMap<>(16);
+        ArrayList<Transaction<Long, Long>> transactions = null;
+        HashMap<String, Session<Long, Long>> sessionsMap = new HashMap<>(41);
         long maxKey = 0L;
         try {
             JSONReader jsonReader = new JSONReader(new FileReader(filepath));
-            jsonReader.startArray();
-            while (jsonReader.hasNext()) {
-                JSONObject jsonObject = (JSONObject) jsonReader.readObject();
+            JSONArray jsonArray = (JSONArray) jsonReader.readObject();
+            int size = jsonArray.size();
+            transactions = new ArrayList<>(size + 1);
+            transactions.add(new Transaction<>(null, null, null, null, null));
+            for (int i = 0; i < size; i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String sessionId = jsonObject.getString("sid");
                 String transactionId = jsonObject.getString("tid");
                 JSONObject jsonStartTs = jsonObject.getJSONObject("sts");
@@ -40,16 +42,16 @@ public class JSONFileReader implements Reader<Long, Long> {
                 Long logicalCommitTs = jsonCommitTs.getLong("l");
                 HybridLogicalClock commitTimestamp = new HybridLogicalClock(physicalCommitTs, logicalCommitTs);
                 JSONArray jsonOperations = jsonObject.getJSONArray("ops");
-                ArrayList<Operation<Long, Long>> operations = new ArrayList<>();
+                ArrayList<Operation<Long, Long>> operations = new ArrayList<>(jsonOperations.size());
                 for (Object objOperation : jsonOperations) {
                     JSONObject jsonOperation = (JSONObject) objOperation;
                     String type = jsonOperation.getString("t");
                     Long key = jsonOperation.getLong("k");
                     maxKey = (maxKey >= key) ? maxKey : key;
                     Long value = jsonOperation.getLong("v");
-                    if ("write".equalsIgnoreCase(type) || "w".equalsIgnoreCase(type)) {
+                    if ("w".equalsIgnoreCase(type) || "write".equalsIgnoreCase(type)) {
                         operations.add(new Operation<>(OpType.write, key, value));
-                    } else if ("read".equalsIgnoreCase(type) || "r".equalsIgnoreCase(type)) {
+                    } else if ("r".equalsIgnoreCase(type) || "read".equalsIgnoreCase(type)) {
                         operations.add(new Operation<>(OpType.read, key, value));
                     } else {
                         throw new RuntimeException("Unknown operation type.");
@@ -71,14 +73,15 @@ public class JSONFileReader implements Reader<Long, Long> {
             e.printStackTrace();
         }
         Pair<Transaction<Long, Long>, Session<Long, Long>> initialTxn = createInitialTxn(maxKey);
+        assert transactions != null;
         transactions.set(0, initialTxn.getLeft());
         sessionsMap.put("initial", initialTxn.getRight());
-        return new History<>(transactions, new HashSet<>(sessionsMap.values()));
+        return new History<>(transactions, sessionsMap);
     }
 
     private Pair<Transaction<Long, Long>, Session<Long, Long>> createInitialTxn(long maxKey) {
         String transactionId = "initial";
-        ArrayList<Operation<Long, Long>> operations = new ArrayList<>();
+        ArrayList<Operation<Long, Long>> operations = new ArrayList<>((int) maxKey + 1);
         for (long key = 0; key <= maxKey; key++) {
             operations.add(new Operation<>(OpType.write, key, null));
         }
