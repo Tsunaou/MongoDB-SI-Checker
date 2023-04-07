@@ -15,7 +15,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class JSONFileReader implements Reader<Long, Long> {
     @Override
@@ -34,15 +33,15 @@ public class JSONFileReader implements Reader<Long, Long> {
                 String sessionId = jsonObject.getString("sid");
                 String transactionId = jsonObject.getString("tid");
                 JSONObject jsonStartTs = jsonObject.getJSONObject("sts");
-                Long physicalStartTs = jsonStartTs.getLong("p");
-                Long logicalStartTs = jsonStartTs.getLong("l");
-                HybridLogicalClock startTimestamp = new HybridLogicalClock(physicalStartTs, logicalStartTs);
+                HybridLogicalClock startTs = new HybridLogicalClock(jsonStartTs.getLong("p"), jsonStartTs.getLong("l"));
                 JSONObject jsonCommitTs = jsonObject.getJSONObject("cts");
-                Long physicalCommitTs = jsonCommitTs.getLong("p");
-                Long logicalCommitTs = jsonCommitTs.getLong("l");
-                HybridLogicalClock commitTimestamp = new HybridLogicalClock(physicalCommitTs, logicalCommitTs);
+                HybridLogicalClock commitTs = new HybridLogicalClock(jsonCommitTs.getLong("p"), jsonCommitTs.getLong("l"));
                 JSONArray jsonOperations = jsonObject.getJSONArray("ops");
                 ArrayList<Operation<Long, Long>> operations = new ArrayList<>(jsonOperations.size());
+                HashMap<Long, Operation<Long, Long>> lastWriteKeysMap
+                        = new HashMap<>(jsonOperations.size() * 4 / 3 + 1);
+                HashMap<Long, Operation<Long, Long>> firstReadKeysMap
+                        = new HashMap<>(jsonOperations.size() * 4 / 3 + 1);
                 for (Object objOperation : jsonOperations) {
                     JSONObject jsonOperation = (JSONObject) objOperation;
                     String type = jsonOperation.getString("t");
@@ -50,9 +49,15 @@ public class JSONFileReader implements Reader<Long, Long> {
                     maxKey = (maxKey >= key) ? maxKey : key;
                     Long value = jsonOperation.getLong("v");
                     if ("w".equalsIgnoreCase(type) || "write".equalsIgnoreCase(type)) {
-                        operations.add(new Operation<>(OpType.write, key, value));
+                        Operation<Long, Long> operation = new Operation<>(OpType.write, key, value);
+                        operations.add(operation);
+                        lastWriteKeysMap.put(key, operation);
                     } else if ("r".equalsIgnoreCase(type) || "read".equalsIgnoreCase(type)) {
-                        operations.add(new Operation<>(OpType.read, key, value));
+                        Operation<Long, Long> operation = new Operation<>(OpType.read, key, value);
+                        operations.add(operation);
+                        if (!lastWriteKeysMap.containsKey(key) && !firstReadKeysMap.containsKey(key)) {
+                            firstReadKeysMap.put(key, operation);
+                        }
                     } else {
                         throw new RuntimeException("Unknown operation type.");
                     }
@@ -64,8 +69,9 @@ public class JSONFileReader implements Reader<Long, Long> {
                     session = new Session<>(sessionId);
                     sessionsMap.put(sessionId, session);
                 }
-                Transaction<Long, Long> txn = new Transaction<>(transactionId, operations,
-                        startTimestamp, commitTimestamp, session);
+                Transaction<Long, Long> txn = new Transaction<>(transactionId, operations, startTs, commitTs, session);
+                txn.setLastWriteKeysMap(lastWriteKeysMap);
+                txn.setFirstReadKeysMap(firstReadKeysMap);
                 transactions.add(txn);
                 session.getTransactions().add(txn);
             }
@@ -81,15 +87,21 @@ public class JSONFileReader implements Reader<Long, Long> {
 
     private Pair<Transaction<Long, Long>, Session<Long, Long>> createInitialTxn(long maxKey) {
         String transactionId = "initial";
-        ArrayList<Operation<Long, Long>> operations = new ArrayList<>((int) maxKey + 1);
+        int opSize = (int) maxKey + 1;
+        ArrayList<Operation<Long, Long>> operations = new ArrayList<>(opSize);
+        HashMap<Long, Operation<Long, Long>> lastWriteKeysMap = new HashMap<>(opSize * 4 / 3 + 1);
         for (long key = 0; key <= maxKey; key++) {
-            operations.add(new Operation<>(OpType.write, key, null));
+            Operation<Long, Long> operation = new Operation<>(OpType.write, key, null);
+            operations.add(operation);
+            lastWriteKeysMap.put(key, operation);
         }
         HybridLogicalClock startTimestamp = new HybridLogicalClock(0L, 0L);
         HybridLogicalClock commitTimestamp = new HybridLogicalClock(0L, 0L);
         Session<Long, Long> session = new Session<>("initial");
         Transaction<Long, Long> transaction = new Transaction<>(transactionId, operations,
                 startTimestamp, commitTimestamp, session);
+        transaction.setLastWriteKeysMap(lastWriteKeysMap);
+        transaction.setFirstReadKeysMap(new HashMap<>(1));
         session.getTransactions().add(transaction);
         return Pair.of(transaction, session);
     }

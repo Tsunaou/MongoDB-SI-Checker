@@ -3,6 +3,7 @@ package history.transaction;
 import history.Session;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Transaction<KeyType, ValueType> {
@@ -10,6 +11,11 @@ public class Transaction<KeyType, ValueType> {
     private final ArrayList<Operation<KeyType, ValueType>> operations;
     private final HybridLogicalClock startTimestamp;
     private final HybridLogicalClock commitTimestamp;
+
+    public final Session<KeyType, ValueType> session;
+
+    private HashMap<KeyType, Operation<KeyType, ValueType>> lastWriteKeysMap;
+    private HashMap<KeyType, Operation<KeyType, ValueType>> firstReadKeysMap;
 
     public String getTransactionId() {
         return transactionId;
@@ -27,7 +33,21 @@ public class Transaction<KeyType, ValueType> {
         return commitTimestamp;
     }
 
-    public final Session<KeyType, ValueType> session;
+    public HashMap<KeyType, Operation<KeyType, ValueType>> getLastWriteKeysMap() {
+        return lastWriteKeysMap;
+    }
+
+    public void setLastWriteKeysMap(HashMap<KeyType, Operation<KeyType, ValueType>> lastWriteKeysMap) {
+        this.lastWriteKeysMap = lastWriteKeysMap;
+    }
+
+    public HashMap<KeyType, Operation<KeyType, ValueType>> getFirstReadKeysMap() {
+        return firstReadKeysMap;
+    }
+
+    public void setFirstReadKeysMap(HashMap<KeyType, Operation<KeyType, ValueType>> firstReadKeysMap) {
+        this.firstReadKeysMap = firstReadKeysMap;
+    }
 
     public Transaction(String transactionId, ArrayList<Operation<KeyType, ValueType>> operations,
                        HybridLogicalClock startTimestamp, HybridLogicalClock commitTimestamp,
