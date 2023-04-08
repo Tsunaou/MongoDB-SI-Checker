@@ -22,18 +22,18 @@ public class CdcDBTransaction extends Transaction {
 
     public void setTimestamp(long startTs, long commitTs) throws HistoryInvalidException {
         if(hasSetTimestamp()) {
-//            if(startTs != startTimestamp.time || commitTs != commitTimestamp.time) {
-//                System.out.println(startTs);
-//                System.out.println(commitTs);
-//                System.out.println(this);
-//                throw new HistoryInvalidException("Invalid Timestamp");
+            if(startTs != startTimestamp.time || commitTs != commitTimestamp.time) {
+                System.out.println(startTs);
+                System.out.println(commitTs);
+                System.out.println(this);
+                throw new HistoryInvalidException("Invalid Timestamp");
+            }
+//            if(startTs < startTimestamp.time) {
+//                startTimestamp.time = startTs;
 //            }
-            if(startTs < startTimestamp.time) {
-                startTimestamp.time = startTs;
-            }
-            if(commitTs > commitTimestamp.time) {
-                commitTimestamp.time = commitTs;
-            }
+//            if(commitTs > commitTimestamp.time) {
+//                commitTimestamp.time = commitTs;
+//            }
         } else {
             startTimestamp = new LogicalClock(startTs, 0);
             commitTimestamp = new LogicalClock(commitTs, 0);

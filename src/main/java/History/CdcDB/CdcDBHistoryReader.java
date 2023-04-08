@@ -75,7 +75,7 @@ public class CdcDBHistoryReader extends HistoryReader {
                     }
                     txn.addOperation(new Operation(type, key, val));
                 }
-                if(readOnly) {
+                if (readOnly) {
                     continue;
                 }
                 idx++;
@@ -92,12 +92,12 @@ public class CdcDBHistoryReader extends HistoryReader {
             reader = new JSONReader(new FileReader(urlCdcLog));
             JSONObject obj = (JSONObject) reader.readObject();
             // kvPair: 形如 {"v":1,"k":1} 的字符串
-            for(String kvPair: obj.keySet()) {
+            for (String kvPair : obj.keySet()) {
                 JSONObject kv = JSON.parseObject(kvPair);
                 long key = kv.getLong("k");
                 long value = kv.getLong("v");
 
-                if(failedKV.contains(Arrays.asList(key, value))) {
+                if (failedKV.contains(Arrays.asList(key, value))) {
                     // 排除写入失败的 rowChangeEvent
                     continue;
                 }
@@ -109,8 +109,13 @@ public class CdcDBHistoryReader extends HistoryReader {
                 // 其实还有一个 preWrite，暂时忽略
 
                 // 给事务附上时间戳
-                int idx = KVTxnMap.get(Arrays.asList(key, value));
-                transactions.get(idx).setTimestamp(startTs, commitTs);
+                try {
+                    int idx = KVTxnMap.get(Arrays.asList(key, value));
+                    transactions.get(idx).setTimestamp(startTs, commitTs);
+                } catch (NullPointerException e) {
+                    // 由于 TiCDC 的逻辑是 at least once，所以可以会搜集到上一轮的写值
+                    System.out.println(key + "," + value);
+                }
             }
 
         } catch (FileNotFoundException e) {
@@ -119,21 +124,21 @@ public class CdcDBHistoryReader extends HistoryReader {
         return new CdcDBHistory(transactions);
     }
 
-    public static void main(String[] args) throws HistoryInvalidException {
+    public static void main(String[] args) throws HistoryInvalidException, FileNotFoundException {
         String storeDir = "/Users/ouyanghongrong/github-projects/disalg.dbcdc/store";
         String[] instanceDirs = {
                 "/dbcdc rw tidb opt SI (SI) /20230328T112027.000+0800",
                 "/dbcdc rw tidb pess SI (SI) /20230328T112331.000+0800"
         };
 
-        for (String instanceDir: instanceDirs) {
+        for (String instanceDir : instanceDirs) {
             String baseDir = storeDir + instanceDir;
             String URLHistory = baseDir + "/history.edn";
             String URLCdcLog = baseDir + "/cdc.json";
 
             CdcDBHistory history = CdcDBHistoryReader.readHistory(URLHistory, URLCdcLog);
             ArrayList<CdcDBTransaction> transactions = history.transactions;
-            for(CdcDBTransaction txn: transactions) {
+            for (CdcDBTransaction txn : transactions) {
                 System.out.println(txn);
             }
         }
