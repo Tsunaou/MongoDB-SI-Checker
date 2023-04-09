@@ -1,7 +1,8 @@
 package reader;
 
 import history.History;
+import org.apache.commons.lang3.tuple.Pair;
 
 public interface Reader<KeyType, ValueType> {
-    History<KeyType, ValueType> read(String filepath);
+    Pair<History<KeyType, ValueType>, Boolean> read(String filepath);
 }

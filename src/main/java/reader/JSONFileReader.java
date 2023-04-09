@@ -15,12 +15,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class JSONFileReader implements Reader<Long, Long> {
     @Override
-    public History<Long, Long> read(String filepath) throws RuntimeException {
+    public Pair<History<Long, Long>, Boolean> read(String filepath) throws RuntimeException {
         ArrayList<Transaction<Long, Long>> transactions = null;
         HashMap<String, Session<Long, Long>> sessionsMap = new HashMap<>(41);
+        boolean isINT = true;
         long maxKey = 0L;
         try {
             JSONReader jsonReader = new JSONReader(new FileReader(filepath));
@@ -42,6 +44,8 @@ public class JSONFileReader implements Reader<Long, Long> {
                         = new HashMap<>(jsonOperations.size() * 4 / 3 + 1);
                 HashMap<Long, Operation<Long, Long>> firstReadKeysMap
                         = new HashMap<>(jsonOperations.size() * 4 / 3 + 1);
+                HashMap<Long, Operation<Long, Long>> lastOperationKeysMap
+                        = new HashMap<>(jsonOperations.size() * 4 / 3 + 1);
                 for (Object objOperation : jsonOperations) {
                     JSONObject jsonOperation = (JSONObject) objOperation;
                     String type = jsonOperation.getString("t");
@@ -52,12 +56,16 @@ public class JSONFileReader implements Reader<Long, Long> {
                         Operation<Long, Long> operation = new Operation<>(OpType.write, key, value);
                         operations.add(operation);
                         lastWriteKeysMap.put(key, operation);
+                        lastOperationKeysMap.put(key, operation);
                     } else if ("r".equalsIgnoreCase(type) || "read".equalsIgnoreCase(type)) {
                         Operation<Long, Long> operation = new Operation<>(OpType.read, key, value);
                         operations.add(operation);
-                        if (!lastWriteKeysMap.containsKey(key) && !firstReadKeysMap.containsKey(key)) {
+                        if (!lastOperationKeysMap.containsKey(key)) {
                             firstReadKeysMap.put(key, operation);
+                        } else if (!Objects.equals(value, lastOperationKeysMap.get(key).getValue())) {
+                            isINT = false;
                         }
+                        lastOperationKeysMap.put(key, operation);
                     } else {
                         throw new RuntimeException("Unknown operation type.");
                     }
@@ -82,7 +90,7 @@ public class JSONFileReader implements Reader<Long, Long> {
         assert transactions != null;
         transactions.set(0, initialTxn.getLeft());
         sessionsMap.put("initial", initialTxn.getRight());
-        return new History<>(transactions, sessionsMap);
+        return Pair.of(new History<>(transactions, sessionsMap), isINT);
     }
 
     private Pair<Transaction<Long, Long>, Session<Long, Long>> createInitialTxn(long maxKey) {

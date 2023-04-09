@@ -12,9 +12,9 @@ public class History<KeyType, ValueType> {
     private final HashSet<Edge<Transaction<KeyType, ValueType>>> VIS;
     private final HashSet<Edge<Transaction<KeyType, ValueType>>> AR;
 
-    private final HashMap<Transaction<KeyType, ValueType>, HashSet<Transaction<KeyType, ValueType>>> visByTxn;
-    private final HashMap<Transaction<KeyType, ValueType>, HashSet<Transaction<KeyType, ValueType>>> arByTxn;
-    private final HashMap<Transaction<KeyType, ValueType>, HashSet<Transaction<KeyType, ValueType>>> visInvByTxn;
+    private final HashMap<Transaction<KeyType, ValueType>, ArrayList<Transaction<KeyType, ValueType>>> visByTxn;
+    private final HashMap<Transaction<KeyType, ValueType>, ArrayList<Transaction<KeyType, ValueType>>> arByTxn;
+    private final HashMap<Transaction<KeyType, ValueType>, ArrayList<Transaction<KeyType, ValueType>>> visInvByTxn;
 
     public History(ArrayList<Transaction<KeyType, ValueType>> transactions,
                    HashMap<String, Session<KeyType, ValueType>> sessionsMap) throws RuntimeException {
@@ -37,7 +37,7 @@ public class History<KeyType, ValueType> {
         VIS = new HashSet<>(AR.size() * 4 / 3 + 1);
         buildVIS();
 
-        if (!isValid()) {
+        if (!validateVIS()) {
             throw new RuntimeException("Invalid history.");
         }
     }
@@ -57,11 +57,11 @@ public class History<KeyType, ValueType> {
     private void buildVIS() {
         int txnSize = transactions.size();
         for (int i = 0; i < txnSize; i++) {
-            visInvByTxn.put(transactions.get(i), new HashSet<>(i * 4 / 3 + 1));
+            visInvByTxn.put(transactions.get(i), new ArrayList<>(i));
         }
-        for (int i = 0; i < txnSize - 1; i++) {
+        for (int i = txnSize - 2; i >= 0; i--) {
             Transaction<KeyType, ValueType> from = transactions.get(i);
-            visByTxn.put(from, new HashSet<>((txnSize - 1 - i) * 4 / 3 + 1));
+            visByTxn.put(from, new ArrayList<>(txnSize - 1 - i));
             for (int j = i + 1; j < transactions.size(); j++) {
                 Transaction<KeyType, ValueType> to = transactions.get(j);
                 if (to.getStartTimestamp().compareTo(from.getCommitTimestamp()) > 0) {
@@ -71,31 +71,28 @@ public class History<KeyType, ValueType> {
                 }
             }
         }
-        visByTxn.put(transactions.get(txnSize - 1), new HashSet<>(1));
+        visByTxn.put(transactions.get(txnSize - 1), new ArrayList<>(0));
     }
 
     private void buildAR() {
         int txnSize = transactions.size();
         for (int i = 0; i < txnSize - 1; i++) {
             Transaction<KeyType, ValueType> from = transactions.get(i);
-            arByTxn.put(from, new HashSet<>((txnSize - 1 - i) * 4 / 3 + 1));
+            arByTxn.put(from, new ArrayList<>(txnSize - 1 - i));
             for (int j = i + 1; j < transactions.size(); j++) {
                 Transaction<KeyType, ValueType> to = transactions.get(j);
                 AR.add(new Edge<>(from, to));
                 arByTxn.get(from).add(to);
             }
         }
-        arByTxn.put(transactions.get(txnSize - 1), new HashSet<>(1));
+        arByTxn.put(transactions.get(txnSize - 1), new ArrayList<>(0));
     }
 
-    private boolean isValid() {
-        // check whether VIS is a subset of AR
-        for (Edge<Transaction<KeyType, ValueType>> visEdge : VIS) {
-            if (!AR.contains(visEdge)) {
-                return false;
-            }
-        }
-        // check whether AR is a strict total order
+    private boolean validateVIS() {
+        return VIS.parallelStream().allMatch(AR::contains);
+    }
+
+    private boolean validateAR() {
         for (int i = 0; i < transactions.size(); i++) {
             Transaction<KeyType, ValueType> txn1 = transactions.get(i);
             for (int j = i; j < transactions.size(); j++) {
@@ -141,11 +138,11 @@ public class History<KeyType, ValueType> {
         return AR;
     }
 
-    public HashMap<Transaction<KeyType, ValueType>, HashSet<Transaction<KeyType, ValueType>>> getVisByTxn() {
+    public HashMap<Transaction<KeyType, ValueType>, ArrayList<Transaction<KeyType, ValueType>>> getVisByTxn() {
         return visByTxn;
     }
 
-    public HashMap<Transaction<KeyType, ValueType>, HashSet<Transaction<KeyType, ValueType>>> getVisInvByTxn() {
+    public HashMap<Transaction<KeyType, ValueType>, ArrayList<Transaction<KeyType, ValueType>>> getVisInvByTxn() {
         return visInvByTxn;
     }
 }
