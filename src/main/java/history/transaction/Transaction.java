@@ -12,7 +12,7 @@ public class Transaction<KeyType, ValueType> {
     private final HybridLogicalClock startTimestamp;
     private final HybridLogicalClock commitTimestamp;
 
-    public final Session<KeyType, ValueType> session;
+    private final Session<KeyType, ValueType> session;
 
     private HashMap<KeyType, Operation<KeyType, ValueType>> lastWriteKeysMap;
     private HashMap<KeyType, Operation<KeyType, ValueType>> firstReadKeysMap;
@@ -57,6 +57,10 @@ public class Transaction<KeyType, ValueType> {
         this.startTimestamp = startTimestamp;
         this.commitTimestamp = commitTimestamp;
         this.session = session;
+    }
+
+    public Session<KeyType, ValueType> getSession() {
+        return session;
     }
 
     @Override

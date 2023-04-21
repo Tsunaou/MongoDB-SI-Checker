@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class JSONFileReader implements Reader<Long, Long> {
     @Override
-    public Pair<History<Long, Long>, Boolean> read(String filepath) throws RuntimeException {
+    public Pair<History<Long, Long>, Boolean> read(String filepath, boolean equalVIS) throws RuntimeException {
         ArrayList<Transaction<Long, Long>> transactions = null;
         HashMap<String, Session<Long, Long>> sessionsMap = new HashMap<>(41);
         boolean isINT = true;
@@ -90,7 +90,7 @@ public class JSONFileReader implements Reader<Long, Long> {
         assert transactions != null;
         transactions.set(0, initialTxn.getLeft());
         sessionsMap.put("initial", initialTxn.getRight());
-        return Pair.of(new History<>(transactions, sessionsMap), isINT);
+        return Pair.of(new History<>(transactions, sessionsMap, equalVIS), isINT);
     }
 
     private Pair<Transaction<Long, Long>, Session<Long, Long>> createInitialTxn(long maxKey) {

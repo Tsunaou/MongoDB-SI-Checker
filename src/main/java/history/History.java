@@ -17,7 +17,8 @@ public class History<KeyType, ValueType> {
     private final HashMap<Transaction<KeyType, ValueType>, ArrayList<Transaction<KeyType, ValueType>>> visInvByTxn;
 
     public History(ArrayList<Transaction<KeyType, ValueType>> transactions,
-                   HashMap<String, Session<KeyType, ValueType>> sessionsMap) throws RuntimeException {
+                   HashMap<String, Session<KeyType, ValueType>> sessionsMap,
+                   boolean equalVIS) throws RuntimeException {
         this.transactions = transactions;
         this.transactions.sort(Comparator.comparing(Transaction::getCommitTimestamp));
 
@@ -35,7 +36,7 @@ public class History<KeyType, ValueType> {
         buildAR();
 
         VIS = new HashSet<>(AR.size() * 4 / 3 + 1);
-        buildVIS();
+        buildVIS(equalVIS);
 
         if (!validateVIS()) {
             throw new RuntimeException("Invalid history.");
@@ -54,7 +55,15 @@ public class History<KeyType, ValueType> {
         }
     }
 
-    private void buildVIS() {
+    private void buildVIS(boolean equalVIS) {
+        if (equalVIS) {
+            buildEqualVIS();
+        } else {
+            buildNonEqualVIS();
+        }
+    }
+
+    private void buildNonEqualVIS() {
         int txnSize = transactions.size();
         for (int i = 0; i < txnSize; i++) {
             visInvByTxn.put(transactions.get(i), new ArrayList<>(i));
@@ -65,6 +74,26 @@ public class History<KeyType, ValueType> {
             for (int j = i + 1; j < transactions.size(); j++) {
                 Transaction<KeyType, ValueType> to = transactions.get(j);
                 if (to.getStartTimestamp().compareTo(from.getCommitTimestamp()) > 0) {
+                    VIS.add(new Edge<>(from, to));
+                    visByTxn.get(from).add(to);
+                    visInvByTxn.get(to).add(from);
+                }
+            }
+        }
+        visByTxn.put(transactions.get(txnSize - 1), new ArrayList<>(0));
+    }
+
+    private void buildEqualVIS() {
+        int txnSize = transactions.size();
+        for (int i = 0; i < txnSize; i++) {
+            visInvByTxn.put(transactions.get(i), new ArrayList<>(i));
+        }
+        for (int i = txnSize - 2; i >= 0; i--) {
+            Transaction<KeyType, ValueType> from = transactions.get(i);
+            visByTxn.put(from, new ArrayList<>(txnSize - 1 - i));
+            for (int j = i + 1; j < transactions.size(); j++) {
+                Transaction<KeyType, ValueType> to = transactions.get(j);
+                if (to.getStartTimestamp().compareTo(from.getCommitTimestamp()) >= 0) {
                     VIS.add(new Edge<>(from, to));
                     visByTxn.get(from).add(to);
                     visInvByTxn.get(to).add(from);

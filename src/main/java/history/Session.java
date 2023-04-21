@@ -17,6 +17,10 @@ public class Session<KeyType, ValueType> {
         this.sessionId = sessionId;
     }
 
+    public String getSessionId() {
+        return sessionId;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(sessionId);
