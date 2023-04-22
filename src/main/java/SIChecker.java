@@ -9,6 +9,7 @@ import java.io.File;
 
 public class SIChecker {
     private static CommandLine commandLine;
+    private static boolean equalVIS;
     private static Reader<?, ?> reader;
     private static boolean isSI = true;
     private static boolean isSESSIONSI = true;
@@ -20,7 +21,7 @@ public class SIChecker {
         String filepath = commandLine.getOptionValue("historyPath");
         System.out.println("Checking " + filepath);
         decideReader(filepath);
-        boolean equalVIS = Boolean.parseBoolean(commandLine.getOptionValue("equalVIS", "false"));
+        equalVIS = Boolean.parseBoolean(commandLine.getOptionValue("equalVIS", "false"));
         Pair<? extends History<?, ?>, Boolean> historyAndIsINT = reader.read(filepath, equalVIS);
 
         boolean isINT = historyAndIsINT.getRight();
@@ -29,9 +30,6 @@ public class SIChecker {
             isSI = false;
             isSESSIONSI = false;
         }
-
-        long current = System.currentTimeMillis();
-        System.out.println("Building history and checking INT: " + (current - start) / 1000.0 + "s");
 
         History<?, ?> history = historyAndIsINT.getLeft();
         checkAxioms(history);
@@ -79,14 +77,14 @@ public class SIChecker {
         long endEXT = System.currentTimeMillis();
         System.out.println("Checking EXT: " + (endEXT - startEXT) / 1000.0 + "s");
         System.out.println("No need to check PREFIX naturally.");
-        if (!NOCONFLICT.check(history)) {
+        if (!NOCONFLICT.check(history, equalVIS)) {
             System.err.println("Violate NOCONFLICT.");
             isSI = false;
             isSESSIONSI = false;
         }
         long endNOCONFLICT = System.currentTimeMillis();
         System.out.println("Checking NOCONFLICT: " + (endNOCONFLICT - endEXT) / 1000.0 + "s");
-        if (!SESSION.check(history)) {
+        if (!SESSION.check(history, equalVIS)) {
             System.err.println("Violate SESSION.");
             isSESSIONSI = false;
         }

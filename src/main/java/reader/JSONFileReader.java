@@ -20,6 +20,7 @@ import java.util.Objects;
 public class JSONFileReader implements Reader<Long, Long> {
     @Override
     public Pair<History<Long, Long>, Boolean> read(String filepath, boolean equalVIS) throws RuntimeException {
+        long start = System.currentTimeMillis();
         ArrayList<Transaction<Long, Long>> transactions = null;
         HashMap<String, Session<Long, Long>> sessionsMap = new HashMap<>(41);
         boolean isINT = true;
@@ -90,6 +91,8 @@ public class JSONFileReader implements Reader<Long, Long> {
         assert transactions != null;
         transactions.set(0, initialTxn.getLeft());
         sessionsMap.put("initial", initialTxn.getRight());
+        long end = System.currentTimeMillis();
+        System.out.println("Checking INT and reading history: " + (end - start) / 1000.0 + "s");
         return Pair.of(new History<>(transactions, sessionsMap, equalVIS), isINT);
     }
 

@@ -10,10 +10,12 @@ public class EXT {
     public static <KeyType, ValueType> boolean check(History<KeyType, ValueType> history) {
         return history.getTransactions().parallelStream()
                 .allMatch(txn -> txn.getFirstReadKeysMap().entrySet().parallelStream()
-                        .allMatch(opMap -> history.getVisInvByTxn().get(txn).stream()
+                        .allMatch(opMap -> history.getVisInvByTxn().get(txn) >= 0 && history.getTransactions()
+                                .parallelStream()
+                                .limit(history.getVisInvByTxn().get(txn) + 1)
                                 .filter(fromTxn -> fromTxn.getLastWriteKeysMap().containsKey(opMap.getKey()))
                                 .map(fromTxn -> fromTxn.getLastWriteKeysMap().get(opMap.getKey()))
-                                .findFirst()
+                                .reduce((first, second) -> second)
                                 .filter(operation -> Objects.equals(operation.getValue(), opMap.getValue().getValue()))
                                 .isPresent()));
     }
@@ -22,9 +24,9 @@ public class EXT {
         for (Transaction<KeyType, ValueType> txn : history.getTransactions()) {
             for (Operation<KeyType, ValueType> operation : txn.getFirstReadKeysMap().values()) {
                 KeyType key = operation.getKey();
-                ArrayList<Transaction<KeyType, ValueType>> fromTxns = history.getVisInvByTxn().get(txn);
                 boolean found = false;
-                for (Transaction<KeyType, ValueType> fromTxn : fromTxns) {
+                for (int i = history.getVisInvByTxn().get(txn); i >= 0; i--) {
+                    Transaction<KeyType, ValueType> fromTxn = history.getTransactions().get(i);
                     HashMap<KeyType, Operation<KeyType, ValueType>> lastWriteKeysMap = fromTxn.getLastWriteKeysMap();
                     if (lastWriteKeysMap.containsKey(key)) {
                         if (!Objects.equals(lastWriteKeysMap.get(key).getValue(), operation.getValue())) {
