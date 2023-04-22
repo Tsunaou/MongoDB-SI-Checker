@@ -6,10 +6,15 @@ import History.CdcDB.CdcDBTransaction;
 import History.ResultReader;
 import IntExt.EXTChecker;
 import IntExt.INTChecker;
+import TestUtil.Parameter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.TreeMap;
 
 public class CdcDBChecker {
 
@@ -53,15 +58,41 @@ public class CdcDBChecker {
         System.out.println("Cost " + (end - begin) + " ms");
     }
 
+    public static void checkLatest(String base) throws RelationInvalidException, HistoryInvalidException {
+        String latest = "/data/home/tsunaouyang/github-projects/dbcdc-runner/store/dbcdc rw tidb pess num 5000 con 9 len 12 SI (SI) /latest";
+        checkSIIntExt(latest);
+    }
+
     public static void checkAll(String base) throws RelationInvalidException, HistoryInvalidException {
         File store = new File(base);
+
+        TreeMap<String, ArrayList<Long>> results = new TreeMap<>();
+
         for (File file : Objects.requireNonNull(store.listFiles())) {
+            if(file.getName().contains("latest") || file.getName().contains("current")) {
+                continue;
+            }
             if (file.isDirectory()) {
+                System.out.println(file.getAbsolutePath());
+                Parameter.currentParam = Parameter.parse(file.getAbsolutePath());
+                String param;
+                if(file.getAbsolutePath().contains("pess")) {
+                    param = "Pess:" + Parameter.currentParam.toString();
+                } else {
+                    param = "Opt:" + Parameter.currentParam.toString();
+                }
+                if(!results.containsKey(param)) {
+                    results.put(param, new ArrayList<>());
+                }
+                ArrayList<Long> times = results.get(param);
                 for (File data : Objects.requireNonNull(file.listFiles())) {
                     if (data.isDirectory() && !data.getPath().contains("latest")) {
                         String urlResult = data.getPath() + "/results.edn";
                         try{
+                            long start = System.currentTimeMillis();
                             checkSIIntExt(data.getPath());
+                            long end = System.currentTimeMillis();
+                            times.add(end-start);
                         }catch (NullPointerException e) {
                             System.out.println("Nullptr");
                         }catch (HistoryInvalidException e) {
@@ -74,6 +105,13 @@ public class CdcDBChecker {
                     }
                 }
             }
+        }
+
+        for(Map.Entry<String, ArrayList<Long>> entry: results.entrySet()) {
+            String param = entry.getKey();
+            ArrayList<Long> times = entry.getValue();
+            double avgTime = times.stream().mapToLong(Long::longValue).average().orElse(0.0);
+            System.out.println(param + ":    " + avgTime + "ms");
         }
     }
 
@@ -89,9 +127,20 @@ public class CdcDBChecker {
         }
     }
 
-
     public static void main(String[] args) throws HistoryInvalidException, RelationInvalidException {
-        checkAll("/Users/ouyanghongrong/github-projects/disalg.dbcdc/store");
-//        checkSample();
+        String osType = System.getProperty("os.name").toLowerCase();
+        System.out.println("Running CdcDBChecker in " + osType);
+        String storePath;
+        if(osType.contains("mac")) {
+            storePath = "/Users/ouyanghongrong/github-projects/disalg.dbcdc/store";
+        } else if(osType.contains("linux")) {
+            storePath = "/data/home/tsunaouyang/github-projects/dbcdc-runner/store";
+        } else{
+            System.err.println("Invalid system type. Return");
+            return;
+        }
+
+        checkAll(storePath);
+        // checkLatest(storePath);
     }
 }

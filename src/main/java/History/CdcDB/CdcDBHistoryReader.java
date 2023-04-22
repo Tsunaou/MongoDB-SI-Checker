@@ -5,6 +5,9 @@ import Exceptions.HistoryInvalidException;
 import History.HistoryReader;
 import History.OPType;
 import History.Operation;
+import History.Transaction;
+import TestUtil.Parameter;
+
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSONReader;
 import com.alibaba.fastjson.JSON;
@@ -24,6 +27,13 @@ public class CdcDBHistoryReader extends HistoryReader {
         ArrayList<CdcDBTransaction> transactions = new ArrayList<>();
         HashMap<List<Long>, Integer> KVTxnMap = new HashMap<>();
         HashSet<List<Long>> failedKV = new HashSet<>();
+
+        Parameter param = Parameter.parse(urlHistory); // 当前的测试参数
+        int concurrency = param.concurrency;
+        // 创建一个长度为 concurrency 的数组，表示进程的状态，初始值均为 false
+        boolean[] slotStatus = new boolean[concurrency];
+        int filledCount = 0; // 已填充的槽数量
+        ArrayList<CdcDBTransaction> firstTxnOnEachProcess = new ArrayList<>();
 
         // 1. Reading history.edn
         try {
@@ -80,6 +90,16 @@ public class CdcDBHistoryReader extends HistoryReader {
                 }
                 idx++;
                 transactions.add(txn);
+                
+                if(filledCount != concurrency) {
+                    int soltIndex = session.intValue() % concurrency; // 计算实际对应的进程
+                    if(!slotStatus[soltIndex] && !txn.writeKeySet.isEmpty()) {
+                        slotStatus[soltIndex] = true;
+                        firstTxnOnEachProcess.add(txn);
+                        filledCount++;
+                    }
+                }
+
             }
             in.close();
         } catch (IOException e) {
@@ -91,7 +111,20 @@ public class CdcDBHistoryReader extends HistoryReader {
         try {
             reader = new JSONReader(new FileReader(urlCdcLog));
             JSONObject obj = (JSONObject) reader.readObject();
-            // kvPair: 形如 {"v":1,"k":1} 的字符串
+            
+            long baseStartTs = Long.MAX_VALUE;
+            long baseCommitTs = Long.MAX_VALUE; 
+            for(CdcDBTransaction txn: firstTxnOnEachProcess) {
+                Operation w = txn.writes.get(txn.writes.size()-1);
+                String kvPair = String.format("{'k': %d, 'v': %d}", w.key, w.value);
+                JSONObject ts = obj.getJSONObject(kvPair);
+                long startTs = ts.getLong("start_ts");
+                long commitTs = ts.getLong("commit_ts");
+                baseStartTs = Math.min(baseStartTs, startTs);
+                baseCommitTs = Math.min(baseCommitTs, commitTs);
+            }
+
+            // kvPair: 形如 {'v': 1,'k' :1} 的字符串
             for (String kvPair : obj.keySet()) {
                 JSONObject kv = JSON.parseObject(kvPair);
                 long key = kv.getLong("k");
@@ -107,14 +140,28 @@ public class CdcDBHistoryReader extends HistoryReader {
                 long commitTs = ts.getLong("commit_ts");
 
                 // 其实还有一个 preWrite，暂时忽略
+                if(commitTs < baseStartTs) {
+                    continue;
+                }
 
                 // 给事务附上时间戳
+                int idx = 0;
                 try {
-                    int idx = KVTxnMap.get(Arrays.asList(key, value));
-                    transactions.get(idx).setTimestamp(startTs, commitTs);
+                    idx = KVTxnMap.get(Arrays.asList(key, value));
                 } catch (NullPointerException e) {
                     // 由于 TiCDC 的逻辑是 at least once，所以可以会搜集到上一轮的写值
-                    System.out.println(key + "," + value);
+                    System.out.println("Maybe last round key-value: " + key + "," + value + ", guess:" + (commitTs < baseStartTs));
+                    continue;
+                } 
+                CdcDBTransaction txn = transactions.get(idx);
+                try {
+                    txn.setTimestamp(startTs, commitTs);
+                }
+                catch (HistoryInvalidException e) {
+                    System.out.println("Invalid Timestamp of: " + key + "," + value);
+                    System.out.println("Previous is" + txn.startTimestamp + "," + txn.commitTimestamp);
+                    System.out.println("Current is" + startTs + "," + commitTs);
+                    throw e;
                 }
             }
 
