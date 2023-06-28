@@ -101,7 +101,8 @@ public class MongoDBSIChecker {
     }
 
     public static void checkAll() throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {
-        checkAll("/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store");
+//        checkAll("/home/young/Programs/Jepsen-Mongo-Txn/mongodb/store");
+        checkAll("/Users/ouyanghongrong/github-projects/MongoDB-SI-Checker/src/main/resources/store-20221029");
     }
 
     public static void checkAll(String base) throws RelationInvalidException, DSGInvalidException, HistoryInvalidException {

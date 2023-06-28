@@ -3,7 +3,9 @@ import Exceptions.RelationInvalidException;
 import History.CdcDB.CdcDBHistory;
 import History.CdcDB.CdcDBHistoryReader;
 import History.CdcDB.CdcDBTransaction;
+import History.MongoDB.LogicalClock;
 import History.ResultReader;
+import History.Transaction;
 import IntExt.EXTChecker;
 import IntExt.INTChecker;
 import TestUtil.Parameter;
@@ -40,6 +42,14 @@ public class CdcDBChecker {
         System.out.println("Checking history for history.edn at " + urlHistory);
         CdcDBHistory history = CdcDBHistoryReader.readHistory(urlHistory, urlCdcLog);
 
+        LogicalClock initalClock = new LogicalClock(Long.MAX_VALUE, Long.MAX_VALUE);
+        for(Transaction txn: history.transactions) {
+            if(txn.commitTimestamp.compareTo(initalClock) == 0) {
+                System.out.println(txn);
+            }
+        }
+        System.out.println(history.transactions.size());
+
         INTChecker<CdcDBTransaction> intChecker = new INTChecker<CdcDBTransaction>();
         if (intChecker.checkINT(history)) {
             System.out.println("[INFO] Checking INT Successfully");
@@ -49,7 +59,7 @@ public class CdcDBChecker {
 
         EXTChecker<CdcDBTransaction> extChecker = new EXTChecker<CdcDBTransaction>();
         if (extChecker.checkEXT(history)) {
-            System.out.println("[INFO] Checking EXT Successfully");
+//            System.out.println("[INFO] Checking EXT Successfully");
         } else {
             System.out.println("[ERROR] Checking EXT Failed");
         }
@@ -132,7 +142,7 @@ public class CdcDBChecker {
         System.out.println("Running CdcDBChecker in " + osType);
         String storePath;
         if(osType.contains("mac")) {
-            storePath = "/Users/ouyanghongrong/github-projects/disalg.dbcdc/store";
+            storePath = "/Users/ouyanghongrong/github-projects/disalg.dbcdc/store-base";
         } else if(osType.contains("linux")) {
             storePath = "/data/home/tsunaouyang/github-projects/dbcdc-runner/store";
         } else{
@@ -140,7 +150,8 @@ public class CdcDBChecker {
             return;
         }
 
-        checkAll(storePath);
+//        checkAll(storePath);
         // checkLatest(storePath);
+        checkSIIntExt("/Users/ouyanghongrong/github-projects/disalg.dbcdc/store-base/dbcdc rw tidb opt SI (SI) /latest");
     }
 }

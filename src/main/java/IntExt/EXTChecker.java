@@ -81,6 +81,24 @@ public class EXTChecker<Txn extends Transaction> {
             }
         }
 
+        System.out.println("[INFO] Checking EXT Successfully");
+
+
+        for(Map.Entry<Long, HashSet<Txn>> entry: writeTxnByKey.entrySet()) {
+            ArrayList<Txn> subTxns = new ArrayList<>(entry.getValue());
+            for(int i=0; i<subTxns.size(); i++) {
+                Txn txn1 = subTxns.get(i);
+                for(int j=i+1; j<subTxns.size(); j++) {
+                    Txn txn2 = subTxns.get(j);
+                    if(VIS.relation.get(txn1.index, txn2.index) || VIS.relation.get(txn2.index, txn1.index)) {
+                        continue;
+                    }
+                    return false;
+                }
+            }
+        }
+
+        System.out.println("[INFO] Checking NO-CONFLICT Successfully");
 
         return true;
     }

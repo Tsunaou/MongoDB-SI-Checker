@@ -90,10 +90,10 @@ public class CdcDBHistoryReader extends HistoryReader {
                 }
                 idx++;
                 transactions.add(txn);
-                
-                if(filledCount != concurrency) {
+
+                if (filledCount != concurrency) {
                     int soltIndex = session.intValue() % concurrency; // 计算实际对应的进程
-                    if(!slotStatus[soltIndex] && !txn.writeKeySet.isEmpty()) {
+                    if (!slotStatus[soltIndex] && !txn.writeKeySet.isEmpty()) {
                         slotStatus[soltIndex] = true;
                         firstTxnOnEachProcess.add(txn);
                         filledCount++;
@@ -111,11 +111,11 @@ public class CdcDBHistoryReader extends HistoryReader {
         try {
             reader = new JSONReader(new FileReader(urlCdcLog));
             JSONObject obj = (JSONObject) reader.readObject();
-            
+
             long baseStartTs = Long.MAX_VALUE;
-            long baseCommitTs = Long.MAX_VALUE; 
-            for(CdcDBTransaction txn: firstTxnOnEachProcess) {
-                Operation w = txn.writes.get(txn.writes.size()-1);
+            long baseCommitTs = Long.MAX_VALUE;
+            for (CdcDBTransaction txn : firstTxnOnEachProcess) {
+                Operation w = txn.writes.get(txn.writes.size() - 1);
                 String kvPair = String.format("{'k': %d, 'v': %d}", w.key, w.value);
                 JSONObject ts = obj.getJSONObject(kvPair);
                 long startTs = ts.getLong("start_ts");
@@ -130,17 +130,18 @@ public class CdcDBHistoryReader extends HistoryReader {
                 long key = kv.getLong("k");
                 long value = kv.getLong("v");
 
-                if (failedKV.contains(Arrays.asList(key, value))) {
-                    // 排除写入失败的 rowChangeEvent
-                    continue;
-                }
-
                 JSONObject ts = obj.getJSONObject(kvPair);
                 long startTs = ts.getLong("start_ts");
                 long commitTs = ts.getLong("commit_ts");
 
                 // 其实还有一个 preWrite，暂时忽略
-                if(commitTs < baseStartTs) {
+                if (commitTs < baseStartTs) {
+                    continue;
+                }
+
+                if (failedKV.contains(Arrays.asList(key, value))) {
+                    // 排除写入失败的 rowChangeEvent
+                    System.out.println("Maybe failed rowChangedEvent of " + Arrays.asList(key, value));
                     continue;
                 }
 
@@ -152,12 +153,11 @@ public class CdcDBHistoryReader extends HistoryReader {
                     // 由于 TiCDC 的逻辑是 at least once，所以可以会搜集到上一轮的写值
                     System.out.println("Maybe last round key-value: " + key + "," + value + ", guess:" + (commitTs < baseStartTs));
                     continue;
-                } 
+                }
                 CdcDBTransaction txn = transactions.get(idx);
                 try {
                     txn.setTimestamp(startTs, commitTs);
-                }
-                catch (HistoryInvalidException e) {
+                } catch (HistoryInvalidException e) {
                     System.out.println("Invalid Timestamp of: " + key + "," + value);
                     System.out.println("Previous is" + txn.startTimestamp + "," + txn.commitTimestamp);
                     System.out.println("Current is" + startTs + "," + commitTs);
