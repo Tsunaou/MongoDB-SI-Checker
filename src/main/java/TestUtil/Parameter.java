@@ -31,8 +31,9 @@ public class Parameter {
             int con = Integer.parseInt(matcher.group(2));
             int len = Integer.parseInt(matcher.group(3));
             return new Parameter(num, con, len);
-        } 
-        return null;
+        }
+//        return null;
+        return new Parameter(500,50,4);
     }
 
     @Override

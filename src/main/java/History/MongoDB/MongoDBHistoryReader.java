@@ -197,6 +197,28 @@ public class MongoDBHistoryReader extends HistoryReader {
                 readOnlyTxns.add(transaction);
             }
         }
+
+        HashMap<String, ArrayList<MongoDBTransaction>> uuidToEmpty = new HashMap<>();
+
+        System.out.println("Empty Read Ts");
+        for(MongoDBTransaction transaction: transactions) {
+            if(transaction.startTimestamp == null) {
+                String uuid = transaction.uuid;
+                if(!uuidToEmpty.containsKey(uuid)) {
+                    uuidToEmpty.put(uuid, new ArrayList<MongoDBTransaction>());
+                }
+                uuidToEmpty.get(uuid).add(transaction);
+            }
+        }
+
+        for(String uuid: uuidToEmpty.keySet()) {
+            System.out.println(uuid);
+            for(MongoDBTransaction transaction: uuidToEmpty.get(uuid)) {
+                System.out.println(transaction);
+            }
+        }
+        System.out.println("------------------------");
+
         fillTsOfReadOnlyTxns(urlRoOplog, readOnlyTxns, variant);
 
         return new MongoDBHistory(transactions, oplogHistory);
@@ -208,7 +230,11 @@ public class MongoDBHistoryReader extends HistoryReader {
             for (MongoDBTransaction txn : readOnlyTxns) {
                 LogicalClock commitTs = txn.commitTimestamp;
                 if (commitTs == null || commitTs.time == Long.MAX_VALUE && commitTs.inc == Long.MAX_VALUE) {
-                    txn.commitTimestamp = new LogicalClock(txn.startTimestamp.time, txn.startTimestamp.inc);
+                    try {
+                        txn.commitTimestamp = new LogicalClock(txn.startTimestamp.time, txn.startTimestamp.inc);
+                    } catch (NullPointerException e) {
+                        System.out.println(txn);
+                    }
                 }
             }
             return;

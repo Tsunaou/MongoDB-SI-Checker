@@ -31,6 +31,46 @@ public class MongoDBHistory extends History<MongoDBTransaction> {
     @Override
     protected boolean checkHistory() throws HistoryInvalidException {
         if(writeTransactions.size() != oplogHistory.txns.size()){
+            oplogHistory.txns.removeIf((OplogTxn txn)-> txn.ops.isEmpty());
+            oplogHistory.txns.sort(Comparator.comparing((OplogTxn txn) -> txn.commitTimestamp));
+            writeTransactions.sort(Comparator.comparing((MongoDBTransaction txn) -> txn.commitTimestamp));
+
+            int debugGroupSize = 3;
+
+            System.out.println("writeTransaction.size()="+writeTransactions.size());
+            System.out.println("oplogHistory.txns.size()="+ oplogHistory.txns.size());
+
+            int size = Math.max(writeTransactions.size(), oplogHistory.txns.size());
+            for(int i=0; i<size; i++) {
+                MongoDBTransaction t1 = writeTransactions.get(i);
+                OplogTxn t2 = oplogHistory.txns.get(i);
+
+                if(t1.txnNumber == 241 && t1.process == 3) {
+                    System.out.println("target");
+                    System.out.println(t1);
+                    System.out.println("-----");
+                }
+
+                if(writeTransactions.get(i).commitTimestamp.compareTo(oplogHistory.txns.get(i).commitTimestamp) != 0) {
+                    System.out.println(writeTransactions.get(i));
+                    System.out.println(oplogHistory.txns.get(i));
+                    System.out.println("-------");
+                    if(debugGroupSize-- <= 0) {
+                        break;
+                    }
+                }
+            }
+
+            // 讨论 [] 的 oplog
+            int emptyOplogTxnOpsCnt = 0;
+            for(int i=0; i<size; i++) {
+                if(oplogHistory.txns.get(i).ops.isEmpty()) {
+                    emptyOplogTxnOpsCnt++;
+                    System.out.println(oplogHistory.txns.get(i));
+                }
+            }
+            System.out.println("empty op oplog txn is " + emptyOplogTxnOpsCnt);
+
             throw new HistoryInvalidException("[ERROR] writeTransactions.size() should equal to oplogHistory.logg.size()");
         }
 
